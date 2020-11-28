@@ -139,10 +139,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="imperio.h" />
+    <ClInclude Include="includes.h" />
     <ClInclude Include="main.h" />
+    <ClInclude Include="mundo.h" />
+    <ClInclude Include="tec.h" />
+    <ClInclude Include="territorios.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="imperio.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="mundo.cpp" />
+    <ClCompile Include="tec.cpp" />
+    <ClCompile Include="territorios.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
