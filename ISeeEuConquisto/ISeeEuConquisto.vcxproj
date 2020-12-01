@@ -141,7 +141,6 @@
   <ItemGroup>
     <ClInclude Include="imperio.h" />
     <ClInclude Include="includes.h" />
-    <ClInclude Include="main.h" />
     <ClInclude Include="mundo.h" />
     <ClInclude Include="tec.h" />
     <ClInclude Include="territorios.h" />
