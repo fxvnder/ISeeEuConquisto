@@ -1,4 +1,4 @@
-# ISeeEuConquisto
+# ISEC - ISeeEuConquisto
 
 ![logo do IZEK](https://www.isec.pt/assets_isec/logo-isec-transparente.png)
 
