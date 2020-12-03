@@ -11,7 +11,7 @@ class territorios {
 
 public:
     territorios(int tamanho) : tamanho(tamanho){
-    cout << "Territorio criado..." << endl;
+        cout << "Territorio criado..." << endl;
     };
 
     ~territorios(){
