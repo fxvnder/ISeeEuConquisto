@@ -1,7 +1,7 @@
 #include "mundo.h"
 
-class mundo
-{
+class mundo{
+
 public:
 	mundo();
 	~mundo();

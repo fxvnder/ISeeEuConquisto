@@ -7,21 +7,66 @@ using namespace std;
 
 class territorios {
 
-    int tamanho;
-
 public:
-    territorios(int tamanho) : tamanho(tamanho){
-    cout << "Territorio criado..." << endl;
+
+    string nome;
+    int res;
+    int cprod;
+    int couro;
+    int pontos;
+
+    class terrInicial{
+
+    public:
+
+        terrInicial.res = 9;
+        terrInicial.pontos = 0;
+        terrInicial.cprod = 1;
+        terrInicial.couro = 1;
+        terrInicial.nome = "DEIS"
+
+        terrInicial();
+        ~terrInicial();
+
+    };
+
+    terrInicial::terrInicial(){
+
+        cout << "Territorio criado..." << endl;
+    }
+
+    terrInicial::~terrInicial(){
+
+        cout << "Territorio apagado..." << endl;
+    }
+
+    
+
+    /*territorios(int tamanho) : tamanho(tamanho){
+    
     };
 
     ~territorios(){
-        cout << "Territorio apagado..." << endl;
+        
     }
 
     string toString(){
         return to_string(tamanho);
-    }
+    }*/
 };
+
+
+int main() {
+
+    cout << terrInicial.couro << endl;
+    cout << terrInicial.nome << endl;
+
+
+    return 0;
+}
+
+
+
 
 // PARA ME LEMBRAR
 // FAZER FUNCAO GERARNOVOTERRENO(COORDENADA X, COORDENADA Y)
