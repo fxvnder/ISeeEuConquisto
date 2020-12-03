@@ -37,7 +37,12 @@ int ouro = 0, produtos = 0;
 #pragma endregion
 
 
-void jogo() {
+void jogo(bool PrimeiraVez) {
+    
+    if(PrimeiraVez == true){
+        cout << "Bem, vejo que e a primeira vez que estas a jogar isto, entao vamos aprender a jogar";
+
+    }
 
 }
 
@@ -77,18 +82,18 @@ void inicio() {
     pause();
     cout << "Conheces?";
     pause();
-    cout << "Pois... E aqui que tudo comeca... Esta e a tua casa, o DEIS, onde vais passar muitos anos a aprender e descobrir maneiras de expandir o teu territorio!";
+    cout << "Pois... E aqui que tudo comeca... \nEsta e a tua casa, o DEIS\nOnde vais passar muitos anos a aprender e descobrir maneiras de expandir o teu territorio!";
     pause();
-    cout << "Bem, bora comecar, nao e?";
-    
-    jogo();
+    cout << "\n\nEm cada jogo vais ter 2 anos, e com isto 12 turnos, onde podes fazer as mais variadas coisas para expandir o territorio e conseguires uma pontuacao superior a dos teus demais.";
+    cout << "Todos nos gostamos de jogos competitivos, certo? vieste parar ao certo!\nMas agora... e a serio.";
+    jogo(true);
 }
 
 void carrega() {
 
     clear();
     cout << "Teste Carrega";
-
+    jogo(false);
 }
 
 int main() {
