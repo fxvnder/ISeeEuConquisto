@@ -36,6 +36,11 @@ string username;
 int ouro = 0, produtos = 0;
 #pragma endregion
 
+
+void jogo() {
+
+}
+
 void inicio() {
 
     clear();
@@ -50,6 +55,32 @@ void inicio() {
     pause();
     cout << "Bem, vieste em boa altura, estamos mesmo a precisar de uma maozinha...";
     pause();
+    cout << R"(
+   /\                                                        /\
+  |  |                                                      |  |
+ /----\                                                    /----\
+[______]                                                  [______]
+ |    |         _____                        _____         |    |
+ |[]  |        [     ]                      [     ]        |  []|
+ |    |       [_______][ ][ ][ ][][ ][ ][ ][_______]       |    |
+ |    [ ][ ][ ]|     |  ,----------------,  |     |[ ][ ][ ]    |
+ |             |     |/'    DEIS--ISEC    '\|     |             |
+  \  []        |     |    /'    ||    '\    |     |        []  /
+   |      []   |     |   |o     ||     o|   |     |  []       |
+   |           |  _  |   |     _||_     |   |  _  |           |
+   |   []      | (_) |   |    (_||_)    |   | (_) |       []  |
+   |           |     |   |     (||)     |   |     |           |
+   |           |     |   |      ||      |   |     |           |
+ /''           |     |   |o     ||     o|   |     |           ''\
+[_____________[_______]--'------''------'--[_______]_____________]
+)";
+    pause();
+    cout << "Conheces?";
+    pause();
+    cout << "Pois... E aqui que tudo comeca... Esta e a tua casa, o DEIS, onde vais passar muitos anos a aprender e descobrir maneiras de expandir o teu territorio!";
+    pause();
+    cout << "Bem, bora comecar, nao e?";
+    
     jogo();
 }
 
@@ -57,10 +88,6 @@ void carrega() {
 
     clear();
     cout << "Teste Carrega";
-
-}
-
-void jogo() {
 
 }
 
