@@ -39,9 +39,17 @@ int ouro = 0, produtos = 0;
 
 void jogo(bool PrimeiraVez) {
     
-    if(PrimeiraVez == true){
+    cout << "Teste";
+
+    if (PrimeiraVez == true) {
+        clear();
         cout << "Bem, vejo que e a primeira vez que estas a jogar isto, entao vamos aprender a jogar";
 
+    }
+    else
+    {
+        clear();
+        cout << "Bem vindo de volta, " << username;
     }
 
 }
@@ -51,9 +59,10 @@ void inicio() {
     clear();
     cout << "Bem vindo a aventura, amigo, bem-haja! Vamos comecar?...\n";
     pause();
-    cout << "Espera... ainda nem sei o teu nome...";
+    cout << "...espera... ainda nem sei o teu nome...";
+    cout << "\nBem... Entao? Como te chamas?";
     pause();
-    cout << "Entao? Como te chamas?\n\nInserir Nickname: ";
+    cout << "\n\nInserir Nickname: ";
     cin >> username;
     clear();
     cout << username << "... e isso? Prazer em conhecer-te!";
@@ -80,12 +89,13 @@ void inicio() {
 [_____________[_______]--'------''------'--[_______]_____________]
 )";
     pause();
-    cout << "Conheces?";
+    cout << "\nConheces?";
     pause();
     cout << "Pois... E aqui que tudo comeca... \nEsta e a tua casa, o DEIS\nOnde vais passar muitos anos a aprender e descobrir maneiras de expandir o teu territorio!";
     pause();
     cout << "\n\nEm cada jogo vais ter 2 anos, e com isto 12 turnos, onde podes fazer as mais variadas coisas para expandir o territorio e conseguires uma pontuacao superior a dos teus demais.";
-    cout << "Todos nos gostamos de jogos competitivos, certo? vieste parar ao certo!\nMas agora... e a serio.";
+    cout << "\n\nTodos nos gostamos de jogos competitivos, certo? vieste parar ao certo!\n\nMas agora... e a serio.";
+    pause();
     jogo(true);
 }
 
