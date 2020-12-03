@@ -1,4 +1,2 @@
 Z:\FXVNDER\Documents\ISEC\2º ANO\POO\TP\ISeeEuConquisto\x64\Debug\ISeeEuConquisto.exe
 Z:\FXVNDER\Documents\ISEC\2º ANO\POO\TP\ISeeEuConquisto\x64\Debug\ISeeEuConquisto.pdb
-C:\Users\ZeMar\OneDrive\Documentos\GitHub\ISeeEuConquisto\ISeeEuConquisto\x64\Debug\ISeeEuConquisto.exe
-C:\Users\ZeMar\OneDrive\Documentos\GitHub\ISeeEuConquisto\ISeeEuConquisto\x64\Debug\ISeeEuConquisto.pdb
