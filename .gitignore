@@ -17,3 +17,12 @@ ISeeEuConquisto/Debug/
 *.log
 *.pdb
 *.db
+*.ipch
+*.db
+ISeeEuConquisto/.vs/ISeeEuConquisto/v16/.suo
+ISeeEuConquisto/.vs/ISeeEuConquisto/v16/Browse.VC.db
+ISeeEuConquisto/.vs/ISeeEuConquisto/v16/ipch/AutoPCH/9a029936b2f9c440/TEC.ipch
+ISeeEuConquisto/.vs/ISeeEuConquisto/v16/ipch/AutoPCH/a76ce40ca63180d5/MUNDO.ipch
+ISeeEuConquisto/.vs/ISeeEuConquisto/v16/ipch/AutoPCH/b110a9fada94c587/MAIN.ipch
+ISeeEuConquisto/.vs/ISeeEuConquisto/v16/ipch/AutoPCH/bbaa6dccaf8cf248/TERRITORIOS.ipch
+ISeeEuConquisto/.vs/ISeeEuConquisto/v16/ipch/AutoPCH/c4c0565991aa929/IMPERIO.ipch
