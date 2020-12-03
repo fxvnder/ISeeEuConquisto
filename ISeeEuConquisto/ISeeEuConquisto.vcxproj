@@ -139,6 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="comando.h" />
     <ClInclude Include="imperio.h" />
     <ClInclude Include="includes.h" />
     <ClInclude Include="mundo.h" />
@@ -149,6 +150,7 @@
     <ClCompile Include="imperio.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="mundo.cpp" />
+    <ClCompile Include="comando.cpp" />
     <ClCompile Include="tec.cpp" />
     <ClCompile Include="territorios.cpp" />
   </ItemGroup>

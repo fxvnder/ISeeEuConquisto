@@ -1,22 +1,2 @@
-﻿  imperio.cpp
-  main.cpp
-  mundo.cpp
-  tec.cpp
-  territorios.cpp
-C:\Users\ZeMar\OneDrive\Documentos\GitHub\ISeeEuConquisto\ISeeEuConquisto\territorios.cpp(22,20): error C2059: syntax error: '.'
-C:\Users\ZeMar\OneDrive\Documentos\GitHub\ISeeEuConquisto\ISeeEuConquisto\territorios.cpp(22,28): error C2238: unexpected token(s) preceding ';'
-C:\Users\ZeMar\OneDrive\Documentos\GitHub\ISeeEuConquisto\ISeeEuConquisto\territorios.cpp(23,20): error C2059: syntax error: '.'
-C:\Users\ZeMar\OneDrive\Documentos\GitHub\ISeeEuConquisto\ISeeEuConquisto\territorios.cpp(23,31): error C2238: unexpected token(s) preceding ';'
-C:\Users\ZeMar\OneDrive\Documentos\GitHub\ISeeEuConquisto\ISeeEuConquisto\territorios.cpp(24,20): error C2059: syntax error: '.'
-C:\Users\ZeMar\OneDrive\Documentos\GitHub\ISeeEuConquisto\ISeeEuConquisto\territorios.cpp(24,30): error C2238: unexpected token(s) preceding ';'
-C:\Users\ZeMar\OneDrive\Documentos\GitHub\ISeeEuConquisto\ISeeEuConquisto\territorios.cpp(25,20): error C2059: syntax error: '.'
-C:\Users\ZeMar\OneDrive\Documentos\GitHub\ISeeEuConquisto\ISeeEuConquisto\territorios.cpp(25,30): error C2238: unexpected token(s) preceding ';'
-C:\Users\ZeMar\OneDrive\Documentos\GitHub\ISeeEuConquisto\ISeeEuConquisto\territorios.cpp(26,20): error C2059: syntax error: '.'
-C:\Users\ZeMar\OneDrive\Documentos\GitHub\ISeeEuConquisto\ISeeEuConquisto\territorios.cpp(28,22): error C2238: unexpected token(s) preceding ';'
-C:\Users\ZeMar\OneDrive\Documentos\GitHub\ISeeEuConquisto\ISeeEuConquisto\territorios.cpp(33,31): error C3254: 'territorios': class contains explicit override '{ctor}' but does not derive from an interface that contains the function declaration
-C:\Users\ZeMar\OneDrive\Documentos\GitHub\ISeeEuConquisto\ISeeEuConquisto\territorios.cpp(33,31): error C2838: '{ctor}': illegal qualified name in member declaration
-C:\Users\ZeMar\OneDrive\Documentos\GitHub\ISeeEuConquisto\ISeeEuConquisto\territorios.cpp(38,32): error C3254: 'territorios': class contains explicit override '{dtor}' but does not derive from an interface that contains the function declaration
-C:\Users\ZeMar\OneDrive\Documentos\GitHub\ISeeEuConquisto\ISeeEuConquisto\territorios.cpp(38,32): error C2838: '{dtor}': illegal qualified name in member declaration
-C:\Users\ZeMar\OneDrive\Documentos\GitHub\ISeeEuConquisto\ISeeEuConquisto\territorios.cpp(61,13): error C2065: 'terrInicial': undeclared identifier
-C:\Users\ZeMar\OneDrive\Documentos\GitHub\ISeeEuConquisto\ISeeEuConquisto\territorios.cpp(62,13): error C2065: 'terrInicial': undeclared identifier
-  Generating Code...
+﻿  comando.cpp
+  ISeeEuConquisto.vcxproj -> C:\Users\ZeMar\OneDrive\Documentos\GitHub\ISeeEuConquisto\ISeeEuConquisto\x64\Debug\ISeeEuConquisto.exe

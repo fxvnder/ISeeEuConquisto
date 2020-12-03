@@ -9,7 +9,7 @@ class territorios {
 
 public:
 
-    string nome;
+    string nometerr;
     int res;
     int cprod;
     int couro;
@@ -19,18 +19,13 @@ public:
 
     public:
 
-        terrInicial.res = 9;
-        terrInicial.pontos = 0;
-        terrInicial.cprod = 1;
-        terrInicial.couro = 1;
-        terrInicial.nome = "DEIS"
-
+        
         terrInicial();
         ~terrInicial();
 
     };
 
-    terrInicial::terrInicial(){
+    /*terrInicial::terrInicial(){
 
         cout << "Territorio criado..." << endl;
     }
@@ -42,7 +37,7 @@ public:
 
     
 
-    /*territorios(int tamanho) : tamanho(tamanho){
+    territorios(int tamanho) : tamanho(tamanho){
     
     };
 
@@ -56,10 +51,18 @@ public:
 };
 
 
-int main() {
+int main1() {
 
+    territorios terrInicial;
+
+    terrInicial.res = 9;
+    terrInicial.pontos = 0;
+    terrInicial.cprod = 1;
+    terrInicial.couro = 1;
+    terrInicial.nometerr = "DEIS";
+ 
     cout << terrInicial.couro << endl;
-    cout << terrInicial.nome << endl;
+    cout << terrInicial.nometerr << endl;
 
 
     return 0;
@@ -75,3 +78,11 @@ int main() {
 // DIREITA ESTE GERARNOVOTERRENO(PLAYERX + 500, PLAYERY)
 // CIMA NORTE GERARNOVOTERRENO(PLAYERX, PLAYERY + 500)
 // BAIXO SUL GERARNOVOTERRENO(PLAYERX, PLAYERY - 500)
+
+territorios::terrInicial::terrInicial()
+{
+}
+
+territorios::terrInicial::~terrInicial()
+{
+}
