@@ -11,6 +11,8 @@ public:
 	
 	void cria(string tipo, int ntipo);
 
+	void grava(string filename);
+	
 	// FAZER UM FICHEIRO .save DO TIPO TXT OU OUTRO EM QUE VAI ESTAR ENCRIPTADO
 	// POR EXEMPLO: mundo1.save, mundo2.save, mundo3.save ETC CONFORME ID (IF mundo1.save EXISTS => mundo2.save ETC.)
 	// "ENRIPTAR" DADOS DO SAVE
@@ -25,7 +27,7 @@ public:
 
 	// ASSIM FICARIA awkretefx=84.9, por exemplo
 
-	void carrega(string nomeFixe);
+	void carrega(string filename);
 
 	// CARREGAR O FICHEIRO .save
 
