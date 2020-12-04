@@ -44,7 +44,7 @@ void jogo(bool PrimeiraVez) {
     if (PrimeiraVez == true) {
         clear();
         cout << "Bem, vejo que e a primeira vez que estas a jogar isto, entao vamos aprender a jogar";
-
+        cout << "\nTu vais comecar no DEIS, e o teu territorio inicial, que a cada jogada que fazes te vai dar"
     }
     else
     {
@@ -58,10 +58,9 @@ void inicio() {
 
     clear();
     cout << "Bem vindo a aventura, amigo, bem-haja! Vamos comecar?...\n";
+    cout << "\n...espera... ainda nem sei o teu nome...";
     pause();
-    cout << "...espera... ainda nem sei o teu nome...";
     cout << "\nBem... Entao? Como te chamas?";
-    pause();
     cout << "\n\nInserir Nickname: ";
     cin >> username;
     clear();
@@ -69,6 +68,7 @@ void inicio() {
     pause();
     cout << "Bem, vieste em boa altura, estamos mesmo a precisar de uma maozinha...";
     pause();
+    clear();
     cout << R"(
    /\                                                        /\
   |  |                                                      |  |
@@ -91,10 +91,10 @@ void inicio() {
     pause();
     cout << "\nConheces?";
     pause();
-    cout << "Pois... E aqui que tudo comeca... \nEsta e a tua casa, o DEIS\nOnde vais passar muitos anos a aprender e descobrir maneiras de expandir o teu territorio!";
+    cout << "\nPois... E aqui que tudo comeca... \nEsta e a tua casa, o DEIS\nOnde vais passar muitos anos a aprender e descobrir maneiras de expandir o teu territorio!";
     pause();
-    cout << "\n\nEm cada jogo vais ter 2 anos, e com isto 12 turnos, onde podes fazer as mais variadas coisas para expandir o territorio e conseguires uma pontuacao superior a dos teus demais.";
-    cout << "\n\nTodos nos gostamos de jogos competitivos, certo? vieste parar ao certo!\n\nMas agora... e a serio.";
+    cout << "\nEm cada jogo vais ter 2 anos, e com isto 12 turnos, onde podes fazer as mais variadas coisas para expandir o territorio e conseguires uma pontuacao superior a dos teus demais.";
+    cout << "\nTodos nos gostamos de jogos competitivos, certo? vieste parar ao certo!\n\nMas agora... e a serio.";
     pause();
     jogo(true);
 }
