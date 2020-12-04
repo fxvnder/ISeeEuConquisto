@@ -1,6 +1,8 @@
 #include "includes.h"
+#include "comando.h"
 
 using namespace std;
+using namespace Comandos;
 
 #pragma region UserOS
 
@@ -32,8 +34,9 @@ void pause() { // PAUSA EM PRINTS
 #pragma endregion
 
 #pragma region VarsGlobais
-string username;
+string username, nomeficheiro;
 int ouro = 0, produtos = 0;
+class_comando ClasseComandos;
 #pragma endregion
 
 
@@ -44,7 +47,10 @@ void jogo(bool PrimeiraVez) {
     if (PrimeiraVez == true) {
         clear();
         cout << "Bem, vejo que e a primeira vez que estas a jogar isto, entao vamos aprender a jogar";
-        cout << "\nTu vais comecar no DEIS, e o teu territorio inicial, que a cada jogada que fazes te vai dar"
+        cout << "\nTu vais comecar no DEIS, e o teu territorio inicial, que a cada jogada que fazes te vai dar";
+        cout << "\n\nComo queres guardar o nome deste imperio?\n";
+        cin >> nomeficheiro;
+        ClasseComandos.grava(nomeficheiro);
     }
     else
     {
