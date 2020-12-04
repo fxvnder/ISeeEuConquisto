@@ -44,7 +44,7 @@ namespace Comandos {
 
 
 		void carrega(string filename) {
-			// CARREGAR O FICHEIRO .save
+			// CARREGAR UMA LISTA DE TODOS OS FICHEIROS ".save"
 
 			// DESENCRIPTAR O awkretefx=84.9 PARA turno=3 OUTRA VEZ
 		}
