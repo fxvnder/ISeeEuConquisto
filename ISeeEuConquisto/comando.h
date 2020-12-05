@@ -36,17 +36,34 @@ namespace Comandos {
 
 			ofstream SaveFile;
 			SaveFile.open(filename + ".save");
-			SaveFile << "teste lol.\n";
+			SaveFile << "isto e um teste lol.\n";
 			SaveFile.close();
 
 		}
 	
 
 
-		void carrega(string filename) {
-			// CARREGAR UMA LISTA DE TODOS OS FICHEIROS ".save"
+		int carrega(string filename) {
 
+			// CARREGAR UMA LISTA DE TODOS OS FICHEIROS ".save"
 			// DESENCRIPTAR O awkretefx=84.9 PARA turno=3 OUTRA VEZ
+			
+			string nLinhas;
+			ifstream OpenFile(filename + ".save");
+			if (OpenFile.is_open())
+			{
+				while (getline(OpenFile, nLinhas))
+				{
+					cout << nLinhas << endl;
+				}
+				OpenFile.close();
+				return 1;
+			}
+			else {
+				cout << "\n\n\n>>> ERRO A CARREGAR O FICHEIRO!!! <<<";
+				return 0;
+			}
+
 		}
 
 

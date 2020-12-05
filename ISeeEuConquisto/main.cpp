@@ -7,6 +7,7 @@ using namespace Comandos;
 #pragma region UserOS
 
 #define WINDOWS 1 // SE O UTILIZADOR ESTIVER A USAR LINUX SUBSTITUIR WINDOWS POR LINUX
+//#define LINUX 1 // IDEM
 
 void clear() { // LIMPA O ECRÃ SEM O CONIO.H \\ CLRSCR()
 #ifdef WINDOWS
@@ -41,8 +42,6 @@ class_comando ClasseComandos;
 
 
 void jogo(bool PrimeiraVez) {
-    
-    cout << "Teste";
 
     if (PrimeiraVez == true) {
         clear();
@@ -54,7 +53,6 @@ void jogo(bool PrimeiraVez) {
     }
     else
     {
-        clear();
         cout << "Bem vindo de volta, " << username;
     }
 
@@ -106,9 +104,19 @@ void inicio() {
 }
 
 void carrega() {
+    bool sucesso = false;
 
     clear();
-    cout << "Teste Carrega";
+    do
+    {
+        cout << "Qual e o nome do imperio que queres carregar? ";
+        cin >> nomeficheiro;
+        cout << "\n";
+        ClasseComandos.carrega(nomeficheiro);
+        sucesso = true;
+    } while (sucesso == false);
+
+
     jogo(false);
 }
 
