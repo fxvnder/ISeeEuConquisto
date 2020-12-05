@@ -70,9 +70,19 @@ void jogo(bool PrimeiraVez) {
 
     if (PrimeiraVez == true) {
         clear();
-        cout << "Bem, vejo que e a primeira vez que estas a jogar isto, entao vamos aprender a jogar";
-        cout << "\nTu vais comecar no DEIS, e o teu territorio inicial, que a cada jogada que fazes te vai dar";
-        cout << "\n\nComo queres guardar o nome deste imperio?\n";
+        cout << R"(
+        
+        BEM-VINDO AO ISEC.
+
+        Bem, vejo que e a primeira vez que estas a jogar isto, entao vamos aprender a jogar!
+
+        Tu vais comecar no DEIS, esse e o teu territorio inicial, que a cada jogada que fazes te vai dar:
+          >>>  DEIS (Resistencia: 9) => 1 unidade de produtos e 1 de ouro
+        Como e obvio, o teu terreno inicial nao te vai dar pontos de vitoria, mas a partir daqui, tu tratas disso!
+
+        A cada jogada que fazes o teu progresso vai ser gravado e podes retomar quando quiseres, se quiseres.
+
+        Como vais querer guardar o nome deste imperio? )";
         cin >> nomeficheiro;
         ClasseComandos.grava(nomeficheiro);
     }
@@ -87,15 +97,12 @@ void inicio() {
 
     clear();
     cout << "Bem vindo a aventura, amigo, bem-haja! Vamos comecar?...\n";
-    cout << "\n...espera... ainda nem sei o teu nome...";
-    pause();
-    cout << "\nBem... Entao? Como te chamas?";
+    cout << "\n...espera la... ainda nem sei o teu nome!...";
+    cout << "\n\nEntao? Como te chamas?";
     cout << "\n\nInserir Nickname: ";
     cin >> username;
-    clear();
-    cout << username << "... e isso? Prazer em conhecer-te!";
-    pause();
-    cout << "Bem, vieste em boa altura, estamos mesmo a precisar de uma maozinha...";
+    cout << "\n" << username << "... e isso? Prazer em conhecer-te!";
+    cout << "\nBem, vieste em boa altura, estamos mesmo a precisar de uma maozinha aqui... Junta-te a nos!";
     pause();
     clear();
     cout << R"(
@@ -117,13 +124,10 @@ void inicio() {
  /''           |     |   |o     ||     o|   |     |           ''\
 [_____________[_______]--'------''------'--[_______]_____________]
 )";
-    pause();
-    cout << "\nConheces?";
-    pause();
+    cout << "\nConheces?" << endl;
     cout << "\nPois... E aqui que tudo comeca... \nEsta e a tua casa, o DEIS\nOnde vais passar muitos anos a aprender e descobrir maneiras de expandir o teu territorio!";
-    pause();
     cout << "\nEm cada jogo vais ter 2 anos, e com isto 12 turnos, onde podes fazer as mais variadas coisas para expandir o territorio e conseguires uma pontuacao superior a dos teus demais.";
-    cout << "\nTodos nos gostamos de jogos competitivos, certo? vieste parar ao certo!\n\nMas agora... e a serio.";
+    cout << "\nTodos nos gostamos de jogos competitivos, certo? vieste parar ao certo!";
     pause();
     jogo(true);
 }
