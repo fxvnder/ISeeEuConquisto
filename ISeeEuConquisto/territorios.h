@@ -5,16 +5,17 @@
 
 using namespace std;
 
-class territorios{
-protected:
+/*class territorios{
+
+public:
 	string nometerr;
 	int res;
 	int cprod;
 	int couro;
 	int pontos;
-public:
 	territorios(string nometerr);
 	void gettipo(string nometerr);
 	territorios();
 
 };
+*/

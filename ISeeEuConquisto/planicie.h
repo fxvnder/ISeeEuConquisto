@@ -1,27 +1,22 @@
 #pragma once
 
 #include "includes.h"
+#include "territorios.h"
 
 using namespace std;
 
-class planicie :public territorios{
+/*class planicie :public territorios {
 
 public:
 	planicie();
 	~planicie();
 
 private:
-	string nometerr;
-	int res;
-	int cprod;
-	int couro;
-	int pontos;
-};
+	planicie.couro = 1;
 
-planicie::planicie()
-{
 }
+int main1{
 
-planicie::~planicie()
-{
-}
+	cout << planicie.couro << endl;
+return 0;
+}*/

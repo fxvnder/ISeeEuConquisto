@@ -12,6 +12,7 @@ namespace Comandos {
 		// comando();
 	
 		void cria(string tipo, int ntipo) {
+			
 			// VAI CRIAR O TERRENO, DECIDIR SE É DO TIPO 1, 2 ou 3 COM UM >>> IF/CASE <<< (terr. inicial, continente ou ilha) COM RANDOM NUMS
 			// DEPOIS FAZER UM >>> CASE <<< COM RANDOM NUMS PARA DECIDIR SE É UMA PLANICIE, CASTELO, MINA, FORTALEZA, MONTANHA, DUNA
 			// EX: CASE DUNA res=4, prod=1

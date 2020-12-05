@@ -6,9 +6,6 @@
 using namespace std;
 
 
-territorios::territorios(string nometerr) {
-	 
-}
 
 
 
@@ -20,10 +17,3 @@ territorios::territorios(string nometerr) {
 // CIMA NORTE GERARNOVOTERRENO(PLAYERX, PLAYERY + 500)
 // BAIXO SUL GERARNOVOTERRENO(PLAYERX, PLAYERY - 500)
 
-territorios::terrInicial::terrInicial()
-{
-}
-
-territorios::terrInicial::~terrInicial()
-{
-}

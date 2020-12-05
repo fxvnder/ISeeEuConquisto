@@ -5,7 +5,8 @@
 
 using namespace std;
 
-class planicie{
+/*class planicie{
+
 
 public:
 	
@@ -22,4 +23,4 @@ planicie::planicie()
 
 planicie::~planicie()
 {
-}
+}*/
