@@ -6,10 +6,14 @@ using namespace Comandos;
 
 #pragma region UserOS
 
-// PERGUNTAR AO UTILIZADOR QUAL O SISTEMA OPERATIVO ESTA A USAR, ASSIM SENDO O DEFINE VAI PASSAR A SER AUTOMÁTICO
+#if defined(WIN32) || defined(_WIN32) || defined(__WIN32__) || defined(__NT__) || defined(_WIN64)
+    #define WINDOWS 1
+#endif
 
-#define WINDOWS 1 // SE O UTILIZADOR ESTIVER A USAR LINUX SUBSTITUIR WINDOWS POR LINUX
-//#define LINUX 1 // IDEM
+#if defined(__APPLE__) || defined(TARGET_OS_MAC) || defined(__linux__) || defined(__unix__)
+    #define LINUX 1
+#endif
+
 
 void clear() { // LIMPA O ECRÃ SEM O CONIO.H \\ CLRSCR()
 #ifdef WINDOWS
@@ -33,6 +37,17 @@ void pause() { // PAUSA EM PRINTS
     cin.ignore();
     cin.get();
 }
+
+// COMENTARIOS COM IDEIAS ANTIGAS:
+
+// PERGUNTAR AO UTILIZADOR QUAL O SISTEMA OPERATIVO ESTA A USAR, ASSIM SENDO TIRA-SE O DEFINE E VAI PASSAR A SER AUTOMÁTICO
+
+// ^^ DONE.
+
+//#define WINDOWS 1 // SE O UTILIZADOR ESTIVER A USAR LINUX SUBSTITUIR WINDOWS POR LINUX
+//#define LINUX 1 // IDEM
+
+// ^^ JÁ NÃO É NECESSÁRIO.
 
 #pragma endregion
 
