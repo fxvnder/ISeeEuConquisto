@@ -1,19 +1,24 @@
+#pragma region includes e namespaces
+
 #include "includes.h"
 #include "comando.h"
 
 using namespace std;
 using namespace Comandos;
 
+#pragma endregion
+
 #pragma region UserOS
 
+// vai detetar o OS do utilizador
+
 #if defined(WIN32) || defined(_WIN32) || defined(__WIN32__) || defined(__NT__) || defined(_WIN64)
-    #define WINDOWS 1
+#define WINDOWS 1
+#elif defined(__APPLE__) || defined(TARGET_OS_MAC) || defined(__linux__) || defined(__unix__)
+#define LINUX 1
+#else
+#error "PC da NASA?"
 #endif
-
-#if defined(__APPLE__) || defined(TARGET_OS_MAC) || defined(__linux__) || defined(__unix__)
-    #define LINUX 1
-#endif
-
 
 void clear() { // LIMPA O ECRÃ SEM O CONIO.H \\ CLRSCR()
 #ifdef WINDOWS
@@ -31,11 +36,6 @@ void syspause() { // SYS.PAUSE = PRESS ANY KEY TO CONTINUE
 #ifdef LINUX
     system("read");
 #endif
-}
-
-void pause() { // PAUSA EM PRINTS
-    cin.ignore();
-    cin.get();
 }
 
 // COMENTARIOS COM IDEIAS ANTIGAS:
@@ -57,6 +57,14 @@ int ouro = 0, produtos = 0;
 class_comando ClasseComandos;
 #pragma endregion
 
+#pragma region voids minimos aleatorios
+
+void pause() { // PAUSA EM PRINTS
+    cin.ignore();
+    cin.get();
+}
+
+#pragma endregion
 
 void jogo(bool PrimeiraVez) {
 
