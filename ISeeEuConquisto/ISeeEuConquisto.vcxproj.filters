@@ -36,6 +36,21 @@
     <ClInclude Include="planicie.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="montanha.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="duna.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="fortaleza.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mina.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="castelo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -69,6 +84,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="fortaleza.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="mina.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

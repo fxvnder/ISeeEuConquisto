@@ -139,9 +139,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="castelo.h" />
     <ClInclude Include="comando.h" />
+    <ClInclude Include="duna.h" />
+    <ClInclude Include="fortaleza.h" />
     <ClInclude Include="imperio.h" />
     <ClInclude Include="includes.h" />
+    <ClInclude Include="mina.h" />
+    <ClInclude Include="montanha.h" />
     <ClInclude Include="mundo.h" />
     <ClInclude Include="planicie.h" />
     <ClInclude Include="tec.h" />
@@ -152,6 +157,7 @@
     <ClCompile Include="duna.cpp" />
     <ClCompile Include="imperio.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="mina.cpp" />
     <ClCompile Include="mundo.cpp" />
     <ClCompile Include="comando.cpp" />
     <ClCompile Include="planicie.cpp" />

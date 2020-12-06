@@ -2,10 +2,13 @@
 
 #include "includes.h"
 #include "comando.h"
+#include "territorios.h"
 
 using namespace std;
 using namespace ComandosNS;
-
+ClasseComandos ClasseComandosMain;
+using namespace TerritoriosNS;
+ClasseTerritorios ClasseTerritoriosMain;
 #pragma endregion
 
 #pragma region UserOS
@@ -54,7 +57,6 @@ void syspause() { // SYS.PAUSE = PRESS ANY KEY TO CONTINUE
 #pragma region VarsGlobais
 string username, nomeficheiro;
 int ouro = 0, produtos = 0;
-ClasseComandos ClasseComandosMain;
 #pragma endregion
 
 #pragma region voids minimos aleatorios

@@ -7,30 +7,28 @@ using namespace std;
 using namespace TerritoriosNS;
 
 
-class ClassePlanicie : public ClasseTerritorios
+class ClasseMina : public ClasseTerritorios
 {
 public:
-	// p/ user criar planicie
+	// p/ user criar minas
 private:
 
 };
 
-void ClassePlanicieValores1Ano()
+void ClasseMina3TurnosAno()
 {
 	ClasseTerritorios Territorios;
-	Territorios.NomeTerritorio = "Planicie";
+	Territorios.NomeTerritorio = "Mina";
 	Territorios.Resistencia = 5;
-	Territorios.ProdProdutos = 1;
 	Territorios.ProdOuro = 1;
 	Territorios.Pontos = 1;
 }
 
-void ClassePlanicieValores2Ano()
+void ClasseMina3OutrosTurnosAno()
 {
 	ClasseTerritorios Territorios;
-	Territorios.NomeTerritorio = "Planicie";
+	Territorios.NomeTerritorio = "Mina";
 	Territorios.Resistencia = 5;
-	Territorios.ProdProdutos = 2;
-	Territorios.ProdOuro = 1;
+	Territorios.ProdOuro = 2;
 	Territorios.Pontos = 1;
 }
