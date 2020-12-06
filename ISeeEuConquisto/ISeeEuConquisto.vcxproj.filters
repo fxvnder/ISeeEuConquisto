@@ -24,9 +24,6 @@
     <ClInclude Include="mundo.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="tec.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="territorios.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -51,15 +48,18 @@
     <ClInclude Include="castelo.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="tecnologias.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="terrinicial.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="mundo.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="tec.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="territorios.cpp">
@@ -87,6 +87,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="mina.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="tecnologias.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="terrinicial.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

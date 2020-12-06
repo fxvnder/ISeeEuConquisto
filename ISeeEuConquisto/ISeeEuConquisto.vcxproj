@@ -149,7 +149,8 @@
     <ClInclude Include="montanha.h" />
     <ClInclude Include="mundo.h" />
     <ClInclude Include="planicie.h" />
-    <ClInclude Include="tec.h" />
+    <ClInclude Include="tecnologias.h" />
+    <ClInclude Include="terrinicial.h" />
     <ClInclude Include="territorios.h" />
   </ItemGroup>
   <ItemGroup>
@@ -163,7 +164,8 @@
     <ClCompile Include="planicie.cpp" />
     <ClCompile Include="montanha.cpp" />
     <ClCompile Include="fortaleza.cpp" />
-    <ClCompile Include="tec.cpp" />
+    <ClCompile Include="tecnologias.cpp" />
+    <ClCompile Include="terrinicial.cpp" />
     <ClCompile Include="territorios.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
