@@ -1,26 +1,38 @@
 #include "territorios.h"
+#include "includes.h"
 #include <vector>
 #include <memory>
 #include <string>
 
+
 using namespace std;
+using namespace TerritoriosNS;
 
-class planicie{
 
-
+class ClassePlanicie : public ClasseTerritorios
+{
 public:
-	
-	planicie();
-	~planicie();
-
+	// p/ user criar planicie
 private:
 
 };
 
-planicie::planicie()
+void ClassePlanicieValores1Ano()
 {
+	ClasseTerritorios Territorios;
+	Territorios.NomeTerritorio = "Planicie";
+	Territorios.Resistencia = 5;
+	Territorios.ProdProdutos = 1;
+	Territorios.ProdOuro = 1;
+	Territorios.Pontos = 1;
 }
 
-planicie::~planicie()
+void ClassePlanicieValores2Ano()
 {
+	ClasseTerritorios Territorios;
+	Territorios.NomeTerritorio = "Planicie";
+	Territorios.Resistencia = 5;
+	Territorios.ProdProdutos = 2;
+	Territorios.ProdOuro = 1;
+	Territorios.Pontos = 1;
 }
