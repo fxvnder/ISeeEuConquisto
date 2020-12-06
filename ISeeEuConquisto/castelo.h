@@ -7,7 +7,7 @@ using namespace std;
 using namespace TerritoriosNS;
 
 
-class ClasseMina : public ClasseTerritorios
+class ClasseCastelo : public ClasseTerritorios
 {
 public:
 	// p/ user criar minas

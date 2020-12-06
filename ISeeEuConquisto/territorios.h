@@ -18,20 +18,7 @@ namespace TerritoriosNS
 		int Pontos = 0;
 
 	};
-	class TerritorioInicial
-	{
-	public:
-		TerritorioInicial();
+	
 
-	private:
-	};
-
-	TerritorioInicial::TerritorioInicial()
-	{
-		ClasseTerritorios TerrInicial;
-		TerrInicial.Resistencia = 9;
-		TerrInicial.ProdOuro = 1;
-		TerrInicial.ProdProdutos = 1;
-	}
 }
 
