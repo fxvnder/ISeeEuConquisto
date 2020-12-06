@@ -69,7 +69,6 @@ void syspause() { // SYS.PAUSE = PRESS ANY KEY TO CONTINUE
 
 #pragma region VarsGlobais
 string username, nomeficheiro;
-int ouro = 0, produtos = 0;
 #pragma endregion
 
 #pragma region voids minimos aleatorios
