@@ -72,11 +72,17 @@ void syspause() { // SYS.PAUSE = PRESS ANY KEY TO CONTINUE
 string username, nomeficheiro;
 #pragma endregion
 
-#pragma region voids minimos aleatorios
+#pragma region voids aleatorios
 
 void pause() { // PAUSA EM PRINTS
     cin.ignore();
     cin.get();
+}
+
+string RemoverEspacos(string input)
+{
+    remove_if(input.begin(), input.end(), isspace);
+    return input;
 }
 
 #pragma endregion
@@ -98,8 +104,16 @@ void jogo(bool PrimeiraVez) {
         A cada jogada que fazes o teu progresso vai ser gravado e podes retomar quando quiseres, se quiseres.
 
         Como vais querer guardar o nome deste imperio? )";
-        cin >> nomeficheiro;
-        ClasseComandosMain.grava(nomeficheiro);
+            
+        getline(cin, nomeficheiro);
+
+            // if (nomeficheiro.find(' ') || nomeficheiro.find('ç') || nomeficheiro.find('á') || nomeficheiro.find('?'))
+            // cout << "\nO ficheiro nao pode ter espacos ou simbolos no nome!" << endl;
+        
+            //cout << RemoverEspacos(nomeficheiro);
+
+        cout << nomeficheiro;
+        ClasseComandosMain.grava(RemoverEspacos(nomeficheiro), username);
     }
     else
     {
@@ -115,7 +129,8 @@ void inicio() {
     cout << "\n...espera la... ainda nem sei o teu nome!...";
     cout << "\n\nEntao? Como te chamas?";
     cout << "\n\nInserir Nickname: ";
-    cin >> username;
+    cin.ignore(1000, '\n');
+    getline(cin, username);
     cout << "\n" << username << "... e isso? Prazer em conhecer-te!";
     cout << "\nBem, vieste em boa altura, estamos mesmo a precisar de uma maozinha aqui... Junta-te a nos!";
     pause();
@@ -154,9 +169,10 @@ void carrega() {
     do
     {
         cout << "Qual e o nome do imperio que queres carregar? ";
-        cin >> nomeficheiro;
+        cin.ignore(1000, '\n');
+        getline(cin, nomeficheiro);
         cout << "\n";
-        ClasseComandosMain.carrega(nomeficheiro);
+        ClasseComandosMain.carrega(RemoverEspacos(nomeficheiro));
         sucesso = true;
     } while (sucesso == false);
 
