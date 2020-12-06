@@ -15,10 +15,3 @@ private:
 
 };
 
-void ClasseFortaleza()
-{
-	ClasseTerritorios Territorios;
-	Territorios.NomeTerritorio = "Fortaleza";
-	Territorios.Resistencia = 8;
-	Territorios.Pontos = 1;
-}
