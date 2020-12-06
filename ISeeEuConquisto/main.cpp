@@ -1,8 +1,21 @@
 #pragma region includes e namespaces
 
+// Lista de includes basicos para o funcionamento do programa
 #include "includes.h"
+// Comandos
 #include "comando.h"
+// Territorios
 #include "territorios.h"
+#include "imperio.h"
+// Territorios Individuais
+#include "castelo.h"
+#include "duna.h"
+#include "fortaleza.h"
+#include "mina.h"
+#include "montanha.h"
+#include "planicie.h"
+// Tecnologia
+#include "tec.h"
 
 using namespace std;
 using namespace ComandosNS;
