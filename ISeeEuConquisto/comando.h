@@ -6,7 +6,7 @@
 #include <vector>
 
 using namespace std;
-using namespace TerritoriosNS;
+
 
 namespace ComandosNS {
 
@@ -16,8 +16,11 @@ namespace ComandosNS {
 		// comando();
 	
 		void cria(string tipo, int ntipo) {
-			
-			VectorMundo.push_back(make_unique<ClasseTerritorios>);
+			/*static int numeroterr=0;
+			for (int i = numeroterr; i = ntipo; i++) {
+				vector.push_back(ClasseTerritorios(i));
+				numeroterr++;
+			}*/
 			// VAI CRIAR O TERRENO, DECIDIR SE É DO TIPO 1, 2 ou 3 COM UM >>> IF/CASE <<< (terr. inicial, continente ou ilha) COM RANDOM NUMS
 			// DEPOIS FAZER UM >>> CASE <<< COM RANDOM NUMS PARA DECIDIR SE É UMA PLANICIE, CASTELO, MINA, FORTALEZA, MONTANHA, DUNA
 			// EX: CASE DUNA res=4, prod=1
@@ -25,7 +28,7 @@ namespace ComandosNS {
 
 
 
-		void grava(string filename) {
+		void grava(string filename, string username) {
 			// FAZER UM FICHEIRO .save DO TIPO TXT OU OUTRO EM QUE VAI ESTAR ENCRIPTADO
 			// POR EXEMPLO: mundo1.save, mundo2.save, mundo3.save ETC CONFORME ID (IF mundo1.save EXISTS => mundo2.save ETC.)
 			// "ENRIPTAR" DADOS DO SAVE
@@ -41,6 +44,7 @@ namespace ComandosNS {
 			// ASSIM FICARIA awkretefx=84.9, por exemplo
 
 			ofstream SaveFile;
+			SaveFile << "username = " << username << endl;
 			SaveFile.open(filename + ".save");
 			SaveFile << "isto e um teste lol.\n";
 			SaveFile.close();
@@ -61,6 +65,7 @@ namespace ComandosNS {
 				while (getline(OpenFile, nLinhas))
 				{
 					cout << nLinhas << endl;
+					nLinhas;
 				}
 				OpenFile.close();
 				return 1;
