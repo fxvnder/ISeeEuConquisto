@@ -4,7 +4,7 @@
 #include "comando.h"
 
 using namespace std;
-using namespace Comandos;
+using namespace ComandosNS;
 
 #pragma endregion
 
@@ -54,7 +54,7 @@ void syspause() { // SYS.PAUSE = PRESS ANY KEY TO CONTINUE
 #pragma region VarsGlobais
 string username, nomeficheiro;
 int ouro = 0, produtos = 0;
-class_comando ClasseComandos;
+ClasseComandos ClasseComandosMain;
 #pragma endregion
 
 #pragma region voids minimos aleatorios
@@ -84,7 +84,7 @@ void jogo(bool PrimeiraVez) {
 
         Como vais querer guardar o nome deste imperio? )";
         cin >> nomeficheiro;
-        ClasseComandos.grava(nomeficheiro);
+        ClasseComandosMain.grava(nomeficheiro);
     }
     else
     {
@@ -141,7 +141,7 @@ void carrega() {
         cout << "Qual e o nome do imperio que queres carregar? ";
         cin >> nomeficheiro;
         cout << "\n";
-        ClasseComandos.carrega(nomeficheiro);
+        ClasseComandosMain.carrega(nomeficheiro);
         sucesso = true;
     } while (sucesso == false);
 

@@ -5,17 +5,18 @@
 
 using namespace std;
 
-/*class territorios{
+namespace TerritoriosNS
+{
 
-public:
-	string nometerr;
-	int res;
-	int cprod;
-	int couro;
-	int pontos;
-	territorios(string nometerr);
-	void gettipo(string nometerr);
-	territorios();
+	class ClasseTerritorios {
 
-};
-*/
+	public:
+
+		string NomeTerritorio;
+		int Resistencia;
+		int ProdProdutos;
+		int ProdOuro;
+		int Pontos;
+
+	};
+}

@@ -4,9 +4,9 @@
 
 using namespace std;
 
-namespace Comandos {
+namespace ComandosNS {
 
-	class class_comando
+	class ClasseComandos
 	{
 	public:
 		// comando();
