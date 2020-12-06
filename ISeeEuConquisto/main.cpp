@@ -14,8 +14,9 @@
 #include "mina.h"
 #include "montanha.h"
 #include "planicie.h"
+#include "terrinicial.h"
 // Tecnologia
-#include "tec.h"
+#include "tecnologias.h"
 
 using namespace std;
 using namespace ComandosNS;

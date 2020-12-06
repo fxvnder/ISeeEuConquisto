@@ -28,7 +28,10 @@ namespace TerritoriosNS
 
 	TerritorioInicial::TerritorioInicial()
 	{
-		ClasseTerritorios::ProdOuro = 1;
+		ClasseTerritorios TerrInicial;
+		TerrInicial.Resistencia = 9;
+		TerrInicial.ProdOuro = 1;
+		TerrInicial.ProdProdutos = 1;
 	}
 }
 
