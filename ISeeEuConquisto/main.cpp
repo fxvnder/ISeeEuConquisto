@@ -113,7 +113,7 @@ void jogo(bool PrimeiraVez) {
             //cout << RemoverEspacos(nomeficheiro);
 
         cout << nomeficheiro;
-        ClasseComandosMain.grava(RemoverEspacos(nomeficheiro));
+        ClasseComandosMain.grava(RemoverEspacos(nomeficheiro), username);
     }
     else
     {
@@ -129,6 +129,7 @@ void inicio() {
     cout << "\n...espera la... ainda nem sei o teu nome!...";
     cout << "\n\nEntao? Como te chamas?";
     cout << "\n\nInserir Nickname: ";
+    cin.ignore(1000, '\n');
     getline(cin, username);
     cout << "\n" << username << "... e isso? Prazer em conhecer-te!";
     cout << "\nBem, vieste em boa altura, estamos mesmo a precisar de uma maozinha aqui... Junta-te a nos!";
@@ -168,6 +169,7 @@ void carrega() {
     do
     {
         cout << "Qual e o nome do imperio que queres carregar? ";
+        cin.ignore(1000, '\n');
         getline(cin, nomeficheiro);
         cout << "\n";
         ClasseComandosMain.carrega(RemoverEspacos(nomeficheiro));
