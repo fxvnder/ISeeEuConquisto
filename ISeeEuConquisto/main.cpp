@@ -123,6 +123,7 @@ void jogo(bool PrimeiraVez) {
     string operacao;
     string StringIndividual;
     VarsImportantes vars;
+    vector<ClasseTerritorios> Mundo;
 
     if (PrimeiraVez == true) {
         clear();

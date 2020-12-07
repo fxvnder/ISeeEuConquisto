@@ -9,11 +9,14 @@ using namespace TerritoriosNS;
 
 	// COMANDO CRIA
 
-
+vector<ClasseTerritorios> vetorMundo() {
+	vector<ClasseTerritorios> Mundo;
+	return Mundo;
+}
 
 	void ComandoCria(string tipo, int ntipo) {
 		ClasseTerritorios Territorio;
-		vector<ClasseTerritorios> Mundo;
+		vector<ClasseTerritorios> Mundo = vetorMundo();
 		for (int i = 0; i < ntipo; i++)
 		{
 			Mundo.push_back(ClasseTerritorios());
@@ -21,6 +24,7 @@ using namespace TerritoriosNS;
 			cout << "Foi criado " << Mundo[i].NomeTerritorio << endl;
 		}
 		// if ntipo > 1, tipo = +s
+		Mundo = vetorMundo();
 	}
 
 	void ComandosNS::ClasseComandos::CriaTerreno(string tipo, int ntipo) {
@@ -49,20 +53,21 @@ using namespace TerritoriosNS;
 	void ComandoConquista(string nome) {
 		ClasseTerritorios Territorio;
 		vector<ClasseTerritorios> Imperio;
-		Imperio.push_back(ClasseTerritorios());
+		vector<ClasseTerritorios> Mundo = vetorMundo();
+		cout << Mundo[1].NomeTerritorio;
+		cout << Mundo[0].NomeTerritorio;
+		for (int i = 0; i < Mundo.size(); i++)
+		{
+			if (nome == Mundo[i].NomeTerritorio)
+				Imperio.push_back(Mundo[i]);
+			else
+			{
+				cout << "Território não encontrado" << endl;
+			}
+		}
 		cout << "\nFoi conquistado ", Imperio[0].NomeTerritorio;
 		cout << endl;
-		/*
-		vector<int> dataVec;
 
-		int dataArray[] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
-		unsigned dataArraySize = sizeof(dataArray) / sizeof(int);
-
-		// Method 1: Copy the array to the vector using back_inserter.
-		{
-			copy(&dataArray[0], &dataArray[dataArraySize], back_inserter(dataVec));
-		}
-		*/
 	}
 
 	void ComandosNS::ClasseComandos::conquista(string nome) {
