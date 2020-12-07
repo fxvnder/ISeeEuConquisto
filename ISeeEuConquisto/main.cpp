@@ -80,7 +80,7 @@ void pause() { // PAUSA EM PRINTS
     cin.get();
 }
 
-void SeparaPalavras(string operacoes)
+void SeparaPalavras(string operacoes, bool ler)
 {
     vector<string> VectorComandos;
     ClasseComandos ClasseComandosMain;
@@ -97,15 +97,15 @@ void SeparaPalavras(string operacoes)
 
     if (VectorComandos[0] == "cria")
     {
-        //DEPOIS MUDAR OS FICHEIROS PARA FUNCAO INDIVIDUAL
         stringstream Tamanho(VectorComandos[2]);
         int SeguraInt = 0;
         Tamanho >> SeguraInt;
         ClasseComandosMain.CriaTerreno(VectorComandos[1], SeguraInt);
-        ofstream SaveFile;
-        SaveFile.open(VariaveisImportantes::nomeficheiro + ".save");
-        SaveFile << VectorComandos[0] << " " << VectorComandos[1] << " " << VectorComandos[2] << endl;
-        SaveFile.close();
+        if (ler == false) {
+            ofstream SaveFile;
+            SaveFile.open(VariaveisImportantes::nomeficheiro + ".save", ios::out | ios_base::app | ios::binary);
+            SaveFile << VectorComandos[0] << " " << VectorComandos[1] << " " << VectorComandos[2] << endl;
+        }
     }
     else if (VectorComandos[0] == "conquista")
     {
@@ -123,6 +123,7 @@ void jogo(bool PrimeiraVez) {
     string operacao;
     string StringIndividual;
     vector<ClasseTerritorios> Mundo;
+    ofstream SaveFile;
 
     if (PrimeiraVez == true) {
         clear();
@@ -148,7 +149,7 @@ void jogo(bool PrimeiraVez) {
             //cout << RemoverEspacos(nomeficheiro);
 
         cout << VariaveisImportantes::nomeficheiro;
-        ClasseComandosMain.GravaFicheiro(VariaveisImportantes::nomeficheiro, VariaveisImportantes::username);
+        ClasseComandosMain.GravaFicheiro(VariaveisImportantes::nomeficheiro);
         cout << "\nParabens, " << VariaveisImportantes::username << "! Vamos agora comecar a jogar! Para sair escreva sair" << endl;
         do
         {
@@ -156,9 +157,11 @@ void jogo(bool PrimeiraVez) {
 
             getline(cin, operacao);
 
-            SeparaPalavras(operacao);
+            SeparaPalavras(operacao, false);
 
         } while (operacao != "sair");
+        
+        SaveFile.close();
 
     }
     else
@@ -170,9 +173,11 @@ void jogo(bool PrimeiraVez) {
 
                 getline(cin, operacao);
 
-                SeparaPalavras(operacao);
+                SeparaPalavras(operacao, false);
 
             } while (operacao != "sair");
+        
+        SaveFile.close();
     }
 
 }
@@ -224,12 +229,34 @@ void carrega() {
     clear();
     do
     {
-        cout << "Qual e o nome do imperio que queres carregar? ";
-        cin.ignore(1000, '\n');
-        getline(cin, VariaveisImportantes::nomeficheiro);
-        cout << "\n";
-        ClasseComandosMain.CarregaFicheiro(VariaveisImportantes::nomeficheiro);
-        sucesso = true;
+        bool loop = false;
+        cout << "\nQual e o nome do imperio que queres carregar? ";
+        string nomefich;
+        if (loop == false) {
+            cin.ignore(1000, '\n');
+        }
+        getline(cin, nomefich);
+        VariaveisImportantes::nomeficheiro = nomefich;
+        string nLinhas, operacao;
+        ifstream OpenFile(nomefich + ".save");
+
+        if (OpenFile.is_open())
+        {
+            cout << "Bem-vindo de volta! Eis os comandos introduzidos anteriormente:\n\n" << endl;
+            while (!OpenFile.eof()) {
+                getline(OpenFile, nLinhas);
+                cout << nLinhas << endl;
+                operacao = nLinhas;
+                SeparaPalavras(operacao, true);
+            }
+            OpenFile.close();
+            sucesso = true;
+        }
+        else {
+            cout << "\n>>> ERRO A CARREGAR O FICHEIRO!!! <<<";
+            loop = true;
+        }
+        
     } while (sucesso == false);
 
 

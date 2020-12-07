@@ -5,10 +5,19 @@
 using namespace std;
 using namespace TerritoriosNS;
 
+#pragma region Vetores (DEPOIS MOVER)
+
 vector<ClasseTerritorios> vetorMundo() {
 	vector<ClasseTerritorios> Mundo;
 	return Mundo;
 }
+
+vector<ClasseTerritorios> vetorImperio() {
+	vector<ClasseTerritorios> Imperio;
+	return Imperio;
+}
+
+#pragma endregion
 
 #pragma region CRIA
 
@@ -48,7 +57,7 @@ int ComandosNS::ClasseComandos::getNtipo()
 
 void ComandoConquista(string nome) {
 	ClasseTerritorios Territorio;
-	vector<ClasseTerritorios> Imperio;
+	vector<ClasseTerritorios> Imperio = vetorImperio();
 	vector<ClasseTerritorios> Mundo = vetorMundo();
 	cout << Mundo[1].NomeTerritorio;
 	cout << Mundo[0].NomeTerritorio;
@@ -82,32 +91,23 @@ string ComandosNS::ClasseComandos::getNome()
 
 #pragma region GRAVA
 
-void ComandoGrava(string nomeficheiro, string username) {
+void ComandoGrava(string nomeficheiro) {
 
 	ofstream SaveFile;
-	SaveFile.open(nomeficheiro + ".save");
-	SaveFile << "username = " << username << endl;
-	SaveFile.close();
-
+	SaveFile.open(nomeficheiro + ".save", ios::out | ios_base::app);
 }
 
 
-void ComandosNS::ClasseComandos::GravaFicheiro(string filename, string username)
+void ComandosNS::ClasseComandos::GravaFicheiro(string filename)
 {
 	this->filename = filename; 
-	this->username = username;
 
-	ComandoGrava(filename,username);
+	ComandoGrava(filename);
 }
 
 string ComandosNS::ClasseComandos::getNomeFicheiro()
 {
 	return filename;
-}
-
-string ComandosNS::ClasseComandos::getUsername()
-{
-	return username;
 }
 
 #pragma endregion
@@ -122,32 +122,32 @@ void ComandosNS::ClasseComandos::ListaComandos(string nomeJogo)
 #pragma region CARREGA
 
 
-int CarregaFicheiro(string filename, string username) {
- string nLinhas;
- ifstream OpenFile(filename + ".save");
-
+void CarregaFicheiro(string filenameC) {
+	string nLinhas;
+	ifstream OpenFile(filenameC + ".save");
 
 	if (OpenFile.is_open())
 	{
-	while (getline(OpenFile, nLinhas))
-	{
-		cout << nLinhas << endl;
-		nLinhas;
-	}
+		while (!OpenFile.eof()) {
+			getline(OpenFile, nLinhas);
+		}
 		OpenFile.close();
-		return 1;
 	}
 	else {
 		cout << "\n\n\n>>> ERRO A CARREGAR O FICHEIRO!!! <<<";
-		return 0;
 	}
 }
 
-void ComandosNS::ClasseComandos::CarregaFicheiro(string filename)
+void ComandosNS::ClasseComandos::CarregaFicheiro(string filenameC)
 {
-	this->filename = filename;
+	this->filenameC = filenameC;
 
-	CarregaFicheiro(filename);
+	CarregaFicheiro(filenameC);
+}
+
+string ComandosNS::ClasseComandos::getFilenameC()
+{
+	return filenameC;
 }
 
 #pragma endregion

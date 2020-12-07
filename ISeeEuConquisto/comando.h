@@ -12,22 +12,18 @@ namespace ComandosNS {
 	protected:
 
 	public:
+		//vars
 		int ntipo;
 		int getNtipo();
-		string tipo, nome, filename, username;
-		string getTipo(), getNome(), getNomeFicheiro(), getUsername();
+		string tipo, nome, filename, filenameC, username;
+		string getTipo(), getNome(), getNomeFicheiro(), getFilenameC();
 
+		//funcoes
 		void CriaTerreno(string tipo, int ntipo);
-
-		void GravaFicheiro(string filename, string username);
-
-		void CarregaFicheiro(string filename);
-
+		void GravaFicheiro(string filename);
+		void CarregaFicheiro(string filenameC);
 		void ListaComandos(string nomeJogo);
-
 		void ConquistaTerritorios(string nome);
-
-
 	};
 
 }
