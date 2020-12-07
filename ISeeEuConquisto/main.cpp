@@ -112,7 +112,7 @@ void SeparaPalavras(string operacoes)
         stringstream Tamanho(VectorComandos[1]);
         int SeguraInt = 0;
         Tamanho >> SeguraInt;
-        ClasseComandosMain.conquista(VectorComandos[1]);
+        ClasseComandosMain.ConquistaTerritorios(VectorComandos[1]);
     }
 }
 
@@ -148,7 +148,7 @@ void jogo(bool PrimeiraVez) {
             //cout << RemoverEspacos(nomeficheiro);
 
         cout << VariaveisImportantes::nomeficheiro;
-        ClasseComandosMain.grava(VariaveisImportantes::nomeficheiro, VariaveisImportantes::username);
+        ClasseComandosMain.GravaFicheiro(VariaveisImportantes::nomeficheiro, VariaveisImportantes::username);
         cout << "\nParabens, " << VariaveisImportantes::username << "! Vamos agora comecar a jogar! Para sair escreva sair" << endl;
         do
         {

@@ -28,7 +28,6 @@ namespace ComandosNS {
 		void ConquistaTerritorios(string nome);
 
 
-
 	};
 
 }

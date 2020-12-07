@@ -94,6 +94,10 @@ void ComandoGrava(string nomeficheiro, string username) {
 
 void ComandosNS::ClasseComandos::GravaFicheiro(string filename, string username)
 {
+	this->filename = filename; 
+	this->username = username;
+
+	ComandoGrava(filename,username);
 }
 
 string ComandosNS::ClasseComandos::getNomeFicheiro()
@@ -137,6 +141,13 @@ int CarregaFicheiro(string filename, string username) {
 		cout << "\n\n\n>>> ERRO A CARREGAR O FICHEIRO!!! <<<";
 		return 0;
 	}
+}
+
+void ComandosNS::ClasseComandos::CarregaFicheiro(string filename)
+{
+	this->filename = filename;
+
+	CarregaFicheiro(filename);
 }
 
 #pragma endregion
