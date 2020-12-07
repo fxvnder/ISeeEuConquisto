@@ -10,7 +10,7 @@ using namespace TerritoriosNS;
 class ClasseDuna : public ClasseTerritorios
 {
 public:
-	
+
 private:
 
 };

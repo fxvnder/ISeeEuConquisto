@@ -64,11 +64,18 @@ void syspause() { // SYS.PAUSE = PRESS ANY KEY TO CONTINUE
 
 #pragma endregion
 
-#pragma region VarsGlobais
-string username, nomeficheiro;
-ClasseComandos ClasseComandosMain;
-ClasseTerritorios ClasseTerritoriosMain;
-vector<string> VectorComandos;
+#pragma region classe
+
+class VarsImportantes
+{
+public:
+    //VarsImportantes();
+    string username, nomeficheiro;
+private:
+
+};
+
+
 #pragma endregion
 
 #pragma region funcoes aleatorias
@@ -78,25 +85,13 @@ void pause() { // PAUSA EM PRINTS
     cin.get();
 }
 
-void ComandosNS::ClasseComandos::cria(string tipo, int tamanho) {
-    this->tipo = tipo;
-    this->ntipo = tamanho;
-}
-
-string ComandosNS::ClasseComandos::getTipo()
-{
-    return tipo;
-}
-
-int ComandosNS::ClasseComandos::getNtipo()
-{
-    return ntipo;
-}
-
 void SeparaPalavras(string operacoes)
 {
+    vector<string> VectorComandos;
+    ClasseComandos ClasseComandosMain;
     string PalavraSeparada;
     stringstream StrStream(operacoes);
+
     while (StrStream >> PalavraSeparada) {
         VectorComandos.push_back(PalavraSeparada);
     }
@@ -108,26 +103,26 @@ void SeparaPalavras(string operacoes)
     if (VectorComandos[0] == "cria")
     {
         stringstream Tamanho(VectorComandos[2]);
-        cout << "1";
         int SeguraInt = 0;
-        cout << "2";
         Tamanho >> SeguraInt;
-        cout << "3";
-        ClasseComandosMain.cria(VectorComandos[1], SeguraInt);
-        cout << "4";
+        ClasseComandosMain.CriaTerreno(VectorComandos[1], SeguraInt);
+    }
+    else if (VectorComandos[0] == "conquista")
+    {
+        stringstream Tamanho(VectorComandos[1]);
+        int SeguraInt = 0;
+        Tamanho >> SeguraInt;
+        ClasseComandosMain.conquista(VectorComandos[1]);
     }
 }
 
 #pragma endregion
 
-#pragma region funcoes
-
-#pragma endregion
-
 void jogo(bool PrimeiraVez) {
-
+    ClasseComandos ClasseComandosMain;
     string operacao;
     string StringIndividual;
+    VarsImportantes vars;
 
     if (PrimeiraVez == true) {
         clear();
@@ -145,32 +140,36 @@ void jogo(bool PrimeiraVez) {
 
         Como vais querer guardar o nome deste imperio? )";
             
-        getline(cin, nomeficheiro);
+        getline(cin, vars.nomeficheiro);
 
             // if (nomeficheiro.find(' ') || nomeficheiro.find('ç') || nomeficheiro.find('á') || nomeficheiro.find('?'))
             // cout << "\nO ficheiro nao pode ter espacos ou simbolos no nome!" << endl;
         
             //cout << RemoverEspacos(nomeficheiro);
 
-        cout << nomeficheiro;
-        ClasseComandosMain.grava(nomeficheiro, username);
-        cout << "\nParabens, " << username << "! Vamos agora comecar a jogar!" << endl;
-        cout << "Insira um comando aqui: ";
-        
-        getline(cin, operacao);
+        cout << vars.nomeficheiro;
+        ClasseComandosMain.grava(vars.nomeficheiro, vars.username);
+        cout << "\nParabens, " << vars.username << "! Vamos agora comecar a jogar! Para sair escreva sair" << endl;
+        do
+        {
+            cout << "Insira um comando aqui: ";
 
-        SeparaPalavras(operacao);
+            getline(cin, operacao);
 
+            SeparaPalavras(operacao);
+
+        } while (operacao != "sair");
 
     }
     else
     {
-        cout << "Bem vindo de volta, " << username;
+        cout << "Bem vindo de volta, " << vars.username;
     }
 
 }
 
 void inicio() {
+    VarsImportantes vars;
 
     clear();
     cout << "Bem vindo a aventura, amigo, bem-haja! Vamos comecar?...\n";
@@ -178,8 +177,8 @@ void inicio() {
     cout << "\n\nEntao? Como te chamas?";
     cout << "\n\nInserir Nickname: ";
     cin.ignore(1000, '\n');
-    getline(cin, username);
-    cout << "\n" << username << "... e isso? Prazer em conhecer-te!";
+    getline(cin, vars.username);
+    cout << "\n" << vars.username << "... e isso? Prazer em conhecer-te!";
     cout << "\nBem, vieste em boa altura, estamos mesmo a precisar de uma maozinha aqui... Junta-te a nos!";
     pause();
     clear();
@@ -212,15 +211,17 @@ void inicio() {
 
 void carrega() {
     bool sucesso = false;
+    ClasseComandos ClasseComandosMain;
+    VarsImportantes vars;
 
     clear();
     do
     {
         cout << "Qual e o nome do imperio que queres carregar? ";
         cin.ignore(1000, '\n');
-        getline(cin, nomeficheiro);
+        getline(cin, vars.nomeficheiro);
         cout << "\n";
-        ClasseComandosMain.carrega(nomeficheiro);
+        ClasseComandosMain.carrega(vars.nomeficheiro);
         sucesso = true;
     } while (sucesso == false);
 
