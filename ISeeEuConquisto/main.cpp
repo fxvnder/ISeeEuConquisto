@@ -64,21 +64,16 @@ void syspause() { // SYS.PAUSE = PRESS ANY KEY TO CONTINUE
 
 #pragma endregion
 
-#pragma region classe
+#pragma region VariaveisEncapsuladas
 
-class VarsImportantes
+namespace VariaveisImportantes
 {
-public:
-    //VarsImportantes();
     string username, nomeficheiro;
-private:
-
-};
-
+}
 
 #pragma endregion
 
-#pragma region funcoes aleatorias
+#pragma region Funcoes
 
 void pause() { // PAUSA EM PRINTS
     cin.ignore();
@@ -102,10 +97,15 @@ void SeparaPalavras(string operacoes)
 
     if (VectorComandos[0] == "cria")
     {
+        //DEPOIS MUDAR OS FICHEIROS PARA FUNCAO INDIVIDUAL
         stringstream Tamanho(VectorComandos[2]);
         int SeguraInt = 0;
         Tamanho >> SeguraInt;
         ClasseComandosMain.CriaTerreno(VectorComandos[1], SeguraInt);
+        ofstream SaveFile;
+        SaveFile.open(VariaveisImportantes::nomeficheiro + ".save");
+        SaveFile << VectorComandos[0] << " " << VectorComandos[1] << " " << VectorComandos[2] << endl;
+        SaveFile.close();
     }
     else if (VectorComandos[0] == "conquista")
     {
@@ -122,7 +122,6 @@ void jogo(bool PrimeiraVez) {
     ClasseComandos ClasseComandosMain;
     string operacao;
     string StringIndividual;
-    VarsImportantes vars;
     vector<ClasseTerritorios> Mundo;
 
     if (PrimeiraVez == true) {
@@ -141,16 +140,16 @@ void jogo(bool PrimeiraVez) {
 
         Como vais querer guardar o nome deste imperio? )";
             
-        getline(cin, vars.nomeficheiro);
+        getline(cin, VariaveisImportantes::nomeficheiro);
 
             // if (nomeficheiro.find(' ') || nomeficheiro.find('ç') || nomeficheiro.find('á') || nomeficheiro.find('?'))
             // cout << "\nO ficheiro nao pode ter espacos ou simbolos no nome!" << endl;
         
             //cout << RemoverEspacos(nomeficheiro);
 
-        cout << vars.nomeficheiro;
-        ClasseComandosMain.grava(vars.nomeficheiro, vars.username);
-        cout << "\nParabens, " << vars.username << "! Vamos agora comecar a jogar! Para sair escreva sair" << endl;
+        cout << VariaveisImportantes::nomeficheiro;
+        ClasseComandosMain.grava(VariaveisImportantes::nomeficheiro, VariaveisImportantes::username);
+        cout << "\nParabens, " << VariaveisImportantes::username << "! Vamos agora comecar a jogar! Para sair escreva sair" << endl;
         do
         {
             cout << "Insira um comando aqui: ";
@@ -164,13 +163,21 @@ void jogo(bool PrimeiraVez) {
     }
     else
     {
-        cout << "Bem vindo de volta, " << vars.username;
+        cout << "Bem vindo de volta, " << VariaveisImportantes::username;
+            do
+            {
+                cout << "\nInsira um comando aqui: ";
+
+                getline(cin, operacao);
+
+                SeparaPalavras(operacao);
+
+            } while (operacao != "sair");
     }
 
 }
 
 void inicio() {
-    VarsImportantes vars;
 
     clear();
     cout << "Bem vindo a aventura, amigo, bem-haja! Vamos comecar?...\n";
@@ -178,8 +185,8 @@ void inicio() {
     cout << "\n\nEntao? Como te chamas?";
     cout << "\n\nInserir Nickname: ";
     cin.ignore(1000, '\n');
-    getline(cin, vars.username);
-    cout << "\n" << vars.username << "... e isso? Prazer em conhecer-te!";
+    getline(cin, VariaveisImportantes::username);
+    cout << "\n" << VariaveisImportantes::username << "... e isso? Prazer em conhecer-te!";
     cout << "\nBem, vieste em boa altura, estamos mesmo a precisar de uma maozinha aqui... Junta-te a nos!";
     pause();
     clear();
@@ -213,16 +220,15 @@ void inicio() {
 void carrega() {
     bool sucesso = false;
     ClasseComandos ClasseComandosMain;
-    VarsImportantes vars;
 
     clear();
     do
     {
         cout << "Qual e o nome do imperio que queres carregar? ";
         cin.ignore(1000, '\n');
-        getline(cin, vars.nomeficheiro);
+        getline(cin, VariaveisImportantes::nomeficheiro);
         cout << "\n";
-        ClasseComandosMain.carrega(vars.nomeficheiro);
+        ClasseComandosMain.CarregaFicheiro(VariaveisImportantes::nomeficheiro);
         sucesso = true;
     } while (sucesso == false);
 
