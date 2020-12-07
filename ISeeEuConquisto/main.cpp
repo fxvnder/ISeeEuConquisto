@@ -8,21 +8,17 @@
 #include "territorios.h"
 #include "imperio.h"
 // Territorios Individuais
-#include "castelo.h"
+//#include "castelo.h"
 #include "duna.h"
-#include "fortaleza.h"
-#include "mina.h"
-#include "montanha.h"
-#include "planicie.h"
+//#include "fortaleza.h"
+//#include "mina.h"
+//#include "montanha.h"
+//#include "planicie.h"
 #include "terrinicial.h"
 // Tecnologia
 #include "tecnologias.h"
 
 using namespace std;
-using namespace ComandosNS;
-ClasseComandos ClasseComandosMain;
-using namespace TerritoriosNS;
-ClasseTerritorios ClasseTerritoriosMain;
 #pragma endregion
 
 #pragma region UserOS
@@ -70,24 +66,54 @@ void syspause() { // SYS.PAUSE = PRESS ANY KEY TO CONTINUE
 
 #pragma region VarsGlobais
 string username, nomeficheiro;
+ClasseComandos ClasseComandosMain;
+ClasseTerritorios ClasseTerritoriosMain;
+vector<string> VectorComandos;
 #pragma endregion
 
-#pragma region voids aleatorios
+#pragma region funcoes aleatorias
 
 void pause() { // PAUSA EM PRINTS
     cin.ignore();
     cin.get();
 }
 
-string RemoverEspacos(string input)
+void ComandoCriar(string tipo, int tamanho) {
+    ClasseComandosMain.cria(tipo, tamanho);
+    // Criar(tamanho, Duna)
+}
+
+void SeparaPalavras(string operacoes)
 {
-    remove_if(input.begin(), input.end(), isspace);
-    return input;
+    string PalavraSeparada;
+    stringstream StrStream(operacoes);
+    while (StrStream >> PalavraSeparada) {
+        VectorComandos.push_back(PalavraSeparada);
+    }
+
+    for (unsigned int i = 0; i < VectorComandos.size(); i++) {
+        cout << VectorComandos[i] << endl;
+    }
+
+    if (VectorComandos[0] == "cria")
+    {
+        stringstream Tamanho(VectorComandos[2]);
+        int SeguraInt = 0;
+        Tamanho >> SeguraInt;
+        ComandoCriar(VectorComandos[1], SeguraInt);
+    }
 }
 
 #pragma endregion
 
+#pragma region funcoes
+
+#pragma endregion
+
 void jogo(bool PrimeiraVez) {
+
+    string operacao;
+    string StringIndividual;
 
     if (PrimeiraVez == true) {
         clear();
@@ -113,7 +139,14 @@ void jogo(bool PrimeiraVez) {
             //cout << RemoverEspacos(nomeficheiro);
 
         cout << nomeficheiro;
-        ClasseComandosMain.grava(RemoverEspacos(nomeficheiro), username);
+        ClasseComandosMain.grava(nomeficheiro, username);
+        cout << "Parabens, " << username << "! Vamos agora comecar a jogar!" << endl;
+        cout << "Insira um comando aqui: ";
+        
+        getline(cin, operacao);
+
+        SeparaPalavras(operacao);
+
     }
     else
     {
@@ -172,7 +205,7 @@ void carrega() {
         cin.ignore(1000, '\n');
         getline(cin, nomeficheiro);
         cout << "\n";
-        ClasseComandosMain.carrega(RemoverEspacos(nomeficheiro));
+        ClasseComandosMain.carrega(nomeficheiro);
         sucesso = true;
     } while (sucesso == false);
 

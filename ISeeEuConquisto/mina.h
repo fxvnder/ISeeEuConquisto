@@ -1,5 +1,5 @@
 #pragma once
-
+/*
 #include "includes.h"
 #include "territorios.h"
 
@@ -17,3 +17,4 @@ namespace ImperioNS {
 
 	
 }
+*/

@@ -1,30 +1,25 @@
 #pragma once
 
-#include "includes.h"
 #include "mundo.h"
 #include "territorios.h"
-#include <vector>
 
 using namespace std;
-
 
 namespace ComandosNS {
 
 	class ClasseComandos
 	{
 	public:
+		// ClasseComandos();
 		// comando();
 	
 		void cria(string tipo, int ntipo) {
-			/*static int numeroterr=0;
-			for (int i = numeroterr; i = ntipo; i++) {
-				vector.push_back(ClasseTerritorios(i));
-				numeroterr++;
-			}*/
-			// VAI CRIAR O TERRENO, DECIDIR SE É DO TIPO 1, 2 ou 3 COM UM >>> IF/CASE <<< (terr. inicial, continente ou ilha) COM RANDOM NUMS
-			// DEPOIS FAZER UM >>> CASE <<< COM RANDOM NUMS PARA DECIDIR SE É UMA PLANICIE, CASTELO, MINA, FORTALEZA, MONTANHA, DUNA
-			// EX: CASE DUNA res=4, prod=1
+
 		}
+
+		// VAI CRIAR O TERRENO, DECIDIR SE É DO TIPO 1, 2 ou 3 COM UM >>> IF/CASE <<< (terr. inicial, continente ou ilha) COM RANDOM NUMS
+		// DEPOIS FAZER UM >>> CASE <<< COM RANDOM NUMS PARA DECIDIR SE É UMA PLANICIE, CASTELO, MINA, FORTALEZA, MONTANHA, DUNA
+		// EX: CASE DUNA res=4, prod=1
 
 
 

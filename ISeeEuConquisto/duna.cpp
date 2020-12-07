@@ -14,3 +14,7 @@ void ClasseDuna()
 	Territorios.ProdProdutos = 1;
 	Territorios.Pontos = 1;
 }
+
+void CriaDuna() {
+	
+}

@@ -18,7 +18,6 @@ namespace TerritoriosNS {
 		int ProdOuro = 0;
 		int Pontos = 0;
 	
-		
 	};
 	
 
