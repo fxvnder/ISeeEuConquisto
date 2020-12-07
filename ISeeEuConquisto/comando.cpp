@@ -2,10 +2,11 @@
 #include "includes.h"
 #include "territorios.h"
 
-using namespace TerritoriosNS;
 using namespace std;
+using namespace TerritoriosNS;
 
 void ComandoCria(string tipo, int ntipo) {
+	cout << "ola";
 	ClasseTerritorios Territorio;
 	vector<ClasseTerritorios> Mundo;
 	Mundo.push_back(ClasseTerritorios());
@@ -13,3 +14,6 @@ void ComandoCria(string tipo, int ntipo) {
 	cout << "Foi/Foram criado(s) ", ntipo, " ", tipo;
 }
 
+ComandosNS::ClasseComandos::ClasseComandos()
+{
+}

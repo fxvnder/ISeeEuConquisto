@@ -78,9 +78,19 @@ void pause() { // PAUSA EM PRINTS
     cin.get();
 }
 
-void ComandoCriar(string tipo, int tamanho) {
-    ClasseComandosMain.cria(tipo, tamanho);
-    // Criar(tamanho, Duna)
+void ComandosNS::ClasseComandos::cria(string tipo, int tamanho) {
+    this->tipo = tipo;
+    this->ntipo = tamanho;
+}
+
+string ComandosNS::ClasseComandos::getTipo()
+{
+    return tipo;
+}
+
+int ComandosNS::ClasseComandos::getNtipo()
+{
+    return ntipo;
 }
 
 void SeparaPalavras(string operacoes)
@@ -98,9 +108,13 @@ void SeparaPalavras(string operacoes)
     if (VectorComandos[0] == "cria")
     {
         stringstream Tamanho(VectorComandos[2]);
+        cout << "1";
         int SeguraInt = 0;
+        cout << "2";
         Tamanho >> SeguraInt;
-        ComandoCriar(VectorComandos[1], SeguraInt);
+        cout << "3";
+        ClasseComandosMain.cria(VectorComandos[1], SeguraInt);
+        cout << "4";
     }
 }
 
@@ -140,12 +154,13 @@ void jogo(bool PrimeiraVez) {
 
         cout << nomeficheiro;
         ClasseComandosMain.grava(nomeficheiro, username);
-        cout << "Parabens, " << username << "! Vamos agora comecar a jogar!" << endl;
+        cout << "\nParabens, " << username << "! Vamos agora comecar a jogar!" << endl;
         cout << "Insira um comando aqui: ";
         
         getline(cin, operacao);
 
         SeparaPalavras(operacao);
+
 
     }
     else

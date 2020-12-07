@@ -9,13 +9,17 @@ namespace ComandosNS {
 
 	class ClasseComandos
 	{
+	protected:
+		string tipo;
+		int ntipo;
 	public:
-		// ClasseComandos();
+		ClasseComandos();
 		// comando();
 	
-		void cria(string tipo, int ntipo) {
-
-		}
+		void cria(string tipo, int ntipo);
+		string getTipo();
+		int getNtipo();
+		
 
 		// VAI CRIAR O TERRENO, DECIDIR SE É DO TIPO 1, 2 ou 3 COM UM >>> IF/CASE <<< (terr. inicial, continente ou ilha) COM RANDOM NUMS
 		// DEPOIS FAZER UM >>> CASE <<< COM RANDOM NUMS PARA DECIDIR SE É UMA PLANICIE, CASTELO, MINA, FORTALEZA, MONTANHA, DUNA
