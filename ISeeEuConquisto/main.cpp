@@ -132,6 +132,10 @@ void SeparaPalavras(string operacoes, bool ler)
             SaveFile << VectorComandos[0] << " " << VectorComandos[1] << endl;
         }
     }
+    else
+    {
+        cout << "\nComando " << VectorComandos[0] << " nao reconhecido." << endl;
+    }
 }
 
 #pragma endregion
