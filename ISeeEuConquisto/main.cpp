@@ -196,7 +196,13 @@ void jogo(bool PrimeiraVez) {
 
                 getline(cin, operacao);
 
-                SeparaPalavras(operacao, false);
+                if (operacao.empty()) {
+                    cout << "\nPor favor escreva alguma coisa";
+                }
+                else
+                {
+                    SeparaPalavras(operacao, false);
+                }
 
             } while (operacao != "sair");
         
@@ -248,11 +254,10 @@ void inicio() {
 void carrega() {
     bool sucesso = false;
     ClasseComandos ClasseComandosMain;
-
+    bool loop = false;
     clear();
     do
     {
-        bool loop = false;
         cout << "\nQual e o nome do imperio que queres carregar? ";
         string nomefich;
         if (loop == false) {
@@ -280,8 +285,8 @@ void carrega() {
             sucesso = true;
         }
         else {
-            cout << "\n>>> ERRO A CARREGAR O FICHEIRO!!! <<<";
             loop = true;
+            cout << "\n>>> ERRO A CARREGAR O FICHEIRO!!! <<<" << endl;    
         }
         
     } while (sucesso == false);
