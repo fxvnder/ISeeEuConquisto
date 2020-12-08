@@ -85,9 +85,9 @@ void ComandoConquista(string nome) {
 				if (FatorSorte <= 70)
 				{
 					vetores::Imperio.push_back(vetores::Mundo[i]);
-					cout << "\nParabens! Conquistou o " << vetores::Imperio[0].NomeTerritorio << "! O seu fator sorte vitorioso foi de " << FatorSorte << "%" << endl;
+					cout << "\nParabens! Conquistou o " << vetores::Mundo[i].NomeTerritorio << "! O seu fator sorte vitorioso foi de " << FatorSorte << "%" << endl;
 				}
-				else cout << "\nQue azar! O territorio " << vetores::Imperio[0].NomeTerritorio << " nao foi conquistado, pois o seu fator sorte foi de " << FatorSorte << "%" << endl;
+				else cout << "\nQue azar! O territorio " << vetores::Mundo[i].NomeTerritorio << " nao foi conquistado, pois o seu fator sorte foi de " << FatorSorte << "%" << endl;
 			}
 			//else
 			//{
