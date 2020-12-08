@@ -91,9 +91,11 @@ void SeparaPalavras(string operacoes, bool ler)
         VectorComandos.push_back(PalavraSeparada);
     }
 
-    for (unsigned int i = 0; i < VectorComandos.size(); i++) {
-        cout << VectorComandos[i] << endl;
-    }
+    // codigo pode vir a ser util:
+    //
+    //  for (unsigned int i = 0; i < VectorComandos.size(); i++) {
+    //    cout << VectorComandos[i] << endl;
+    //  }
 
     if (VectorComandos[0] == "cria")
     {
@@ -103,16 +105,29 @@ void SeparaPalavras(string operacoes, bool ler)
         ClasseComandosMain.CriaTerreno(VectorComandos[1], SeguraInt);
         if (ler == false) {
             ofstream SaveFile;
-            SaveFile.open(VariaveisImportantes::nomeficheiro + ".save", ios::out | ios_base::app | ios::binary);
+            SaveFile.open(VariaveisImportantes::nomeficheiro + ".save", ios::out | ios_base::app);
             SaveFile << VectorComandos[0] << " " << VectorComandos[1] << " " << VectorComandos[2] << endl;
         }
     }
     else if (VectorComandos[0] == "conquista")
     {
         stringstream Tamanho(VectorComandos[1]);
-        int SeguraInt = 0;
-        Tamanho >> SeguraInt;
         ClasseComandosMain.ConquistaTerritorios(VectorComandos[1]);
+        if (ler == false) {
+            ofstream SaveFile;
+            SaveFile.open(VariaveisImportantes::nomeficheiro + ".save", ios::out | ios_base::app);
+            SaveFile << VectorComandos[0] << " " << VectorComandos[1] << endl;
+        }
+    }
+    else if (VectorComandos[0] == "nickname")
+    {
+        VariaveisImportantes::username = VectorComandos[1];
+        if (ler == true) cout << "\nO teu nickname: " << VectorComandos[1] << endl;
+        if (ler == false) {
+            ofstream SaveFile;
+            SaveFile.open(VariaveisImportantes::nomeficheiro + ".save", ios::out | ios_base::app);
+            SaveFile << VectorComandos[0] << " " << VectorComandos[1] << endl;
+        }
     }
 }
 
@@ -150,6 +165,7 @@ void jogo(bool PrimeiraVez) {
 
         cout << VariaveisImportantes::nomeficheiro;
         ClasseComandosMain.GravaFicheiro(VariaveisImportantes::nomeficheiro);
+        SeparaPalavras("nickname " + VariaveisImportantes::username, false);
         cout << "\nParabens, " << VariaveisImportantes::username << "! Vamos agora comecar a jogar! Para sair escreva sair" << endl;
         do
         {
@@ -183,7 +199,7 @@ void jogo(bool PrimeiraVez) {
 }
 
 void inicio() {
-
+    string operacao;
     clear();
     cout << "Bem vindo a aventura, amigo, bem-haja! Vamos comecar?...\n";
     cout << "\n...espera la... ainda nem sei o teu nome!...";
@@ -249,6 +265,7 @@ void carrega() {
                 operacao = nLinhas;
                 SeparaPalavras(operacao, true);
             }
+            cout << "Ficheiro carregado com sucesso!" << endl;
             OpenFile.close();
             sucesso = true;
         }
