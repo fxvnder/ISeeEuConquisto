@@ -87,15 +87,14 @@ void SeparaPalavras(string operacoes, bool ler)
     string PalavraSeparada;
     stringstream StrStream(operacoes);
 
+    //codigo pode vir a ser util:
+    // for (unsigned int i = 0; i < VectorComandos.size(); i++) {
+    // cout << VectorComandos[i] << endl;
+    // }
+
     while (StrStream >> PalavraSeparada) {
         VectorComandos.push_back(PalavraSeparada);
     }
-
-    // codigo pode vir a ser util:
-    //
-    //  for (unsigned int i = 0; i < VectorComandos.size(); i++) {
-    //    cout << VectorComandos[i] << endl;
-    //  }
 
     if (VectorComandos[0] == "cria")
     {
@@ -129,6 +128,27 @@ void SeparaPalavras(string operacoes, bool ler)
             SaveFile << VectorComandos[0] << " " << VectorComandos[1] << endl;
         }
     }
+}
+
+void EliminaLinhasEmBranco(const char* filename)
+{
+    ifstream fin(filename);
+
+    ofstream fout;
+    fout.open("temp.save", ios::out);
+
+    string str;
+    while (getline(fin, str))
+    {
+        while (str.length() == 0)
+            getline(fin, str);
+
+        fout << str << endl;
+    }
+    fout.close();
+    fin.close();
+    remove(filename);
+    rename("temp.save", filename);
 }
 
 #pragma endregion
@@ -178,6 +198,7 @@ void jogo(bool PrimeiraVez) {
         } while (operacao != "sair");
         
         SaveFile.close();
+        EliminaLinhasEmBranco(VariaveisImportantes::nomeficheiro);
 
     }
     else
