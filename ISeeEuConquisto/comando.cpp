@@ -5,33 +5,37 @@
 using namespace std;
 using namespace TerritoriosNS;
 
-#pragma region Vetores (DEPOIS MOVER)
+//#pragma region Vetores (DEPOIS MOVER)
+//
+//vector<ClasseTerritorios> vetorMundo(vector <ClasseTerritorios> Mundo) {
+//	
+//	return Mundo;
+//}
+//
+//vector<ClasseTerritorios> vetorImperio(vector <ClasseTerritorios> Imperio) {
+//	
+//	return Imperio;
+//}
+//
+//#pragma endregion
 
-vector<ClasseTerritorios> vetorMundo() {
+namespace vetores {
 	vector<ClasseTerritorios> Mundo;
-	return Mundo;
-}
-
-vector<ClasseTerritorios> vetorImperio() {
 	vector<ClasseTerritorios> Imperio;
-	return Imperio;
 }
-
-#pragma endregion
-
 #pragma region CRIA
 
 void ComandoCria(string tipo, int ntipo) {
 	ClasseTerritorios Territorio;
-	vector<ClasseTerritorios> Mundo = vetorMundo();
+	vetores:: Mundo;
 	for (int i = 0; i < ntipo; i++)
 	{
-		Mundo.push_back(ClasseTerritorios());
-		Mundo[i].NomeTerritorio = tipo + to_string(i + 1);
-		cout << "Foi criado " << Mundo[i].NomeTerritorio << endl;
+		vetores::Mundo.push_back(ClasseTerritorios());
+		vetores::Mundo[i].NomeTerritorio = tipo + to_string(i + 1);
+		cout << "Foi criado " << vetores::Mundo[i].NomeTerritorio << endl;
 	}
 	// if ntipo > 1, tipo = +s
-	Mundo = vetorMundo();
+	
 }
 
 void ComandosNS::ClasseComandos::CriaTerreno(string tipo, int ntipo) {
@@ -56,19 +60,17 @@ int ComandosNS::ClasseComandos::getNtipo()
 #pragma region CONQUISTA
 
 void ComandoConquista(string nome) {
-	ClasseTerritorios Territorio;
-	vector<ClasseTerritorios> Imperio = vetorImperio();
-	vector<ClasseTerritorios> Mundo = vetorMundo();
-	for (int i = 0; i < Mundo.size(); i++)
+	ClasseTerritorios Territorio;;
+	for (int i = 0; i < vetores::Mundo.size(); i++)
 	{
-		if (nome == Mundo[i].NomeTerritorio)
+		if (nome == vetores::Mundo[i].NomeTerritorio)
 		{ 
-			Imperio.push_back(Mundo[i]);
-			cout << "\nFoi conquistado ", Imperio[0].NomeTerritorio;
+			vetores::Imperio.push_back(vetores::Mundo[i]);
+			cout << "\nFoi conquistado " << vetores::Imperio[0].NomeTerritorio;
 		}
 		else
 		{
-			cout << "Território não encontrado" << endl;
+			cout << "Territorio não encontrado" << endl;
 		}
 	}
 	cout << endl;
@@ -118,7 +120,7 @@ void ComandoListaImperio(vector<ClasseTerritorios> const &Imperio) {
 	
 	cout << "Os elementos do vetor imperio sao: ";
 	for (int i = 0; i < Imperio.size(); i++)
-		cout << Imperio.at(i).Resistencia << endl;
+		cout << Imperio.at(i).NomeTerritorio << endl;
 
 }
 
@@ -126,16 +128,14 @@ void ComandoListaMundo(vector<ClasseTerritorios> const &Mundo) {
 	
 	cout << "Os elementos do vetor mundo sao: ";
 	for (int i = 0; i < Mundo.size(); i++)
-		cout << Mundo.at(i).Resistencia << endl;
+		cout << Mundo.at(i).NomeTerritorio << endl;
 
 }
 
 void ComandosNS::ClasseComandos::ListaComandos()
 {
-	vector<ClasseTerritorios> Imperio = vetorImperio();
-	vector<ClasseTerritorios> Mundo = vetorMundo();
-	ComandoListaImperio(Imperio);
-	ComandoListaMundo(Mundo);
+	ComandoListaImperio(vetores::Imperio);
+	ComandoListaMundo(vetores::Mundo);
 }
 #pragma endregion
 
