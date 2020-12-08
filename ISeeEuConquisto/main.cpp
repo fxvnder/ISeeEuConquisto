@@ -130,27 +130,6 @@ void SeparaPalavras(string operacoes, bool ler)
     }
 }
 
-void EliminaLinhasEmBranco(const char* filename)
-{
-    ifstream fin(filename);
-
-    ofstream fout;
-    fout.open("temp.save", ios::out);
-
-    string str;
-    while (getline(fin, str))
-    {
-        while (str.length() == 0)
-            getline(fin, str);
-
-        fout << str << endl;
-    }
-    fout.close();
-    fin.close();
-    remove(filename);
-    rename("temp.save", filename);
-}
-
 #pragma endregion
 
 void jogo(bool PrimeiraVez) {
@@ -198,7 +177,6 @@ void jogo(bool PrimeiraVez) {
         } while (operacao != "sair");
         
         SaveFile.close();
-        EliminaLinhasEmBranco(VariaveisImportantes::nomeficheiro);
 
     }
     else
