@@ -59,18 +59,18 @@ void ComandoConquista(string nome) {
 	ClasseTerritorios Territorio;
 	vector<ClasseTerritorios> Imperio = vetorImperio();
 	vector<ClasseTerritorios> Mundo = vetorMundo();
-	cout << Mundo[1].NomeTerritorio;
-	cout << Mundo[0].NomeTerritorio;
 	for (int i = 0; i < Mundo.size(); i++)
 	{
 		if (nome == Mundo[i].NomeTerritorio)
+		{ 
 			Imperio.push_back(Mundo[i]);
+			cout << "\nFoi conquistado ", Imperio[0].NomeTerritorio;
+		}
 		else
 		{
 			cout << "Território não encontrado" << endl;
 		}
 	}
-	cout << "\nFoi conquistado ", Imperio[0].NomeTerritorio;
 	cout << endl;
 
 }
@@ -114,8 +114,28 @@ string ComandosNS::ClasseComandos::getNomeFicheiro()
 
 #pragma region LISTA
 
-void ComandosNS::ClasseComandos::ListaComandos(string nomeJogo)
+void ComandoListaImperio(vector<ClasseTerritorios> const &Imperio) {
+	
+	cout << "Os elementos do vetor imperio sao: ";
+	for (int i = 0; i < Imperio.size(); i++)
+		cout << Imperio.at(i).Resistencia << endl;
+
+}
+
+void ComandoListaMundo(vector<ClasseTerritorios> const &Mundo) {
+	
+	cout << "Os elementos do vetor mundo sao: ";
+	for (int i = 0; i < Mundo.size(); i++)
+		cout << Mundo.at(i).Resistencia << endl;
+
+}
+
+void ComandosNS::ClasseComandos::ListaComandos()
 {
+	vector<ClasseTerritorios> Imperio = vetorImperio();
+	vector<ClasseTerritorios> Mundo = vetorMundo();
+	ComandoListaImperio(Imperio);
+	ComandoListaMundo(Mundo);
 }
 #pragma endregion
 
@@ -149,5 +169,22 @@ string ComandosNS::ClasseComandos::getFilenameC()
 {
 	return filenameC;
 }
+
+#pragma endregion
+
+#pragma region codigo testes
+
+//#include <list>
+//list<int> dest(Imperio.begin(), Imperio.end());
+//cout << "Conteudo do vetor Imperio:\n";
+//for (const int& i : dest) {
+//	cout << i << " " << endl;
+//}
+//
+//list<int> dest(Mundo.begin(), Mundo.end());
+//cout << "Conteudo do vetor Mundo:\n";
+//for (const int& i : dest) {
+//	cout << i << " " << endl;
+//}
 
 #pragma endregion

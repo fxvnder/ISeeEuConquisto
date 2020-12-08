@@ -118,6 +118,10 @@ void SeparaPalavras(string operacoes, bool ler)
             SaveFile << VectorComandos[0] << " " << VectorComandos[1] << endl;
         }
     }
+    else if (VectorComandos[0] == "lista")
+    {
+        ClasseComandosMain.ListaComandos();
+    }
     else if (VectorComandos[0] == "nickname")
     {
         VariaveisImportantes::username = VectorComandos[1];

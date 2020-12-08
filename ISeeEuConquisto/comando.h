@@ -22,7 +22,7 @@ namespace ComandosNS {
 		void CriaTerreno(string tipo, int ntipo);
 		void GravaFicheiro(string filename);
 		void CarregaFicheiro(string filenameC);
-		void ListaComandos(string nomeJogo);
+		void ListaComandos();
 		void ConquistaTerritorios(string nome);
 	};
 
