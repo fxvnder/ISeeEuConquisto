@@ -265,8 +265,12 @@ void carrega() {
             while (!OpenFile.eof()) {
                 getline(OpenFile, nLinhas);
                 cout << nLinhas << endl;
-                operacao = nLinhas;
-                SeparaPalavras(operacao, true);
+                if (!nLinhas.empty())
+                {
+                    operacao = nLinhas;
+                    SeparaPalavras(operacao, true);
+                }
+                
             }
             cout << "Ficheiro carregado com sucesso!" << endl;
             OpenFile.close();
