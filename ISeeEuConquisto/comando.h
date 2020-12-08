@@ -9,16 +9,16 @@ namespace ComandosNS {
 
 	class ClasseComandos
 	{
-	protected:
 
-	public:
 		//vars
 		//static int idntipo;
 		int ntipo;
-		int getNtipo();
 		string tipo, nome, filename, filenameC, username;
-		string getTipo(), getNome(), getNomeFicheiro(), getFilenameC();
 
+	public:
+
+		int getNtipo();
+		string getTipo(), getNome(), getNomeFicheiro(), getFilenameC();
 		//funcoes
 		void CriaTerreno(string tipo, int ntipo);
 		void GravaFicheiro(string filename);

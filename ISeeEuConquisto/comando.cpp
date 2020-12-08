@@ -1,3 +1,5 @@
+#pragma region Includes e NS
+
 #include "comando.h"
 #include "includes.h"
 #include "territorios.h"
@@ -5,24 +7,13 @@
 using namespace std;
 using namespace TerritoriosNS;
 
-//#pragma region Vetores (DEPOIS MOVER)
-//
-//vector<ClasseTerritorios> vetorMundo(vector <ClasseTerritorios> Mundo) {
-//	
-//	return Mundo;
-//}
-//
-//vector<ClasseTerritorios> vetorImperio(vector <ClasseTerritorios> Imperio) {
-//	
-//	return Imperio;
-//}
-//
-//#pragma endregion
-
 namespace vetores {
 	vector<ClasseTerritorios> Mundo;
 	vector<ClasseTerritorios> Imperio;
 }
+
+#pragma endregion
+
 #pragma region CRIA
 
 void ComandoCria(string tipo, int ntipo) {
@@ -221,4 +212,18 @@ string ComandosNS::ClasseComandos::getFilenameC()
 //	cout << i << " " << endl;
 //}
 
+
+//#pragma region Vetores (DEPOIS MOVER)
+//
+//vector<ClasseTerritorios> vetorMundo(vector <ClasseTerritorios> Mundo) {
+//	
+//	return Mundo;
+//}
+//
+//vector<ClasseTerritorios> vetorImperio(vector <ClasseTerritorios> Imperio) {
+//	
+//	return Imperio;
+//}
+//
+//#pragma endregion
 #pragma endregion
