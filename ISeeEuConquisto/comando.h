@@ -13,6 +13,7 @@ namespace ComandosNS {
 
 	public:
 		//vars
+		//static int idntipo;
 		int ntipo;
 		int getNtipo();
 		string tipo, nome, filename, filenameC, username;

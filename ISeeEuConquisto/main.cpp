@@ -269,8 +269,7 @@ void carrega() {
                 {
                     operacao = nLinhas;
                     SeparaPalavras(operacao, true);
-                }
-                
+                }               
             }
             cout << "Ficheiro carregado com sucesso!" << endl;
             OpenFile.close();
@@ -305,6 +304,7 @@ int main() {
   %%%%%%%%%            %%%%%%%%%                           I See, Eu Conquisto!
 
      by the greatest devs Joao 'FXVNDER' Oliveira and Ze 'EdEquinox' Marques
+                      >>> 2018012875              >>> 2018019295
 
      Vamos comecar a nossa aventura? Ou ja comecaste o grind?
             1 - Novo mundo // 2 - Carrega mundo                        
