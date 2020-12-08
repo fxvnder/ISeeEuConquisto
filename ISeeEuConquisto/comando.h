@@ -12,15 +12,15 @@ namespace ComandosNS {
 
 		//vars
 		//static int idntipo;
-		int ntipo;
+		int ntipo, HistCriacoes;
 		string tipo, nome, filename, filenameC, username;
 
 	public:
 
-		int getNtipo();
+		int getNtipo(), getHistCriacoes();
 		string getTipo(), getNome(), getNomeFicheiro(), getFilenameC();
 		//funcoes
-		void CriaTerreno(string tipo, int ntipo);
+		void CriaTerreno(string tipo, int ntipo, int HistCriacoes);
 		void GravaFicheiro(string filename);
 		void CarregaFicheiro(string filenameC);
 		void ListaComandos();

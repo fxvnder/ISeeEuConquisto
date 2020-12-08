@@ -13,6 +13,7 @@ namespace TerritoriosNS {
 	public:
 		ClasseTerritorios();
 		string NomeTerritorio = "";
+		string Tipo = "";
 		int IDTerr = 0;
 		int Resistencia = 0;
 		int ProdProdutos = 0;

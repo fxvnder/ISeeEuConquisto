@@ -16,18 +16,17 @@ namespace vetores {
 
 #pragma region CRIA
 
-void ComandoCria(string tipo, int ntipo) {
+void ComandoCria(string tipo, int ntipo, int HistCriacoes) {
 	ClasseTerritorios Territorio;
 	vetores::Mundo;
-	int i = 0;
-	for (i; i < ntipo; i++)
+	int novoi = HistCriacoes - ntipo;
+
+	for (int i = novoi; i < HistCriacoes; i++)
 	{
 		vetores::Mundo.push_back(ClasseTerritorios());
-		for (int x = 0; x < vetores::Mundo.size(); x++)
-		{
-			vetores::Mundo[i].NomeTerritorio = tipo + to_string(x + 1);
-			vetores::Mundo[i].IDTerr = vetores::Mundo[i].IDTerr++;
-		}
+		vetores::Mundo[i].Tipo = tipo;
+		vetores::Mundo[i].IDTerr = HistCriacoes;
+		vetores::Mundo[i].NomeTerritorio = tipo + to_string(i + 1);
 		vetores::Mundo[i].Resistencia = rand() % 10;
 		vetores::Mundo[i].ProdOuro = rand() % 10;
 		vetores::Mundo[i].ProdProdutos = rand() % 10;
@@ -47,11 +46,12 @@ void ComandoCria(string tipo, int ntipo) {
 	
 }
 
-void ComandosNS::ClasseComandos::CriaTerreno(string tipo, int ntipo) {
+void ComandosNS::ClasseComandos::CriaTerreno(string tipo, int ntipo, int HistCriacoes) {
 	this->tipo = tipo;
 	this->ntipo = ntipo;
+	this->HistCriacoes = HistCriacoes;
 
-	ComandoCria(tipo, ntipo);
+	ComandoCria(tipo, ntipo, HistCriacoes);
 }
 
 string ComandosNS::ClasseComandos::getTipo()
@@ -62,6 +62,11 @@ string ComandosNS::ClasseComandos::getTipo()
 int ComandosNS::ClasseComandos::getNtipo()
 {
 	return ntipo;
+}
+
+int ComandosNS::ClasseComandos::getHistCriacoes()
+{
+	return HistCriacoes;
 }
 
 #pragma endregion

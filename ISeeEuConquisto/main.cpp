@@ -69,6 +69,7 @@ void syspause() { // SYS.PAUSE = PRESS ANY KEY TO CONTINUE
 namespace VariaveisImportantes
 {
     string username, nomeficheiro;
+    int QuantCria = 0;
 }
 
 #pragma endregion
@@ -101,7 +102,8 @@ void SeparaPalavras(string operacoes, bool ler)
         stringstream Tamanho(VectorComandos[2]);
         int SeguraInt = 0;
         Tamanho >> SeguraInt;
-        ClasseComandosMain.CriaTerreno(VectorComandos[1], SeguraInt);
+        VariaveisImportantes::QuantCria = VariaveisImportantes::QuantCria + SeguraInt;
+        ClasseComandosMain.CriaTerreno(VectorComandos[1], SeguraInt, VariaveisImportantes::QuantCria);
         if (ler == false) {
             ofstream SaveFile;
             SaveFile.open(VariaveisImportantes::nomeficheiro + ".save", ios::out | ios_base::app);
@@ -132,6 +134,7 @@ void SeparaPalavras(string operacoes, bool ler)
             SaveFile << VectorComandos[0] << " " << VectorComandos[1] << endl;
         }
     }
+    else if (VectorComandos[0] == "sair") cout << "\n\n\nBye bye!" << endl;
     else
     {
         cout << "\nComando " << VectorComandos[0] << " nao reconhecido." << endl;
@@ -174,13 +177,17 @@ void jogo(bool PrimeiraVez) {
         ClasseComandosMain.GravaFicheiro(VariaveisImportantes::nomeficheiro);
         SeparaPalavras("nickname " + VariaveisImportantes::username, false);
         cout << "\nParabens, " << VariaveisImportantes::username << "! Vamos agora comecar a jogar! Para sair escreva sair" << endl;
+        cout << ">>> comandos disponiveis: cria / lista / conquista / sair" << endl;
         do
         {
             cout << "Insira um comando aqui: ";
 
             getline(cin, operacao);
 
-            SeparaPalavras(operacao, false);
+            if (operacao.empty()) {
+                cout << "\nTens de dizer um comando, amigo" << endl;
+            }
+            else SeparaPalavras(operacao, false);
 
         } while (operacao != "sair");
         
@@ -258,7 +265,7 @@ void carrega() {
     clear();
     do
     {
-        cout << "\nQual e o nome do imperio que queres carregar? ";
+        cout << "Qual e o nome do imperio que queres carregar? ";
         string nomefich;
         if (loop == false) {
             cin.ignore(1000, '\n');
@@ -270,7 +277,7 @@ void carrega() {
 
         if (OpenFile.is_open())
         {
-            cout << "Bem-vindo de volta! Eis os comandos introduzidos anteriormente:\n\n" << endl;
+            cout << "\nBem-vindo de volta! Eis os comandos introduzidos anteriormente:\n\n" << endl;
             while (!OpenFile.eof()) {
                 getline(OpenFile, nLinhas);
                 cout << nLinhas << endl;
