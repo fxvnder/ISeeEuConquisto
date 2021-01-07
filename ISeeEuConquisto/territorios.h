@@ -5,11 +5,9 @@
 #include "mundo.h"
 #include "comando.h"
 
-using namespace std;
-
 namespace TerritoriosNS {
 	class ClasseTerritorios {
-		
+
 	public:
 		ClasseTerritorios();
 		string NomeTerritorio = "";
@@ -20,7 +18,5 @@ namespace TerritoriosNS {
 		int ProdOuro = 0;
 		int Pontos = 0;
 	};
-	
 
 }
-
