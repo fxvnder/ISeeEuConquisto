@@ -9,9 +9,6 @@ namespace ComandosNS {
 
 	class ClasseComandos
 	{
-
-		//vars
-		//static int idntipo;
 		int ntipo, HistCriacoes;
 		string tipo, nome, filename, filenameC, username;
 
@@ -19,15 +16,31 @@ namespace ComandosNS {
 
 		int getNtipo(), getHistCriacoes();
 		string getTipo(), getNome(), getNomeFicheiro(), getFilenameC();
-		//funcoes
 		void CriaTerreno(string tipo, int ntipo, int HistCriacoes);
 		void GravaFicheiro(string filename);
 		void CarregaFicheiro(string filenameC);
 		void ListaComandos();
 		void ConquistaTerritorios(string nome);
 	};
-
 }
+
+void mainmenu();
+
+void programa();
+
+void pause();
+
+void SeparaPalavras(string operacoes, bool ler);
+
+void jogo(bool PrimeiraVez);
+
+void inicio();
+
+void carrega();
+
+void mainmenu();
+
+void programa();
 
 #pragma region Anotacoes
 
