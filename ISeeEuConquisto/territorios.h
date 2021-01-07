@@ -5,6 +5,8 @@
 #include "mundo.h"
 #include "comando.h"
 
+using namespace std;
+
 namespace TerritoriosNS {
 	class ClasseTerritorios {
 
@@ -19,4 +21,17 @@ namespace TerritoriosNS {
 		int Pontos = 0;
 	};
 
+	class ClasseVetores
+	{
+		
+	public:
+		ClasseVetores();
+		
+
+	private:
+		vector<ClasseTerritorios> Mundo;
+	};
+
+	
 }
+	

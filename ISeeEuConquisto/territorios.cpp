@@ -23,3 +23,9 @@ TerritoriosNS::ClasseTerritorios::ClasseTerritorios()
 {
 
 }
+
+TerritoriosNS::ClasseVetores::ClasseVetores()
+{
+}
+
+
