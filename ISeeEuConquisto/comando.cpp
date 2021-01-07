@@ -8,6 +8,7 @@ using namespace std;
 using namespace TerritoriosNS;
 
 namespace vetores {
+ // CLASSE PARA INCORPORAR vv
 	vector<ClasseTerritorios> Mundo;
 	vector<ClasseTerritorios> Imperio;
 }

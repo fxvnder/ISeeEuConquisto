@@ -76,6 +76,30 @@ namespace VariaveisImportantes
 
 #pragma region Funcoes
 
+void mainmenu() {
+
+    cout << R"(
+           %%%%%%%%%%%%                                                         
+       %%%%%%%%%%%%%%%%%%%%                                                 
+     %%%%%%%%%%%%%%%%%%%%%%%%                                                   
+   #%%%%%%%%%%%    %%%%%%%%%%%        %%%%  %%%%%%%%%%   %%%%%%%%%   %%%%%%%%%  
+  .%%%%%%%%%          %%%%%%%%%       %%%%  %%%%}       %%%____%%%% %%%%     
+  %%%%%%%%%            %%%%%%%%%      %%%%      {%%%%%  %%%         %%%%     
+  %%%%%%%%%            %%%%%%%%%      %%%%  #%%%%%%%%%   %%%%%%%%%   %%%%%%%%%. 
+  %%%%%%%%%            %%%%%%%%%                                                
+  %%%%%%%%%            %%%%%%%%%                                               
+  %%%%%%%%%            %%%%%%%%%      ISEC
+  %%%%%%%%%            %%%%%%%%%                           I See, Eu Conquisto!
+
+     by the greatest devs Joao 'FXVNDER' Oliveira and Ze 'EdEquinox' Marques
+                      >>> 2018012875              >>> 2018019295
+
+     Vamos comecar a nossa aventura? Ou ja comecaste o grind?
+            1 - Novo mundo // 2 - Carrega mundo                        
+)";
+
+}
+
 void pause() { // PAUSA EM PRINTS
     cin.ignore();
     cin.get();
@@ -142,6 +166,9 @@ void SeparaPalavras(string operacoes, bool ler)
 }
 
 #pragma endregion
+
+// FUNCOES -->> CLASSES!!!!!!!!!!!
+// NUNCA GLOBAIS, FORA DO MAIN!!!!!!!!!!!!
 
 void jogo(bool PrimeiraVez) {
     ClasseComandos ClasseComandosMain;
@@ -257,7 +284,7 @@ void inicio() {
     pause();
     jogo(true);
 }
-
+   
 void carrega() {
     bool sucesso = false;
     ClasseComandos ClasseComandosMain;
@@ -305,26 +332,7 @@ void carrega() {
 int main() {
     int operacao;
     bool start = false;
-
-    cout << R"(
-           %%%%%%%%%%%%                                                         
-       %%%%%%%%%%%%%%%%%%%%                                                 
-     %%%%%%%%%%%%%%%%%%%%%%%%                                                   
-   #%%%%%%%%%%%    %%%%%%%%%%%        %%%%  %%%%%%%%%%   %%%%%%%%%   %%%%%%%%%  
-  .%%%%%%%%%          %%%%%%%%%       %%%%  %%%%}       %%%____%%%% %%%%     
-  %%%%%%%%%            %%%%%%%%%      %%%%      {%%%%%  %%%         %%%%     
-  %%%%%%%%%            %%%%%%%%%      %%%%  #%%%%%%%%%   %%%%%%%%%   %%%%%%%%%. 
-  %%%%%%%%%            %%%%%%%%%                                                
-  %%%%%%%%%            %%%%%%%%%                                               
-  %%%%%%%%%            %%%%%%%%%      ISEC
-  %%%%%%%%%            %%%%%%%%%                           I See, Eu Conquisto!
-
-     by the greatest devs Joao 'FXVNDER' Oliveira and Ze 'EdEquinox' Marques
-                      >>> 2018012875              >>> 2018019295
-
-     Vamos comecar a nossa aventura? Ou ja comecaste o grind?
-            1 - Novo mundo // 2 - Carrega mundo                        
-)";
+    mainmenu();
     while (start == false) {
         cout << "               >> ";
         cin >> operacao;
@@ -336,6 +344,5 @@ int main() {
             carrega();
         } else cout << "           Acho que te enganaste, amigo... Mas eu dou-te outra chance! \n";
     }
-
     return 0;
 }
