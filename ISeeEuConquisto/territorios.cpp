@@ -19,13 +19,13 @@ using namespace std;
 // CIMA NORTE GERARNOVOTERRENO(PLAYERX, PLAYERY + 500)
 // BAIXO SUL GERARNOVOTERRENO(PLAYERX, PLAYERY - 500)
 
-TerritoriosNS::ClasseTerritorios::ClasseTerritorios()
-{
-
-}
-
-TerritoriosNS::ClasseVetores::ClasseVetores()
-{
-}
-
-
+//TerritoriosNS::ClasseTerritorios::ClasseTerritorios()
+//{
+//
+//}
+//
+//TerritoriosNS::ClasseVetores::ClasseVetores()
+//{
+//}
+//
+//
