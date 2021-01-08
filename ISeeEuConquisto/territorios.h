@@ -7,37 +7,31 @@
 
 using namespace std;
 
-namespace TerritoriosNS {
+
 	class ClasseTerritorios {
 
+		string NomeTerritorio, Tipo;
+		int IDTerr, Resistencia, ProdProdutos, ProdOuro, Pontos;
+		
+
 	public:
-		ClasseTerritorios();
-		string GetNomeTerr() { return NomeTerritorio; }
-		string GetTipoTerr() { return Tipo; }
-		int GetIDTerr() { return IDTerr; }
-		int GetResistencia() { return Resistencia; }
-		int GetProdProdutos() { return ProdProdutos; }
-		int GetProdOuro() { return ProdOuro; }
-		int GetPontos() { return Pontos; }
+		string GetNomeTerr();
+		string GetTipoTerr();
+		int GetIDTerr();
+		int GetResistencia();
+		int GetProdProdutos();
+		int GetProdOuro();
+		int GetPontos();
 
 		
-		void SetNomeTerr(string NomeTerr) { NomeTerritorio = NomeTerr; }
-		void SetTipoTerr(string TipoTerr) { Tipo = TipoTerr; }
-		void SetIDTerr(int NovoID) { IDTerr = NovoID; }
-		void SetResistencia(int NovaRes) { Resistencia = NovaRes; }
-		void SetProdP(int NovaPP) {ProdProdutos = NovaPP;}
-		void SetProdO(int NovaPO) { ProdOuro = NovaPO; }
-		void SetPontos(int NovaPontos) { Pontos = NovaPontos; }
+		void SetNomeTerr(string NomeTerr);
+		void SetTipoTerr(string TipoTerr);
+		void SetIDTerr(int NovoID);
+		void SetResistencia(int NovaRes);
+		void SetProdP(int NovaPP);
+		void SetProdO(int NovaPO);
+		void SetPontos(int NovaPontos);
 
-	private:
-		
-		string NomeTerritorio;
-		string Tipo;
-		int IDTerr;
-		int Resistencia;
-		int ProdProdutos;
-		int ProdOuro;
-		int Pontos;
 	};
 
 	class ClasseVetores
@@ -45,8 +39,8 @@ namespace TerritoriosNS {
 	public:
 		ClasseTerritorios& GetClasseTerritorios(vector<ClasseTerritorios>::size_type NMundo);
 		void AddClasseTerritorios(const ClasseTerritorios& NovaClasseTerritorios);
-		int GetTamanhoVetor() { return vetorsize; };
-		void SetTamanhoVetor(int NovoTamanho) { vetorsize = NovoTamanho; };
+		int GetTamanhoVetor();
+		void SetTamanhoVetor(int NovoTamanho);
 		
 		
 	private:
@@ -54,12 +48,4 @@ namespace TerritoriosNS {
 		int vetorsize = 0;
 	};
 
-	void ClasseVetores::AddClasseTerritorios(const ClasseTerritorios& NovaClasseTerritorios) {
-		Mundo.push_back(NovaClasseTerritorios);
-	}
-
-	ClasseTerritorios& ClasseVetores::GetClasseTerritorios(vector<ClasseTerritorios>::size_type NMundo) {
-		return Mundo[NMundo];
-	}
-}
 	

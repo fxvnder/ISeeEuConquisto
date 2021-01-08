@@ -6,7 +6,6 @@
 #include "mundo.h"
 
 using namespace std;
-using namespace TerritoriosNS;
 using namespace ComandosNS;
 
 //namespace vetores {
@@ -84,6 +83,7 @@ void ComandoCria(string tipo, int ntipo, int HistCriacoes) {
         AtualTerritorio.SetProdP(rand() % 10);
         AtualTerritorio.SetPontos(rand() % 10);
         cout << "Foi criado " << NomeTerr << endl;
+
         Mundo.SetTamanhoVetor(vetorsize + 1);
 
         //NovoMundo.push_back(ClasseTerritorios());
@@ -135,6 +135,34 @@ int ComandosNS::ClasseComandos::getHistCriacoes()
 
 #pragma endregion
 
+#pragma region NSEI
+string ClasseTerritorios::GetNomeTerr() { return NomeTerritorio; }
+string ClasseTerritorios::GetTipoTerr() { return Tipo; }
+int ClasseTerritorios::GetIDTerr() { return IDTerr; }
+int ClasseTerritorios::GetResistencia() { return Resistencia; }
+int ClasseTerritorios::GetProdProdutos() { return ProdProdutos; }
+int ClasseTerritorios::GetProdOuro() { return ProdOuro; }
+int ClasseTerritorios::GetPontos() { return Pontos; }
+void ClasseTerritorios::SetNomeTerr(string NomeTerr) { NomeTerritorio = NomeTerr; }
+void ClasseTerritorios::SetTipoTerr(string TipoTerr) { Tipo = TipoTerr; }
+void ClasseTerritorios::SetIDTerr(int NovoID) { IDTerr = NovoID; }
+void ClasseTerritorios::SetResistencia(int NovaRes) { Resistencia = NovaRes; }
+void ClasseTerritorios::SetProdP(int NovaPP) { ProdProdutos = NovaPP; }
+void ClasseTerritorios::SetProdO(int NovaPO) { ProdOuro = NovaPO; }
+void ClasseTerritorios::SetPontos(int NovaPontos) { Pontos = NovaPontos; }
+
+int ClasseVetores::GetTamanhoVetor() { return vetorsize; };
+void ClasseVetores::SetTamanhoVetor(int NovoTamanho) { vetorsize = NovoTamanho; };
+
+void ClasseVetores::AddClasseTerritorios(const ClasseTerritorios& NovaClasseTerritorios) {
+    Mundo.push_back(NovaClasseTerritorios);
+}
+
+inline ClasseTerritorios& ClasseVetores::GetClasseTerritorios(vector<ClasseTerritorios>::size_type NMundo) {
+    return Mundo[NMundo];
+}
+
+#pragma endregion
 #pragma region CONQUISTA
 
 void ComandoConquista(string nome) {

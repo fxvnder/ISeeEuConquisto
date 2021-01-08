@@ -4,14 +4,14 @@
 #include "territorios.h"
 
 using namespace std;
-using namespace TerritoriosNS;
+//using namespace TerritoriosNS;
 
 
-class ClasseDuna : public ClasseTerritorios
-{
-public:
-
-private:
-
-};
+//class ClasseDuna : public ClasseTerritorios
+//{
+//public:
+//
+//private:
+//
+//};
 
