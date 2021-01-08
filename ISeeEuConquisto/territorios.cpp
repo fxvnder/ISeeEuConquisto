@@ -5,11 +5,7 @@
 #include <memory>
 #include <string>
 
-using namespace std;
-
-
-
-
+#pragma region comentários
 
 // PARA ME LEMBRAR
 // FAZER FUNCAO GERARNOVOTERRENO(COORDENADA X, COORDENADA Y)
@@ -18,6 +14,8 @@ using namespace std;
 // DIREITA ESTE GERARNOVOTERRENO(PLAYERX + 500, PLAYERY)
 // CIMA NORTE GERARNOVOTERRENO(PLAYERX, PLAYERY + 500)
 // BAIXO SUL GERARNOVOTERRENO(PLAYERX, PLAYERY - 500)
+
+// ^^ NAO E PRECISO
 
 //TerritoriosNS::ClasseTerritorios::ClasseTerritorios()
 //{
@@ -29,3 +27,5 @@ using namespace std;
 //}
 //
 //
+
+#pragma endregion
