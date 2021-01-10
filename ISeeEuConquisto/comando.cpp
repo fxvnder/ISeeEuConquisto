@@ -136,6 +136,7 @@ int ComandosNS::ClasseComandos::getHistCriacoes()
 #pragma endregion
 
 #pragma region NSEI
+
 string ClasseTerritorios::GetNomeTerr() { return NomeTerritorio; }
 string ClasseTerritorios::GetTipoTerr() { return Tipo; }
 int ClasseTerritorios::GetIDTerr() { return IDTerr; }
@@ -163,6 +164,7 @@ inline ClasseTerritorios& ClasseVetores::GetClasseTerritorios(vector<ClasseTerri
 }
 
 #pragma endregion
+
 #pragma region CONQUISTA
 
 void ComandoConquista(string nome) {
