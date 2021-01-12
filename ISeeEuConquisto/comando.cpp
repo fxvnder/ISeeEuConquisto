@@ -243,15 +243,13 @@ void ComandosNS::ClasseComandos::ListaComandos()
     ComandoListaMundo(Mundo);
     cout << "\n>>> TERRITORIOS CONQUISTADOS: \n";
     ComandoListaImperio(Imperio);
-    cout << endl;
 }
 
 void ComandosNS::ClasseComandos::ListaComando(int TerritorioListado)
 {
     vector<ClasseTerritorios> Mundo;
-    cout << "\n>>> TERRITORIO: \n";
+    cout << "\n>>> TERRITORIOS CRIADOS: \n";
     ComandoListaTerritorio(Mundo, TerritorioListado);
-    cout << endl;
 }
 
 #pragma endregion
@@ -294,8 +292,76 @@ void pause() { // PAUSA EM PRINTS
     cin.get();
 }
 
-void SeparaPalavras(string operacoes, bool ler) {
+void SeparaPalavras(string operacoes, bool ler)
+{
+    vector<string> VectorComandos;
+    vector<ClasseTerritorios> Mundo, Imperio;
+    ClasseComandos ClasseComandosMain;
+    string PalavraSeparada;
+    stringstream StrStream(operacoes);
 
+    while (StrStream >> PalavraSeparada) {
+        VectorComandos.push_back(PalavraSeparada);
+    }
+
+    if (VectorComandos[0] == "cria")
+    {
+        stringstream Tamanho(VectorComandos[2]);
+        int SeguraInt = 0;
+        Tamanho >> SeguraInt;
+        VariaveisImportantes::QuantCria = VariaveisImportantes::QuantCria + SeguraInt;
+        ClasseComandosMain.CriaTerreno(VectorComandos[1], SeguraInt, VariaveisImportantes::QuantCria);
+        if (ler == false) {
+            ofstream SaveFile;
+            SaveFile.open(VariaveisImportantes::nomeficheiro + ".save", ios::out | ios_base::app);
+            SaveFile << VectorComandos[0] << " " << VectorComandos[1] << " " << VectorComandos[2] << endl;
+        }
+    }
+    else if (VectorComandos[0] == "conquista")
+    {
+        stringstream Tamanho(VectorComandos[1]);
+        ClasseComandosMain.ConquistaTerritorios(VectorComandos[1]);
+        if (ler == false) {
+            ofstream SaveFile;
+            SaveFile.open(VariaveisImportantes::nomeficheiro + ".save", ios::out | ios_base::app);
+            SaveFile << VectorComandos[0] << " " << VectorComandos[1] << endl;
+        }
+    }
+    else if (VectorComandos[0] == "lista")
+    {
+        if (VectorComandos.size() > 1) {
+            //ClasseComandosMain.ListaComando(VectorComandos[1]);
+        }
+        else
+        {
+            ClasseComandosMain.ListaComandos();
+        }
+    }
+    else if (VectorComandos[0] == "nickname")
+    {
+        VariaveisImportantes::username = VectorComandos[1];
+        if (ler == true) cout << "\nO teu nickname: " << VectorComandos[1] << endl;
+        if (ler == false) {
+            ofstream SaveFile;
+            SaveFile.open(VariaveisImportantes::nomeficheiro + ".save", ios::out | ios_base::app);
+            SaveFile << VectorComandos[0] << " " << VectorComandos[1] << endl;
+        }
+    }
+    else if (VectorComandos[0] == "ajuda")
+    {
+        cout << "\nAJUDA:" << endl;
+    }
+    else if (VectorComandos[0] == "sair") cout << "\n\n\nBye bye!" << endl;
+    else
+    {
+        cout << "\nComando " << VectorComandos[0] << " nao reconhecido." << endl;
+    }
+
+
+    //codigo pode vir a ser util:
+    // for (unsigned int i = 0; i < VectorComandos.size(); i++) {
+    // cout << VectorComandos[i] << endl;
+    // }
 }
 
 void jogo(bool PrimeiraVez) {
