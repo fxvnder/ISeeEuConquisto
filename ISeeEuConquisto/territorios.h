@@ -9,7 +9,7 @@ using namespace std;
 
 namespace TerritoriosNS {
 	class ClasseTerritorios {
-
+		
 	public:
 		ClasseTerritorios();
 		string NomeTerritorio = "";
@@ -20,7 +20,11 @@ namespace TerritoriosNS {
 		int ProdOuro = 0;
 		int Pontos = 0;
 	};
+	
 
+}
+
+<<<<<<< HEAD
 	class ClasseVetores
 	{
 		
@@ -35,3 +39,5 @@ namespace TerritoriosNS {
 	
 }
 	
+=======
+>>>>>>> parent of 6089704... bom dia

@@ -20,7 +20,6 @@ namespace ComandosNS {
 		void GravaFicheiro(string filename);
 		void CarregaFicheiro(string filenameC);
 		void ListaComandos();
-		void ListaComando(int TerritorioListado);
 		void ConquistaTerritorios(string nome);
 	};
 }

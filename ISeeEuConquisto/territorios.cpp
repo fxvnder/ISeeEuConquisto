@@ -1,6 +1,4 @@
 ﻿#include "territorios.h"
-#include "mundo.h"
-#include "comando.h"
 #include <vector>
 #include <memory>
 #include <string>
