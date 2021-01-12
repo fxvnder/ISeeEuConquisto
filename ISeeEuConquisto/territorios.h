@@ -41,9 +41,11 @@ using namespace std;
 		void AddClasseTerritorios(const ClasseTerritorios& NovaClasseTerritorios);
 		int GetTamanhoVetor();
 		void SetTamanhoVetor(int NovoTamanho);
-		vector<ClasseTerritorios> Mundo;
-		int vetorsize = 0;	
 		
+		
+	private:
+		vector<ClasseTerritorios> Mundo;
+		int vetorsize = 0;
 	};
 
 	
