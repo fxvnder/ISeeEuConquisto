@@ -5,9 +5,9 @@
 
 using namespace ComandosNS;
 
-//namespace ImperioNS
-//{
-//	class ClasseImperio : public ClasseComandos {
-//
-//	};
-//}
+namespace ImperioNS
+{
+	class ClasseImperio : public ClasseComandos {
+
+	};
+}

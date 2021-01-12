@@ -4,12 +4,12 @@
 
 
 using namespace std;
-//using namespace TerritoriosNS;
+using namespace TerritoriosNS;
 
-//void ClasseFortaleza()
-//{
-//	ClasseTerritorios Territorios;
-//	Territorios.NomeTerritorio = "Fortaleza";
-//	Territorios.Resistencia = 8;
-//	Territorios.Pontos = 1;
-//}
+void ClasseFortaleza()
+{
+	ClasseTerritorios Territorios;
+	Territorios.NomeTerritorio = "Fortaleza";
+	Territorios.Resistencia = 8;
+	Territorios.Pontos = 1;
+}

@@ -4,16 +4,16 @@
 #include "territorios.h"
 
 using namespace std;
-//using namespace TerritoriosNS;
-//
-//namespace ImperioNS {
-//	class ClasseMina : public ClasseTerritorios
-//	{
-//	public:
-//		// p/ user criar minas
-//	private:
-//
-//	};
-//
-//	
-//}
+using namespace TerritoriosNS;
+
+namespace ImperioNS {
+	class ClasseMina : public ClasseTerritorios
+	{
+	public:
+		// p/ user criar minas
+	private:
+
+	};
+
+	
+}

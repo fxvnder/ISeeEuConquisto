@@ -4,4 +4,4 @@
 
 
 using namespace std;
-//using namespace TerritoriosNS;
+using namespace TerritoriosNS;
