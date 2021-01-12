@@ -3,10 +3,26 @@
 #include "includes.h"
 #include "territorios.h"
 #include "comando.h"
+using namespace TerritoriosNS;
 
+class ClasseVetores {
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 using namespace std;
 >>>>>>> parent of 6089704... bom dia
+=======
+	vector<ClasseTerritorios> Mundo;
+
+public:
+	ClasseVetores();
+
+	
+};
+	
+ClasseVetores::ClasseVetores() {
+
+};
+>>>>>>> parent of 468a1ad... nao regista no vetor
 
