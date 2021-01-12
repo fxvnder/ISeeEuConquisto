@@ -21,6 +21,7 @@ namespace TerritoriosNS {
 	
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 }
 
 <<<<<<< HEAD
@@ -40,6 +41,9 @@ namespace TerritoriosNS {
 	
 =======
 >>>>>>> parent of 6089704... bom dia
+=======
+}
+>>>>>>> parent of 468a1ad... nao regista no vetor
 =======
 }
 >>>>>>> parent of 468a1ad... nao regista no vetor
