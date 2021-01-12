@@ -251,6 +251,9 @@ void ComandosNS::ClasseComandos::ListaComando(int TerritorioListado)
     vector<ClasseTerritorios> Mundo;
     cout << "\n>>> TERRITORIOS CRIADOS: \n";
     ComandoListaTerritorio(Mundo, TerritorioListado);
+<<<<<<< HEAD
+>>>>>>> parent of 02136af... jazu cenas
+=======
 >>>>>>> parent of 02136af... jazu cenas
 }
 #pragma endregion
@@ -297,6 +300,10 @@ void SeparaPalavras(string operacoes, bool ler)
 {
     vector<string> VectorComandos;
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+    vector<ClasseTerritorios> Mundo, Imperio;
+>>>>>>> parent of 02136af... jazu cenas
 =======
     vector<ClasseTerritorios> Mundo, Imperio;
 >>>>>>> parent of 02136af... jazu cenas
@@ -334,8 +341,11 @@ void SeparaPalavras(string operacoes, bool ler)
     else if (VectorComandos[0] == "lista")
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         ClasseComandosMain.ListaComandos();
 =======
+=======
+>>>>>>> parent of 02136af... jazu cenas
         if (VectorComandos.size() > 1) {
             //ClasseComandosMain.ListaComando(VectorComandos[1]);
         }
@@ -343,6 +353,9 @@ void SeparaPalavras(string operacoes, bool ler)
         {
             ClasseComandosMain.ListaComandos();
         }
+<<<<<<< HEAD
+>>>>>>> parent of 02136af... jazu cenas
+=======
 >>>>>>> parent of 02136af... jazu cenas
     }
     else if (VectorComandos[0] == "nickname")
@@ -356,11 +369,17 @@ void SeparaPalavras(string operacoes, bool ler)
         }
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> parent of 02136af... jazu cenas
     else if (VectorComandos[0] == "ajuda")
     {
         cout << "\nAJUDA:" << endl;
     }
+<<<<<<< HEAD
+>>>>>>> parent of 02136af... jazu cenas
+=======
 >>>>>>> parent of 02136af... jazu cenas
     else if (VectorComandos[0] == "sair") cout << "\n\n\nBye bye!" << endl;
     else
