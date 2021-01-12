@@ -135,35 +135,7 @@ int ComandosNS::ClasseComandos::getHistCriacoes()
 
 #pragma endregion
 
-#pragma region NSEI
 
-string ClasseTerritorios::GetNomeTerr() { return NomeTerritorio; }
-string ClasseTerritorios::GetTipoTerr() { return Tipo; }
-int ClasseTerritorios::GetIDTerr() { return IDTerr; }
-int ClasseTerritorios::GetResistencia() { return Resistencia; }
-int ClasseTerritorios::GetProdProdutos() { return ProdProdutos; }
-int ClasseTerritorios::GetProdOuro() { return ProdOuro; }
-int ClasseTerritorios::GetPontos() { return Pontos; }
-void ClasseTerritorios::SetNomeTerr(string NomeTerr) { NomeTerritorio = NomeTerr; }
-void ClasseTerritorios::SetTipoTerr(string TipoTerr) { Tipo = TipoTerr; }
-void ClasseTerritorios::SetIDTerr(int NovoID) { IDTerr = NovoID; }
-void ClasseTerritorios::SetResistencia(int NovaRes) { Resistencia = NovaRes; }
-void ClasseTerritorios::SetProdP(int NovaPP) { ProdProdutos = NovaPP; }
-void ClasseTerritorios::SetProdO(int NovaPO) { ProdOuro = NovaPO; }
-void ClasseTerritorios::SetPontos(int NovaPontos) { Pontos = NovaPontos; }
-
-int ClasseVetores::GetTamanhoVetor() { return vetorsize; };
-void ClasseVetores::SetTamanhoVetor(int NovoTamanho) { vetorsize = NovoTamanho; };
-
-void ClasseVetores::AddClasseTerritorios(const ClasseTerritorios& NovaClasseTerritorios) {
-    Mundo.push_back(NovaClasseTerritorios);
-}
-
-inline ClasseTerritorios& ClasseVetores::GetClasseTerritorios(vector<ClasseTerritorios>::size_type NMundo) {
-    return Mundo[NMundo];
-}
-
-#pragma endregion
 
 #pragma region CONQUISTA
 
@@ -171,7 +143,8 @@ void ComandoConquista(string nome) {
     ClasseTerritorios Territorio;
     ClasseVetores Mundo;
     ClasseVetores Imperio;
-    Imperio.AddClasseTerritorios(ClasseTerritorios());
+    Imperio.AddClasseTerritorios(ClasseTerritorios ());
+    cout << Territorio.GetNomeTerr() << endl;
     int FatorSorte = rand() % 100;
     bool vaiconquistar = true, existe = false;
     cout << endl;
@@ -330,14 +303,14 @@ void CarregaFicheiro(string filenameC) {
     }
 }
 
-void ComandosNS::ClasseComandos::CarregaFicheiro(string filenameC)
+void ClasseComandos::CarregaFicheiro(string filenameC)
 {
     this->filenameC = filenameC;
 
     CarregaFicheiro(filenameC);
 }
 
-string ComandosNS::ClasseComandos::getFilenameC()
+string ClasseComandos::getFilenameC()
 {
     return filenameC;
 }
@@ -412,6 +385,8 @@ void SeparaPalavras(string operacoes, bool ler) {
             cout << "\nComando " << VectorComandos[0] << " nao reconhecido." << endl;
         }
 }
+
+
 
 void jogo(bool PrimeiraVez) {
     ClasseComandos ClasseComandosMain;
