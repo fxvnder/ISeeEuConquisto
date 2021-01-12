@@ -5,11 +5,9 @@
 #include "mundo.h"
 #include "comando.h"
 
-using namespace std;
-
 namespace TerritoriosNS {
 	class ClasseTerritorios {
-
+		
 	public:
 		ClasseTerritorios();
 		string NomeTerritorio = "";
@@ -20,7 +18,17 @@ namespace TerritoriosNS {
 		int ProdOuro = 0;
 		int Pontos = 0;
 	};
+	
 
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+}
+
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
 	class ClasseVetores
 	{
 		
@@ -35,3 +43,23 @@ namespace TerritoriosNS {
 	
 }
 	
+=======
+>>>>>>> parent of 6089704... bom dia
+=======
+}
+>>>>>>> parent of 468a1ad... nao regista no vetor
+=======
+}
+>>>>>>> parent of 468a1ad... nao regista no vetor
+=======
+}
+>>>>>>> parent of 468a1ad... nao regista no vetor
+=======
+}
+>>>>>>> parent of 468a1ad... nao regista no vetor
+=======
+}
+>>>>>>> parent of 468a1ad... nao regista no vetor
+=======
+}
+>>>>>>> parent of 468a1ad... nao regista no vetor
