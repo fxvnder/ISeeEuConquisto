@@ -3,7 +3,7 @@
 #include "includes.h"
 #include "territorios.h"
 
-using namespace std;
+/*using namespace std;
 using namespace TerritoriosNS;
 
 
@@ -33,4 +33,4 @@ void ClassePlanicieValores2Ano()
 	Territorios.ProdProdutos = 2;
 	Territorios.ProdOuro = 1;
 	Territorios.Pontos = 1;
-}
+}*/

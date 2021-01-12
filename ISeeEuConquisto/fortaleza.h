@@ -1,6 +1,6 @@
 #pragma once
 
-
+/*
 #include "includes.h"
 #include "territorios.h"
 
@@ -16,3 +16,4 @@ private:
 
 };
 
+*/
