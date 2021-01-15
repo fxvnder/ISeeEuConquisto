@@ -235,26 +235,8 @@ void ComandoListaMundo(vector<ClasseTerritorios> const& Mundo) {
 
 void ComandosNS::ClasseComandos::ListaComandos()
 {
-<<<<<<< HEAD
     ComandoListaMundo(vetores::Mundo);
     ComandoListaImperio(vetores::Imperio);
-=======
-    vector<ClasseTerritorios> Mundo, Imperio;
-    cout << "\n>>> TERRITORIOS CRIADOS: \n";
-    ComandoListaMundo(Mundo);
-    cout << "\n>>> TERRITORIOS CONQUISTADOS: \n";
-    ComandoListaImperio(Imperio);
-}
-
-void ComandosNS::ClasseComandos::ListaComando(int TerritorioListado)
-{
-    vector<ClasseTerritorios> Mundo;
-    cout << "\n>>> TERRITORIOS CRIADOS: \n";
-    ComandoListaTerritorio(Mundo, TerritorioListado);
-<<<<<<< HEAD
->>>>>>> parent of 02136af... jazu cenas
-=======
->>>>>>> parent of 02136af... jazu cenas
 }
 #pragma endregion
 
@@ -299,14 +281,6 @@ void pause() { // PAUSA EM PRINTS
 void SeparaPalavras(string operacoes, bool ler)
 {
     vector<string> VectorComandos;
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-    vector<ClasseTerritorios> Mundo, Imperio;
->>>>>>> parent of 02136af... jazu cenas
-=======
-    vector<ClasseTerritorios> Mundo, Imperio;
->>>>>>> parent of 02136af... jazu cenas
     ClasseComandos ClasseComandosMain;
     string PalavraSeparada;
     stringstream StrStream(operacoes);
@@ -340,23 +314,7 @@ void SeparaPalavras(string operacoes, bool ler)
     }
     else if (VectorComandos[0] == "lista")
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
         ClasseComandosMain.ListaComandos();
-=======
-=======
->>>>>>> parent of 02136af... jazu cenas
-        if (VectorComandos.size() > 1) {
-            //ClasseComandosMain.ListaComando(VectorComandos[1]);
-        }
-        else
-        {
-            ClasseComandosMain.ListaComandos();
-        }
-<<<<<<< HEAD
->>>>>>> parent of 02136af... jazu cenas
-=======
->>>>>>> parent of 02136af... jazu cenas
     }
     else if (VectorComandos[0] == "nickname")
     {
@@ -368,19 +326,6 @@ void SeparaPalavras(string operacoes, bool ler)
             SaveFile << VectorComandos[0] << " " << VectorComandos[1] << endl;
         }
     }
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> parent of 02136af... jazu cenas
-    else if (VectorComandos[0] == "ajuda")
-    {
-        cout << "\nAJUDA:" << endl;
-    }
-<<<<<<< HEAD
->>>>>>> parent of 02136af... jazu cenas
-=======
->>>>>>> parent of 02136af... jazu cenas
     else if (VectorComandos[0] == "sair") cout << "\n\n\nBye bye!" << endl;
     else
     {

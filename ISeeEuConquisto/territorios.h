@@ -5,6 +5,8 @@
 #include "mundo.h"
 #include "comando.h"
 
+using namespace std;
+
 namespace TerritoriosNS {
 	class ClasseTerritorios {
 		
@@ -20,46 +22,5 @@ namespace TerritoriosNS {
 	};
 	
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-	class ClasseVetores
-	{
-		
-	public:
-		ClasseVetores();
-		
-
-	private:
-		vector<ClasseTerritorios> Mundo;
-	};
-
-	
-}
-	
-=======
->>>>>>> parent of 6089704... bom dia
-=======
-}
->>>>>>> parent of 468a1ad... nao regista no vetor
-=======
-}
->>>>>>> parent of 468a1ad... nao regista no vetor
-=======
-}
->>>>>>> parent of 468a1ad... nao regista no vetor
-=======
-}
->>>>>>> parent of 468a1ad... nao regista no vetor
-=======
-}
->>>>>>> parent of 468a1ad... nao regista no vetor
-=======
-}
->>>>>>> parent of 468a1ad... nao regista no vetor
