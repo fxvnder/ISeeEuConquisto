@@ -72,13 +72,13 @@ void ComandoCria(string tipo, int ntipo) {
     vetores::Mundo;
     ClasseTerritorios TerritorioF;
     if(tipo == "fortaleza"){
-        for (int i = 0; i < ntipo; i++) {
+        for (int i = TerritorioF.idvar; i < ntipo; i++) {
             
             vetores::Mundo.push_back(ClasseTerritorios());
-            int idcoiso = TerritorioF.getID();
+            
             vetores::Mundo[i].Tipo = "Fortaleza";
-            vetores::Mundo[i].IDTerr = TerritorioF.setID(idcoiso++);
-            vetores::Mundo[i].NomeTerritorio = "Fortaleza" + to_string(idcoiso);
+            vetores::Mundo[i].IDTerr = i;
+            vetores::Mundo[i].NomeTerritorio = "Fortaleza" + to_string(i);
             vetores::Mundo[i].Resistencia = 8;
             vetores::Mundo[i].ProdOuro = 0;
             vetores::Mundo[i].ProdProdutos = 0;

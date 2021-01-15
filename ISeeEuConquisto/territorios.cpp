@@ -7,8 +7,8 @@ using namespace std;
 using namespace TerritoriosNS;
 
 
- int ClasseTerritorios::setID(int id){
-     return id;
+ int ClasseTerritorios::setID(int idvar){
+     return idvar+1;
  }
 
  int ClasseTerritorios::getID(){
