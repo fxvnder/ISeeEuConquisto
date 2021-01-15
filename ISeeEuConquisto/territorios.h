@@ -19,6 +19,9 @@ namespace TerritoriosNS {
 		int ProdProdutos = 0;
 		int ProdOuro = 0;
 		int Pontos = 0;
+		int setID(int id);
+		int getID();
+		int idvar;
 	};
 	
 

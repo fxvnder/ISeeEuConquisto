@@ -4,8 +4,16 @@
 #include <string>
 
 using namespace std;
+using namespace TerritoriosNS;
 
 
+ int ClasseTerritorios::setID(int id){
+     return id;
+ }
+
+ int ClasseTerritorios::getID(){
+      return idvar;
+ }
 
 
 

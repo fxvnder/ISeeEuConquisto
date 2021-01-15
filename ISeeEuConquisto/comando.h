@@ -9,18 +9,20 @@ namespace ComandosNS {
 
 	class ClasseComandos
 	{
-		int ntipo, HistCriacoes;
+		int ntipo, turno;
 		string tipo, nome, filename, filenameC, username;
 
 	public:
 
-		int getNtipo(), getHistCriacoes();
+		int getNtipo(),getTurno();
 		string getTipo(), getNome(), getNomeFicheiro(), getFilenameC();
-		void CriaTerreno(string tipo, int ntipo, int HistCriacoes);
+		int setTurno(int turno);
+		void CriaTerreno(string tipo, int ntipo);
 		void GravaFicheiro(string filename);
 		void CarregaFicheiro(string filenameC);
 		void ListaComandos();
 		void ConquistaTerritorios(string nome);
+		void nextTurno();
 	};
 }
 
