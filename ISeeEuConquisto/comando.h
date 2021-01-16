@@ -10,17 +10,19 @@ namespace ComandosNS {
 	class ClasseComandos
 	{
 		int ntipo, turno;
-		string tipo, nome, filename, filenameC, username;
+		string tipo, nome, filename, filenameC, username, territorio;
 
 	public:
 
 		int getNtipo(),getTurno();
-		string getTipo(), getNome(), getNomeFicheiro(), getFilenameC();
+		string getTipo(), getNome(), getNomeFicheiro(), getFilenameC(), getTerritorio();
 		int setTurno(int turno);
 		void CriaTerreno(string tipo, int ntipo);
 		void GravaFicheiro(string filename);
 		void CarregaFicheiro(string filenameC);
-		void ListaComandos();
+		void ListaComandosBeforeGame();
+		void ListaComandosAfterGame();
+		void ListaComando(string territorio);
 		void ConquistaTerritorios(string nome);
 		void nextTurno();
 	};
@@ -35,6 +37,8 @@ void pause();
 void SeparaPalavras(string operacoes, bool ler);
 
 void jogo(bool PrimeiraVez);
+
+void GameOn();
 
 void inicio();
 

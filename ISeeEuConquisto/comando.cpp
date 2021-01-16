@@ -129,8 +129,8 @@ void ComandoCria(string tipo, int ntipo) {
             vetores::Mundo[OutVars::QuantCria].Tipo = "Planicie";
             vetores::Mundo[OutVars::QuantCria].IDTerr = OutVars::QuantPlanicie;
             vetores::Mundo[OutVars::QuantCria].NomeTerritorio = "Planicie" + to_string(OutVars::QuantPlanicie + 1);
-            vetores::Mundo[OutVars::QuantCria].Resistencia = 4;
-            vetores::Mundo[OutVars::QuantCria].ProdOuro = 0;
+            vetores::Mundo[OutVars::QuantCria].Resistencia = 5;
+            vetores::Mundo[OutVars::QuantCria].ProdOuro = 1;
             vetores::Mundo[OutVars::QuantCria].ProdProdutos = 1;
             vetores::Mundo[OutVars::QuantCria].Pontos = 1;
             cout << "Foi criado " << vetores::Mundo[OutVars::QuantCria].NomeTerritorio << endl;
@@ -145,9 +145,9 @@ void ComandoCria(string tipo, int ntipo) {
             vetores::Mundo[OutVars::QuantCria].Tipo = "Mina";
             vetores::Mundo[OutVars::QuantCria].IDTerr = OutVars::QuantMina;
             vetores::Mundo[OutVars::QuantCria].NomeTerritorio = "Mina" + to_string(OutVars::QuantMina + 1);
-            vetores::Mundo[OutVars::QuantCria].Resistencia = 4;
-            vetores::Mundo[OutVars::QuantCria].ProdOuro = 0;
-            vetores::Mundo[OutVars::QuantCria].ProdProdutos = 1;
+            vetores::Mundo[OutVars::QuantCria].Resistencia = 5;
+            vetores::Mundo[OutVars::QuantCria].ProdOuro = 1;
+            vetores::Mundo[OutVars::QuantCria].ProdProdutos = 0;
             vetores::Mundo[OutVars::QuantCria].Pontos = 1;
             cout << "Foi criado " << vetores::Mundo[OutVars::QuantCria].NomeTerritorio << endl;
         }
@@ -161,7 +161,7 @@ void ComandoCria(string tipo, int ntipo) {
             vetores::Mundo[OutVars::QuantCria].Tipo = "Montanha";
             vetores::Mundo[OutVars::QuantCria].IDTerr = OutVars::QuantMontanha;
             vetores::Mundo[OutVars::QuantCria].NomeTerritorio = "Montanha" + to_string(OutVars::QuantMontanha + 1);
-            vetores::Mundo[OutVars::QuantCria].Resistencia = 4;
+            vetores::Mundo[OutVars::QuantCria].Resistencia = 6;
             vetores::Mundo[OutVars::QuantCria].ProdOuro = 0;
             vetores::Mundo[OutVars::QuantCria].ProdProdutos = 1;
             vetores::Mundo[OutVars::QuantCria].Pontos = 1;
@@ -300,13 +300,49 @@ void ComandoListaMundo(vector<ClasseTerritorios> const& Mundo) {
     }
 }
 
-void ComandosNS::ClasseComandos::ListaComandos()
+void ComandoListaMundoInd(vector<ClasseTerritorios> const& Mundo, string territorio) {
+    int found = 0;
+    for (int i = 0; i < Mundo.size(); i++) {
+        if (Mundo.at(i).NomeTerritorio == territorio)
+        {
+            cout << ">>> TERRITORIO ENCONTRADO <<<";
+            cout << "\nNome do territorio: " << Mundo.at(i).NomeTerritorio << endl;
+            cout << "Resistencia do territorio: " << Mundo.at(i).Resistencia << endl;
+            cout << endl;
+            found = 1;
+        }
+    }
+    if (found == 0)
+    {
+        cout << "Territorio nao encontrado..." << endl;
+    }
+}
+
+void ComandosNS::ClasseComandos::ListaComandosBeforeGame()
+{
+    cout << "\n\n>>> TERRITORIOS CRIADOS <<<\n" << endl;
+    ComandoListaMundo(vetores::Mundo);
+    cout << endl;
+}
+
+void ComandosNS::ClasseComandos::ListaComandosAfterGame()
 {
     cout << "\n\n>>> TERRITORIOS CRIADOS <<<\n" << endl;
     ComandoListaMundo(vetores::Mundo);
     cout << "\n\n>>> TERRITORIOS CONQUISTADOS <<<\n" << endl;
     ComandoListaImperio(vetores::Imperio);
     cout << endl;
+}
+
+void ComandosNS::ClasseComandos::ListaComando(string territorio)
+{
+    ComandoListaMundoInd(vetores::Mundo, territorio);
+    cout << endl;
+}
+
+string ComandosNS::ClasseComandos::getTerritorio()
+{
+    return string();
 }
 #pragma endregion
 
@@ -394,19 +430,14 @@ void SeparaPalavras(string operacoes, bool ler)
             SaveFile << VectorComandos[0] << " " << VectorComandos[1] << " " << VectorComandos[2] << endl;
         }
     }
-    else if (VectorComandos[0] == "conquista")
-    {
-        stringstream Tamanho(VectorComandos[1]);
-        ClasseComandosMain.ConquistaTerritorios(VectorComandos[1]);
-    }
     else if (VectorComandos[0] == "lista")
     {
         if (VectorComandos.size() > 1) {
-            //ClasseComandosMain.ListaComando(VectorComandos[1]);
+            ClasseComandosMain.ListaComando(VectorComandos[1]);
         }
         else
         {
-            ClasseComandosMain.ListaComandos();
+            ClasseComandosMain.ListaComandosBeforeGame();
         }
     }
     else if (VectorComandos[0] == "passa"){   
@@ -436,7 +467,7 @@ void SeparaPalavras(string operacoes, bool ler)
 
         >> CRIA x y = VAI CRIAR UM TERRITORIO DO TIPO x E DA QUANTIDADE y.
 
-        >> LISTA (x) = VAI LISTAR TODOS OS TERRITORIOS DO MUNDO OU UM INDIVIDUAL (x)
+        >> LISTA (x) = VAI LISTAR TODOS OS TERRITORIOS DO MUNDO OU UM INDIVIDUAL (x - sensível a maiusculas)
 
         >> NICKNAME x = VAI MUDAR O TEU NICKNAME IN-GAME. SÓ O PODES FAZER ENQUANTO O JOGO NÃO COMEÇAR!
 
@@ -450,8 +481,42 @@ void SeparaPalavras(string operacoes, bool ler)
         
         )";
     }
+    else if (VectorComandos[0] == "comecar")
+    {
+        {
+        clear();
+        GameOn();
+        }
+    }
     else if (VectorComandos[0] == "sair") cout << "\n\n\nBye bye!" << endl;
     else cout << "\nComando " << VectorComandos[0] << " nao reconhecido." << endl;
+}
+
+void ComandosJogo(string operacoes) {
+
+    vector<string> VectorComandos;
+    ClasseComandos ClasseComandosMain;
+    string PalavraSeparada;
+    stringstream StrStream(operacoes);
+
+    while (StrStream >> PalavraSeparada) {
+        VectorComandos.push_back(PalavraSeparada);
+    }
+    if (VectorComandos[0] == "conquista")
+    {
+        stringstream Tamanho(VectorComandos[1]);
+        ClasseComandosMain.ConquistaTerritorios(VectorComandos[1]);
+    }
+    else if (VectorComandos[0] == "outracoisa")
+    {
+    // 
+    }
+}
+
+void GameOn() {
+
+    clear();
+    cout << "Estas preparado?";
 }
 
 void jogo(bool PrimeiraVez) {
