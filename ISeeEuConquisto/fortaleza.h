@@ -18,3 +18,4 @@ class ClasseFortaleza{
 		int getID();
 	};
 	
+void CriaFortaleza(int id, int ntipo);

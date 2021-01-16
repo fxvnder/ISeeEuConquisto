@@ -15,10 +15,10 @@ namespace vetores {
 	vector<ClasseTerritorios> Imperio;
 }
 
-namespace VariaveisImportantes
+namespace OutVars
 {
     string username, nomeficheiro;
-    int QuantCria = 0;
+    int QuantCria = -1, QuantCastelo = -1, QuantDuna = -1, QuantFortaleza = -1, QuantMina = -1, QuantMontanha = -1, QuantPlanicie = -1;
 }
 
 #pragma region UserOS
@@ -69,34 +69,107 @@ void syspause() { // SYS.PAUSE = PRESS ANY KEY TO CONTINUE
 #pragma region CRIA
 
 void ComandoCria(string tipo, int ntipo) {
-    vetores::Mundo;
-    ClasseTerritorios TerritorioF;
-    if (tipo == "fortaleza" || tipo == "castelo" || tipo == "duna" || tipo == "planicie" || tipo == "mina" || tipo == "montanha") {
 
-        for (int i = 0; i < ntipo; i++) 
+    // este código tá lindo oh https://media.tenor.com/images/7f0508ab7d5b50e6f93c2b5439b4eb5a/tenor.gif
+
+    if (tipo == "fortaleza") {
+        for (int i = 0; i < ntipo; i++)
         {
-            /*int id = i + 1;
-            for (int j = 0; j < vetores::Mundo.size(); j++)
-            {
-                if (vetores::Mundo[i].IDTerr == vetores::Mundo[j].IDTerr && vetores::Mundo[i].Tipo == vetores::Mundo[j].Tipo)
-                {
-                    id++;
-                }
-            }*/
+            OutVars::QuantFortaleza++; OutVars::QuantCria++;
             vetores::Mundo.push_back(ClasseTerritorios());
-            vetores::Mundo[i].Tipo = tipo;
-            vetores::Mundo[i].IDTerr = ntipo;
-            vetores::Mundo[i].NomeTerritorio = tipo + to_string(i + 1);
-            vetores::Mundo[i].Resistencia = rand() % 10;
-            vetores::Mundo[i].ProdOuro = rand() % 10;
-            vetores::Mundo[i].ProdProdutos = rand() % 10;
-            vetores::Mundo[i].Pontos = rand() % 10;
-            cout << "Foi criado " << vetores::Mundo[i].NomeTerritorio << endl;
-   
+            vetores::Mundo[OutVars::QuantCria].Tipo = "Fortaleza";
+            vetores::Mundo[OutVars::QuantCria].IDTerr = OutVars::QuantFortaleza;
+            vetores::Mundo[OutVars::QuantCria].NomeTerritorio = "Fortaleza" + to_string(OutVars::QuantFortaleza + 1);
+            vetores::Mundo[OutVars::QuantCria].Resistencia = 8;
+            vetores::Mundo[OutVars::QuantCria].ProdOuro = 0;
+            vetores::Mundo[OutVars::QuantCria].ProdProdutos = 0;
+            vetores::Mundo[OutVars::QuantCria].Pontos = 1;
+            cout << "Foi criado " << vetores::Mundo[OutVars::QuantCria].NomeTerritorio << endl;
+        }
+        //CriaFortaleza(OutVars::QuantFortaleza, ntipo);
+    }
+    else if (tipo == "castelo")
+    {
+        for (int i = 0; i < ntipo; i++)
+        {
+            OutVars::QuantCastelo++; OutVars::QuantCria++;
+            vetores::Mundo.push_back(ClasseTerritorios());
+            vetores::Mundo[OutVars::QuantCria].Tipo = "Castelo";
+            vetores::Mundo[OutVars::QuantCria].IDTerr = OutVars::QuantCastelo;
+            vetores::Mundo[OutVars::QuantCria].NomeTerritorio = "Castelo" + to_string(OutVars::QuantCastelo + 1);
+            vetores::Mundo[OutVars::QuantCria].Resistencia = 7;
+            vetores::Mundo[OutVars::QuantCria].ProdOuro = 1;
+            vetores::Mundo[OutVars::QuantCria].ProdProdutos = 3;
+            vetores::Mundo[OutVars::QuantCria].Pontos = 1;
+            cout << "Foi criado " << vetores::Mundo[OutVars::QuantCria].NomeTerritorio << endl;
+        }
+    }
+    else if (tipo == "duna")
+    {
+        for (int i = 0; i < ntipo; i++)
+        {
+            OutVars::QuantDuna++; OutVars::QuantCria++;
+            vetores::Mundo.push_back(ClasseTerritorios());
+            vetores::Mundo[OutVars::QuantCria].Tipo = "Duna";
+            vetores::Mundo[OutVars::QuantCria].IDTerr = OutVars::QuantDuna;
+            vetores::Mundo[OutVars::QuantCria].NomeTerritorio = "Duna" + to_string(OutVars::QuantDuna + 1);
+            vetores::Mundo[OutVars::QuantCria].Resistencia = 4;
+            vetores::Mundo[OutVars::QuantCria].ProdOuro = 0;
+            vetores::Mundo[OutVars::QuantCria].ProdProdutos = 1;
+            vetores::Mundo[OutVars::QuantCria].Pontos = 1;
+            cout << "Foi criado " << vetores::Mundo[OutVars::QuantCria].NomeTerritorio << endl;
+        }
+    }
+    else if (tipo == "planicie")
+    {
+        for (int i = 0; i < ntipo; i++)
+        {
+            OutVars::QuantPlanicie++; OutVars::QuantCria++;
+            vetores::Mundo.push_back(ClasseTerritorios());
+            vetores::Mundo[OutVars::QuantCria].Tipo = "Planicie";
+            vetores::Mundo[OutVars::QuantCria].IDTerr = OutVars::QuantPlanicie;
+            vetores::Mundo[OutVars::QuantCria].NomeTerritorio = "Planicie" + to_string(OutVars::QuantPlanicie + 1);
+            vetores::Mundo[OutVars::QuantCria].Resistencia = 4;
+            vetores::Mundo[OutVars::QuantCria].ProdOuro = 0;
+            vetores::Mundo[OutVars::QuantCria].ProdProdutos = 1;
+            vetores::Mundo[OutVars::QuantCria].Pontos = 1;
+            cout << "Foi criado " << vetores::Mundo[OutVars::QuantCria].NomeTerritorio << endl;
+        }
+    }
+    else if (tipo == "mina")
+    {
+        for (int i = 0; i < ntipo; i++)
+        {
+            OutVars::QuantMina++; OutVars::QuantCria++;
+            vetores::Mundo.push_back(ClasseTerritorios());
+            vetores::Mundo[OutVars::QuantCria].Tipo = "Mina";
+            vetores::Mundo[OutVars::QuantCria].IDTerr = OutVars::QuantMina;
+            vetores::Mundo[OutVars::QuantCria].NomeTerritorio = "Mina" + to_string(OutVars::QuantMina + 1);
+            vetores::Mundo[OutVars::QuantCria].Resistencia = 4;
+            vetores::Mundo[OutVars::QuantCria].ProdOuro = 0;
+            vetores::Mundo[OutVars::QuantCria].ProdProdutos = 1;
+            vetores::Mundo[OutVars::QuantCria].Pontos = 1;
+            cout << "Foi criado " << vetores::Mundo[OutVars::QuantCria].NomeTerritorio << endl;
+        }
+    }
+    else if (tipo == "montanha")
+    {
+        for (int i = 0; i < ntipo; i++)
+        {
+            OutVars::QuantMontanha++; OutVars::QuantCria++;
+            vetores::Mundo.push_back(ClasseTerritorios());
+            vetores::Mundo[OutVars::QuantCria].Tipo = "Montanha";
+            vetores::Mundo[OutVars::QuantCria].IDTerr = OutVars::QuantMontanha;
+            vetores::Mundo[OutVars::QuantCria].NomeTerritorio = "Montanha" + to_string(OutVars::QuantMontanha + 1);
+            vetores::Mundo[OutVars::QuantCria].Resistencia = 4;
+            vetores::Mundo[OutVars::QuantCria].ProdOuro = 0;
+            vetores::Mundo[OutVars::QuantCria].ProdProdutos = 1;
+            vetores::Mundo[OutVars::QuantCria].Pontos = 1;
+            cout << "Foi criado " << vetores::Mundo[OutVars::QuantCria].NomeTerritorio << endl;
         }
     }
     else{
-        cout << "Esse tipo de terreno nao existe, amigo! Tenta de novo!" << endl;
+        cout << "Esse tipo de terreno nao existe, amigo! Tenta de novo um dos seguintes:\nFortaleza / Castelo / Duna / Planicie / Mina / Montanha" << endl;
     }
     
 }   
@@ -317,7 +390,7 @@ void SeparaPalavras(string operacoes, bool ler)
         ClasseComandosMain.CriaTerreno(VectorComandos[1], SeguraInt);
         if (ler == false) {
             ofstream SaveFile;
-            SaveFile.open(VariaveisImportantes::nomeficheiro + ".save", ios::out | ios_base::app);
+            SaveFile.open(OutVars::nomeficheiro + ".save", ios::out | ios_base::app);
             SaveFile << VectorComandos[0] << " " << VectorComandos[1] << " " << VectorComandos[2] << endl;
         }
     }
@@ -341,11 +414,11 @@ void SeparaPalavras(string operacoes, bool ler)
     }
     else if (VectorComandos[0] == "nickname")
     {
-        VariaveisImportantes::username = VectorComandos[1];
+        OutVars::username = VectorComandos[1];
         if (ler == true) cout << "\nO teu nickname: " << VectorComandos[1] << endl;
         if (ler == false) {
             ofstream SaveFile;
-            SaveFile.open(VariaveisImportantes::nomeficheiro + ".save", ios::out | ios_base::app);
+            SaveFile.open(OutVars::nomeficheiro + ".save", ios::out | ios_base::app);
             SaveFile << VectorComandos[0] << " " << VectorComandos[1] << endl;
         }
     }
@@ -404,12 +477,12 @@ void jogo(bool PrimeiraVez) {
 
         Como vais querer guardar o nome deste imperio? )";
 
-        getline(cin, VariaveisImportantes::nomeficheiro);
+        getline(cin, OutVars::nomeficheiro);
 
-        cout << VariaveisImportantes::nomeficheiro;
-        ClasseComandosMain.GravaFicheiro(VariaveisImportantes::nomeficheiro);
-        SeparaPalavras("nickname " + VariaveisImportantes::username, false);
-        cout << "\nParabens, " << VariaveisImportantes::username << "! Vamos agora comecar a jogar! Para sair escreve sair" << endl;
+        cout << OutVars::nomeficheiro;
+        ClasseComandosMain.GravaFicheiro(OutVars::nomeficheiro);
+        SeparaPalavras("nickname " + OutVars::username, false);
+        cout << "\nParabens, " << OutVars::username << "! Vamos agora comecar a jogar! Para sair escreve sair" << endl;
         cout << ">>> comandos disponiveis: cria / lista / nickname / ajuda / sair\n>>>>>Se te sentires preparado para comecar o jogo escreve comecar" << endl;
         do
         {
@@ -429,7 +502,7 @@ void jogo(bool PrimeiraVez) {
     }
     else
     {
-        cout << "Bem vindo de volta, " << VariaveisImportantes::username;
+        cout << "Bem vindo de volta, " << OutVars::username;
         do
         {
             cout << "\nInsira um comando aqui: ";
@@ -459,8 +532,8 @@ void inicio() {
     cout << "\n\nEntao? Como te chamas?";
     cout << "\n\nInserir Nickname: ";
     cin.ignore(1000, '\n');
-    getline(cin, VariaveisImportantes::username);
-    cout << "\n" << VariaveisImportantes::username << "... e isso? Prazer em conhecer-te!";
+    getline(cin, OutVars::username);
+    cout << "\n" << OutVars::username << "... e isso? Prazer em conhecer-te!";
     cout << "\nBem, vieste em boa altura, estamos mesmo a precisar de uma maozinha aqui... Junta-te a nos!";
     pause();
     clear();
@@ -504,7 +577,7 @@ void carrega() {
             cin.ignore(1000, '\n');
         }
         getline(cin, nomefich);
-        VariaveisImportantes::nomeficheiro = nomefich;
+        OutVars::nomeficheiro = nomefich;
         string nLinhas, operacao;
         ifstream OpenFile(nomefich + ".save");
 

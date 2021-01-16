@@ -2,31 +2,23 @@
 #include "territorios.h"
 #include "includes.h"
 
-
 using namespace std;
 using namespace TerritoriosNS;
 
- int ClasseFortaleza::setID(int id){
-     return id;
- }
+vector<ClasseTerritorios> Mundo;
 
- int ClasseFortaleza::getID(){
-      return idvar;
- }
-
-void CriaFortaleza(ClasseFortaleza Fortaleza) {
-   
-    {   
-        
-        int idcoiso = Fortaleza.getID();
-        Fortaleza.TipoFortaleza= "Fortaleza";
-        Fortaleza.IDTerrFortaleza = Fortaleza.setID(idcoiso++);
-        Fortaleza.NomeFortaleza = "Fortaleza" + idcoiso;
-        Fortaleza.ResistenciaFortaleza = 8;
-        Fortaleza.ProdOuroFortaleza = 0;
-        Fortaleza.ProdProdutosFortaleza = 0;
-        Fortaleza.PontosFortaleza = 1;
-        cout << "Foi criado " << Fortaleza.NomeFortaleza << endl;
+void CriaFortaleza(int id, int ntipo) {
+    for (int i = 0; i < ntipo; i++)
+    {
+        Mundo.push_back(ClasseTerritorios());
+        Mundo[id].Tipo = "Fortaleza";
+        Mundo[id].IDTerr = id;
+        Mundo[id].NomeTerritorio = "Fortaleza" + to_string(i + 1);
+        Mundo[id].Resistencia = 8;
+        Mundo[id].ProdOuro = 0;
+        Mundo[id].ProdProdutos = 0;
+        Mundo[id].Pontos = 1;
+        cout << "Foi criado " << Mundo[id].NomeTerritorio << endl;
     }
 };
 
