@@ -9,7 +9,7 @@ namespace ComandosNS {
 
 	class ClasseComandos
 	{
-		int ntipo, turno;
+		int ntipo, turno =1;
 		string tipo, nome, filename, filenameC, username, territorio;
 
 	public:
@@ -24,7 +24,7 @@ namespace ComandosNS {
 		void ListaComandosAfterGame();
 		void ListaComando(string territorio);
 		void ConquistaTerritorios(string nome);
-		void nextTurno();
+		int nextTurno();
 	};
 }
 

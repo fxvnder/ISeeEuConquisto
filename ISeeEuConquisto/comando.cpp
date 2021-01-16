@@ -77,9 +77,9 @@ void ComandoCria(string tipo, int ntipo) {
         {
             OutVars::QuantFortaleza++; OutVars::QuantCria++;
             vetores::Mundo.push_back(ClasseTerritorios());
-            vetores::Mundo[OutVars::QuantCria].Tipo = "Fortaleza";
+            vetores::Mundo[OutVars::QuantCria].Tipo = "fortaleza";
             vetores::Mundo[OutVars::QuantCria].IDTerr = OutVars::QuantFortaleza;
-            vetores::Mundo[OutVars::QuantCria].NomeTerritorio = "Fortaleza" + to_string(OutVars::QuantFortaleza + 1);
+            vetores::Mundo[OutVars::QuantCria].NomeTerritorio = "fortaleza" + to_string(OutVars::QuantFortaleza + 1);
             vetores::Mundo[OutVars::QuantCria].Resistencia = 8;
             vetores::Mundo[OutVars::QuantCria].ProdOuro = 0;
             vetores::Mundo[OutVars::QuantCria].ProdProdutos = 0;
@@ -94,9 +94,9 @@ void ComandoCria(string tipo, int ntipo) {
         {
             OutVars::QuantCastelo++; OutVars::QuantCria++;
             vetores::Mundo.push_back(ClasseTerritorios());
-            vetores::Mundo[OutVars::QuantCria].Tipo = "Castelo";
+            vetores::Mundo[OutVars::QuantCria].Tipo = "castelo";
             vetores::Mundo[OutVars::QuantCria].IDTerr = OutVars::QuantCastelo;
-            vetores::Mundo[OutVars::QuantCria].NomeTerritorio = "Castelo" + to_string(OutVars::QuantCastelo + 1);
+            vetores::Mundo[OutVars::QuantCria].NomeTerritorio = "castelo" + to_string(OutVars::QuantCastelo + 1);
             vetores::Mundo[OutVars::QuantCria].Resistencia = 7;
             vetores::Mundo[OutVars::QuantCria].ProdOuro = 1;
             vetores::Mundo[OutVars::QuantCria].ProdProdutos = 3;
@@ -110,9 +110,9 @@ void ComandoCria(string tipo, int ntipo) {
         {
             OutVars::QuantDuna++; OutVars::QuantCria++;
             vetores::Mundo.push_back(ClasseTerritorios());
-            vetores::Mundo[OutVars::QuantCria].Tipo = "Duna";
+            vetores::Mundo[OutVars::QuantCria].Tipo = "duna";
             vetores::Mundo[OutVars::QuantCria].IDTerr = OutVars::QuantDuna;
-            vetores::Mundo[OutVars::QuantCria].NomeTerritorio = "Duna" + to_string(OutVars::QuantDuna + 1);
+            vetores::Mundo[OutVars::QuantCria].NomeTerritorio = "duna" + to_string(OutVars::QuantDuna + 1);
             vetores::Mundo[OutVars::QuantCria].Resistencia = 4;
             vetores::Mundo[OutVars::QuantCria].ProdOuro = 0;
             vetores::Mundo[OutVars::QuantCria].ProdProdutos = 1;
@@ -126,9 +126,9 @@ void ComandoCria(string tipo, int ntipo) {
         {
             OutVars::QuantPlanicie++; OutVars::QuantCria++;
             vetores::Mundo.push_back(ClasseTerritorios());
-            vetores::Mundo[OutVars::QuantCria].Tipo = "Planicie";
+            vetores::Mundo[OutVars::QuantCria].Tipo = "planicie";
             vetores::Mundo[OutVars::QuantCria].IDTerr = OutVars::QuantPlanicie;
-            vetores::Mundo[OutVars::QuantCria].NomeTerritorio = "Planicie" + to_string(OutVars::QuantPlanicie + 1);
+            vetores::Mundo[OutVars::QuantCria].NomeTerritorio = "planicie" + to_string(OutVars::QuantPlanicie + 1);
             vetores::Mundo[OutVars::QuantCria].Resistencia = 5;
             vetores::Mundo[OutVars::QuantCria].ProdOuro = 1;
             vetores::Mundo[OutVars::QuantCria].ProdProdutos = 1;
@@ -142,9 +142,9 @@ void ComandoCria(string tipo, int ntipo) {
         {
             OutVars::QuantMina++; OutVars::QuantCria++;
             vetores::Mundo.push_back(ClasseTerritorios());
-            vetores::Mundo[OutVars::QuantCria].Tipo = "Mina";
+            vetores::Mundo[OutVars::QuantCria].Tipo = "mina";
             vetores::Mundo[OutVars::QuantCria].IDTerr = OutVars::QuantMina;
-            vetores::Mundo[OutVars::QuantCria].NomeTerritorio = "Mina" + to_string(OutVars::QuantMina + 1);
+            vetores::Mundo[OutVars::QuantCria].NomeTerritorio = "mina" + to_string(OutVars::QuantMina + 1);
             vetores::Mundo[OutVars::QuantCria].Resistencia = 5;
             vetores::Mundo[OutVars::QuantCria].ProdOuro = 1;
             vetores::Mundo[OutVars::QuantCria].ProdProdutos = 0;
@@ -158,9 +158,9 @@ void ComandoCria(string tipo, int ntipo) {
         {
             OutVars::QuantMontanha++; OutVars::QuantCria++;
             vetores::Mundo.push_back(ClasseTerritorios());
-            vetores::Mundo[OutVars::QuantCria].Tipo = "Montanha";
+            vetores::Mundo[OutVars::QuantCria].Tipo = "montanha";
             vetores::Mundo[OutVars::QuantCria].IDTerr = OutVars::QuantMontanha;
-            vetores::Mundo[OutVars::QuantCria].NomeTerritorio = "Montanha" + to_string(OutVars::QuantMontanha + 1);
+            vetores::Mundo[OutVars::QuantCria].NomeTerritorio = "montanha" + to_string(OutVars::QuantMontanha + 1);
             vetores::Mundo[OutVars::QuantCria].Resistencia = 6;
             vetores::Mundo[OutVars::QuantCria].ProdOuro = 0;
             vetores::Mundo[OutVars::QuantCria].ProdProdutos = 1;
@@ -169,7 +169,7 @@ void ComandoCria(string tipo, int ntipo) {
         }
     }
     else{
-        cout << "Esse tipo de terreno nao existe, amigo! Tenta de novo um dos seguintes:\nFortaleza / Castelo / Duna / Planicie / Mina / Montanha" << endl;
+        cout << "Esse tipo de terreno nao existe, amigo! Tenta de novo um dos seguintes:\nfortaleza / castelo / duna / planicie / mina / montanha" << endl;
     }
     
 }   
@@ -387,10 +387,11 @@ void ComandoPassaMain(){
 
 }
 
-void ComandosNS::ClasseComandos::nextTurno()
+int ComandosNS::ClasseComandos::nextTurno()
 {
 	&ClasseComandos::getTurno;
-	ClasseComandos::setTurno(turno++);
+	ClasseComandos::setTurno(turno + 1);
+    return turno;
 
 }
 int ClasseComandos::setTurno(int turno)
@@ -479,7 +480,7 @@ void SeparaPalavras(string operacoes, bool ler)
     else cout << "\nComando " << VectorComandos[0] << " nao reconhecido." << endl;
 }
 
-void ComandosJogo(string operacoes) {
+void ComandosJogo(string operacoes, int cofre, int armazem, int turno) {
 
     vector<string> VectorComandos;
     ClasseComandos ClasseComandosMain;
@@ -495,6 +496,7 @@ void ComandosJogo(string operacoes) {
         stringstream Tamanho(VectorComandos[1]);
         ClasseComandosMain.ConquistaTerritorios(VectorComandos[1]);
         cout << "Faz enter para continuar para o proximo turno...";
+        turno++;
         cin.ignore();
     }
     else if (VectorComandos[0] == "lista")
@@ -510,6 +512,43 @@ void ComandosJogo(string operacoes) {
             cout << "Faz enter para continuar...";
             cin.ignore();
         }
+    }
+    else if (VectorComandos[0] == "recolher")
+    {
+        cout << cofre << armazem;
+        for (int i = 0; i < vetores::Imperio.size(); i++)
+        {
+            
+            cofre = cofre + vetores::Imperio[i].ProdOuro;
+            armazem = armazem + vetores::Imperio[i].ProdProdutos;
+            
+        }
+        cout << cofre << armazem;
+        cout << "Faz enter para continuar...";
+        cin.ignore();
+        
+    }
+    else if (VectorComandos[0] == "maisouro")
+    {
+        if (armazem >= 2)
+        {
+            cofre++;
+        }
+        else
+            cout << "Nao tens produtos suficientes, amigo!" << endl;
+        cout << "Faz enter para continuar...";
+        cin.ignore();
+    }
+    else if (VectorComandos[0] == "maisprod")
+    {
+        if (cofre >= 2)
+        {
+            armazem;
+        }
+        else
+            cout << "Nao tens ouro suficiente, amigo!" << endl;
+        cout << "Faz enter para continuar...";
+        cin.ignore();
     }
     else if (VectorComandos[0] == "outracoisa")
     {
@@ -548,7 +587,8 @@ void ComandosJogo(string operacoes) {
 }
 
 void GameOn() {
-    int turno = 1, ouro = 0, produtos = 0;
+    ClasseComandos ClasseComandosMain;
+    int ouro = 0, produtos = 0, turno = 1;
     string comandoJ;
     clear();
     cout << R"(
@@ -570,8 +610,8 @@ void GameOn() {
         clear();
 
         cout << ">>>>> TURNO " << turno << " <<<<<" << endl;
-        cout << "Ouro: " << ouro << " Produtos: " << produtos << " Cofre: " << endl;
-        cout << "\n\nO que pretendes fazer este turno?\n>> conquistar / recolher / comprar / eventos / passar\n> Outros comandos: lista / ajuda / sair\n" << endl;
+        cout << "Cofre: " << ouro << " Armazem: " << produtos  << endl;
+        cout << "\n\nO que pretendes fazer este turno?\n>> conquistar / recolher / comprar / eventos / passar / maisouro/ maisprod\n> Outros comandos: lista / ajuda / sair\n" << endl;
 
         getline(cin, comandoJ);
 
@@ -580,7 +620,7 @@ void GameOn() {
         }
         else
         {
-            ComandosJogo(comandoJ);
+            ComandosJogo(comandoJ,ouro,produtos,turno);
         }
 
     } while (comandoJ != "sair");
