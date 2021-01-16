@@ -472,12 +472,6 @@ void SeparaPalavras(string operacoes, bool ler)
         >> NICKNAME x = VAI MUDAR O TEU NICKNAME IN-GAME. SÓ O PODES FAZER ENQUANTO O JOGO NÃO COMEÇAR!
 
         >> SAIR = ...pois
-
-        > COMANDOS POS-JOGO
-
-        >> CONQUISTA x = VAIS TENTAR CONQUISTAR O TERRITORIO x! BOA SORTE!
-
-        >> LISTA (x) = VAI LISTAR TODOS OS TERRITORIOS DO MUNDO E DO TEU IMPERIO, OU UM INDIVIDUAL (x)
         
         )";
     }
@@ -495,6 +489,7 @@ void ComandosJogo(string operacoes) {
     while (StrStream >> PalavraSeparada) {
         VectorComandos.push_back(PalavraSeparada);
     }
+
     if (VectorComandos[0] == "conquista")
     {
         stringstream Tamanho(VectorComandos[1]);
@@ -502,14 +497,58 @@ void ComandosJogo(string operacoes) {
         cout << "Faz enter para continuar para o proximo turno...";
         cin.ignore();
     }
+    else if (VectorComandos[0] == "lista")
+    {
+        if (VectorComandos.size() > 1) {
+            ClasseComandosMain.ListaComando(VectorComandos[1]);
+            cout << "Faz enter para continuar...";
+            cin.ignore();
+        }
+        else
+        {
+            ClasseComandosMain.ListaComandosBeforeGame();
+            cout << "Faz enter para continuar...";
+            cin.ignore();
+        }
+    }
     else if (VectorComandos[0] == "outracoisa")
     {
     // 
     }
+    else if (VectorComandos[0] == "ajuda")
+    {
+        clear();
+
+        cout << R"(
+        
+        >>> AJUDA <<<
+
+        Bem-vindo ao ISEC. Estes sao os comandos que deves saber para aprender a jogar!
+
+        > COMANDOS POS-JOGO
+
+        >> CONQUISTAR x = VAIS TENTAR CONQUISTAR O TERRITORIO x! BOA SORTE!
+
+        >> RECOLHER = RECOLHER OS PRODUTOS E OURO DOS TERRITORIOS P/ COFRE
+
+        >> LISTA (x) = VAI LISTAR TODOS OS TERRITORIOS DO MUNDO E DO TEU IMPERIO, OU UM INDIVIDUAL (x)
+
+        >> SAIR = VAIS SAIR DO JOGO E PERDER O PROGRESSO. JA ES CRESCIDO E SABES O QUE ISSO IMPLICA...
+        
+        )";
+        cout << "Faz enter para voltar ao menu.";
+        cin.ignore();
+    }
+    else if (VectorComandos[0] == "sair") cout << "\n\n\nBye bye!" << endl;
+    else {
+        cout << "\nComando " << VectorComandos[0] << " nao reconhecido." << endl;
+        cout << "Faz enter para voltar ao menu.";
+        cin.ignore();
+    }
 }
 
 void GameOn() {
-    int turno = 1;
+    int turno = 1, ouro = 0, produtos = 0;
     string comandoJ;
     clear();
     cout << R"(
@@ -527,9 +566,12 @@ void GameOn() {
     pause();
     do
     {
+
         clear();
+
         cout << ">>>>> TURNO " << turno << " <<<<<" << endl;
-        cout << "\n\nO que pretendes fazer este turno?\n>> Conquistar / Recolher / Comprar / Eventos / Passar\n> Outros comandos: Lista / ";
+        cout << "Ouro: " << ouro << " Produtos: " << produtos << " Cofre: " << endl;
+        cout << "\n\nO que pretendes fazer este turno?\n>> conquistar / recolher / comprar / eventos / passar\n> Outros comandos: lista / ajuda / sair\n" << endl;
 
         getline(cin, comandoJ);
 
