@@ -71,24 +71,18 @@ void syspause() { // SYS.PAUSE = PRESS ANY KEY TO CONTINUE
 void ComandoCria(string tipo, int ntipo) {
     vetores::Mundo;
     ClasseTerritorios TerritorioF;
-    if(tipo == "fortaleza"){
-        for (int i = TerritorioF.idvar; i < ntipo; i++) {
-            
-            vetores::Mundo.push_back(ClasseTerritorios());
-            
-            vetores::Mundo[i].Tipo = "Fortaleza";
-            vetores::Mundo[i].IDTerr = i;
-            vetores::Mundo[i].NomeTerritorio = "Fortaleza" + to_string(i);
-            vetores::Mundo[i].Resistencia = 8;
-            vetores::Mundo[i].ProdOuro = 0;
-            vetores::Mundo[i].ProdProdutos = 0;
-            vetores::Mundo[i].Pontos = 1;
-            cout << "Foi criado " << vetores::Mundo[i].NomeTerritorio << endl;
-        }
-    }
-    else{
-        for (int i = 0; i < ntipo; i++)
+    if (tipo == "fortaleza" || tipo == "castelo" || tipo == "duna" || tipo == "planicie" || tipo == "mina" || tipo == "montanha") {
+
+        for (int i = 0; i < ntipo; i++) 
+        {
+            /*int id = i + 1;
+            for (int j = 0; j < vetores::Mundo.size(); j++)
             {
+                if (vetores::Mundo[i].IDTerr == vetores::Mundo[j].IDTerr && vetores::Mundo[i].Tipo == vetores::Mundo[j].Tipo)
+                {
+                    id++;
+                }
+            }*/
             vetores::Mundo.push_back(ClasseTerritorios());
             vetores::Mundo[i].Tipo = tipo;
             vetores::Mundo[i].IDTerr = ntipo;
@@ -98,10 +92,14 @@ void ComandoCria(string tipo, int ntipo) {
             vetores::Mundo[i].ProdProdutos = rand() % 10;
             vetores::Mundo[i].Pontos = rand() % 10;
             cout << "Foi criado " << vetores::Mundo[i].NomeTerritorio << endl;
-            }
+   
         }
-
-}
+    }
+    else{
+        cout << "Esse tipo de terreno nao existe, amigo! Tenta de novo!" << endl;
+    }
+    
+}   
 
 void ComandosNS::ClasseComandos::CriaTerreno(string tipo, int ntipo) {
     this->tipo = tipo;

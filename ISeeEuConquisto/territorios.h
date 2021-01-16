@@ -21,7 +21,7 @@ namespace TerritoriosNS {
 		int Pontos = 0;
 		int setID(int idvar);
 		int getID();
-		int idvar=0;
+		int idvar=1;
 	};
 	
 
