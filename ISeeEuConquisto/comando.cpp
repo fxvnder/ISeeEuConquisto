@@ -481,13 +481,6 @@ void SeparaPalavras(string operacoes, bool ler)
         
         )";
     }
-    else if (VectorComandos[0] == "comecar")
-    {
-        {
-        clear();
-        GameOn();
-        }
-    }
     else if (VectorComandos[0] == "sair") cout << "\n\n\nBye bye!" << endl;
     else cout << "\nComando " << VectorComandos[0] << " nao reconhecido." << endl;
 }
@@ -506,6 +499,8 @@ void ComandosJogo(string operacoes) {
     {
         stringstream Tamanho(VectorComandos[1]);
         ClasseComandosMain.ConquistaTerritorios(VectorComandos[1]);
+        cout << "Faz enter para continuar para o proximo turno...";
+        cin.ignore();
     }
     else if (VectorComandos[0] == "outracoisa")
     {
@@ -514,9 +509,41 @@ void ComandosJogo(string operacoes) {
 }
 
 void GameOn() {
-
+    int turno = 1;
+    string comandoJ;
     clear();
-    cout << "Estas preparado?";
+    cout << R"(
+        
+        BEM-VINDO AO ISEC.
+        
+        Ja te contamos as regras, ja criaste os territorios...
+
+        Agora diverte-te e tenta fazer o melhor score! 
+
+        Vais comecar no turno 1, e tens mais 11 pela frente, onde vais poder fazer o que achares melhor para
+    seres o melhor izekiano do planeta.
+        
+        Sera que tens o que e preciso?)";
+    pause();
+    do
+    {
+        clear();
+        cout << ">>>>> TURNO " << turno << " <<<<<" << endl;
+        cout << "\n\nO que pretendes fazer este turno?\n>> Conquistar / Recolher / Comprar / Eventos / Passar\n> Outros comandos: Lista / ";
+
+        getline(cin, comandoJ);
+
+        if (comandoJ.empty()) {
+            cout << "\nTens de dizer um comando, amigo" << endl;
+        }
+        else
+        {
+            ComandosJogo(comandoJ);
+        }
+
+    } while (comandoJ != "sair");
+
+
 }
 
 void jogo(bool PrimeiraVez) {
@@ -528,6 +555,7 @@ void jogo(bool PrimeiraVez) {
 
     if (PrimeiraVez == true) {
         clear();
+        int OJOGOVAICOMECAR = 0;
         cout << R"(
         
         BEM-VINDO AO ISEC.
@@ -555,12 +583,25 @@ void jogo(bool PrimeiraVez) {
 
             getline(cin, operacao);
 
+            if (operacao == "comecar")
+            {
+                OJOGOVAICOMECAR = 1;
+                operacao = "sair";
+            }
+
             if (operacao.empty()) {
                 cout << "\nTens de dizer um comando, amigo" << endl;
             }
             else SeparaPalavras(operacao, false);
 
         } while (operacao != "sair");
+
+        if (OJOGOVAICOMECAR == 1)
+        {
+            clear();
+            GameOn();
+
+        }
 
         SaveFile.close();
 
