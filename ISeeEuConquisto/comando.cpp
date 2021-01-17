@@ -18,7 +18,7 @@ namespace vetores {
 namespace OutVars
 {
     string username, nomeficheiro;
-    int QuantCria = -1, QuantCastelo = -1, QuantDuna = -1, QuantFortaleza = -1, QuantMina = -1, QuantMontanha = -1, QuantPlanicie = -1;
+    int QuantCria = -1, QuantCastelo = -1, QuantDuna = -1, QuantFortaleza = -1, QuantMina = -1, QuantMontanha = -1, QuantPlanicie = -1, turno = 1;
 }
 
 #pragma region UserOS
@@ -462,7 +462,7 @@ void SeparaPalavras(string operacoes, bool ler)
         
         >>> AJUDA <<<
 
-        Bem-vindo ao ISEC. Estes são os comandos que deves saber para aprender a jogar!
+        Bem-vindo ao ISEC. Estes sao os comandos que deves saber para aprender a jogar!
 
         > COMANDOS PRE-JOGO
 
@@ -480,6 +480,32 @@ void SeparaPalavras(string operacoes, bool ler)
     else cout << "\nComando " << VectorComandos[0] << " nao reconhecido." << endl;
 }
 
+void ProximoTurno() {
+
+    OutVars::turno++;
+
+    if (OutVars::turno == 3)
+    {
+        for (int i = 0; i < vetores::Mundo.size(); i++)
+        {
+            if (vetores::Mundo[i].Tipo == "montanha") {
+                vetores::Mundo[i].ProdProdutos = 1;
+                cout << "\nAVISO: AGORA " << vetores::Mundo[i].NomeTerritorio << "PRODUZ +1 UNIDADE DE PRODUTOS." << endl;
+            }
+            if (vetores::Mundo[i].Tipo == "mina")
+            {
+                vetores::Mundo[i].ProdOuro = 2;
+                cout << "\nAVISO: AGORA " << vetores::Mundo[i].NomeTerritorio << "PRODUZ 2 UNIDADES DE OURO." << endl;
+            }
+            if (vetores::Mundo[i].Tipo == "castelo")
+            {
+                vetores::Mundo[i].ProdProdutos = 0;
+                cout << "\nAVISO: AGORA " << vetores::Mundo[i].NomeTerritorio << "NAO PRODUZ PRODUTOS." << endl;
+            }
+        }
+    }
+}
+
 void ComandosJogo(string operacoes, int cofre, int armazem, int turno) {
 
     vector<string> VectorComandos;
@@ -495,8 +521,8 @@ void ComandosJogo(string operacoes, int cofre, int armazem, int turno) {
     {
         stringstream Tamanho(VectorComandos[1]);
         ClasseComandosMain.ConquistaTerritorios(VectorComandos[1]);
-        cout << "Faz enter para continuar para o proximo turno...";
-        turno++;
+        ProximoTurno();
+        cout << "Faz enter para continuar para o proximo turno..."; 
         cin.ignore();
     }
     else if (VectorComandos[0] == "lista")
@@ -508,7 +534,7 @@ void ComandosJogo(string operacoes, int cofre, int armazem, int turno) {
         }
         else
         {
-            ClasseComandosMain.ListaComandosBeforeGame();
+            ClasseComandosMain.ListaComandosAfterGame();
             cout << "Faz enter para continuar...";
             cin.ignore();
         }
@@ -546,13 +572,15 @@ void ComandosJogo(string operacoes, int cofre, int armazem, int turno) {
             armazem;
         }
         else
-            cout << "Nao tens ouro suficiente, amigo!" << endl;
+            cout << "\nNao tens ouro suficiente, amigo!" << endl;
         cout << "Faz enter para continuar...";
         cin.ignore();
     }
-    else if (VectorComandos[0] == "outracoisa")
+    else if (VectorComandos[0] == "passar")
     {
-    // 
+        cout << "Decidiste passar. Faz enter para ir ao proximo turno...";
+        cin.ignore();
+        ProximoTurno();
     }
     else if (VectorComandos[0] == "ajuda")
     {
@@ -566,9 +594,11 @@ void ComandosJogo(string operacoes, int cofre, int armazem, int turno) {
 
         > COMANDOS POS-JOGO
 
-        >> CONQUISTAR x = VAIS TENTAR CONQUISTAR O TERRITORIO x! BOA SORTE!
+        >> CONQUISTA x = VAIS TENTAR CONQUISTAR O TERRITORIO x! BOA SORTE!
 
-        >> RECOLHER = RECOLHER OS PRODUTOS E OURO DOS TERRITORIOS P/ COFRE
+        >> RECOLHE = RECOLHER OS PRODUTOS E OURO DOS TERRITORIOS P/ COFRE
+
+        >> MAISOURO / MAISPROD = OBTEM +1 DO QUE DESEJA EM TROCA DE -2 DO QUE TEM.
 
         >> LISTA (x) = VAI LISTAR TODOS OS TERRITORIOS DO MUNDO E DO TEU IMPERIO, OU UM INDIVIDUAL (x)
 
@@ -588,7 +618,7 @@ void ComandosJogo(string operacoes, int cofre, int armazem, int turno) {
 
 void GameOn() {
     ClasseComandos ClasseComandosMain;
-    int ouro = 0, produtos = 0, turno = 1;
+    int ouro = 0, produtos = 0;
     string comandoJ;
     clear();
     cout << R"(
@@ -609,9 +639,9 @@ void GameOn() {
 
         clear();
 
-        cout << ">>>>> TURNO " << turno << " <<<<<" << endl;
+        cout << ">>>>> TURNO " << OutVars::turno << " <<<<<" << endl;
         cout << "Cofre: " << ouro << " Armazem: " << produtos  << endl;
-        cout << "\n\nO que pretendes fazer este turno?\n>> conquistar / recolher / comprar / eventos / passar / maisouro/ maisprod\n> Outros comandos: lista / ajuda / sair\n" << endl;
+        cout << "\n\nO que pretendes fazer este turno?\n>> conquista / recolhe / compra / eventos / passar / maisouro / maisprod\n> Outros comandos: lista / ajuda / sair\n" << endl;
 
         getline(cin, comandoJ);
 
@@ -620,7 +650,7 @@ void GameOn() {
         }
         else
         {
-            ComandosJogo(comandoJ,ouro,produtos,turno);
+            ComandosJogo(comandoJ,ouro,produtos, OutVars::turno);
         }
 
     } while (comandoJ != "sair");
@@ -634,10 +664,11 @@ void jogo(bool PrimeiraVez) {
     string StringIndividual;
     vector<ClasseTerritorios> Mundo;
     ofstream SaveFile;
+    int OJOGOVAICOMECAR = 0;
 
     if (PrimeiraVez == true) {
         clear();
-        int OJOGOVAICOMECAR = 0;
+        
         cout << R"(
         
         BEM-VINDO AO ISEC.
@@ -697,8 +728,14 @@ void jogo(bool PrimeiraVez) {
 
             getline(cin, operacao);
 
+            if (operacao == "comecar")
+            {
+                OJOGOVAICOMECAR = 1;
+                operacao = "sair";
+            }
+
             if (operacao.empty()) {
-                cout << "\nPor favor escreva alguma coisa";
+                cout << "\nPor favor escreva alguma coisa" << endl;
             }
             else
             {
@@ -706,6 +743,13 @@ void jogo(bool PrimeiraVez) {
             }
 
         } while (operacao != "sair");
+
+        if (OJOGOVAICOMECAR == 1)
+        {
+            clear();
+            GameOn();
+
+        }
 
         SaveFile.close();
     }

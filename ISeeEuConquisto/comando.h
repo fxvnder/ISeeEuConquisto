@@ -28,6 +28,8 @@ namespace ComandosNS {
 	};
 }
 
+void ProximoTurno();
+
 void mainmenu();
 
 void programa();
