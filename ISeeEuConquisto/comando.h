@@ -50,6 +50,7 @@ void GameOn();
 
 void LostRecurso();
 
+
 void inicio();
 
 void carrega();

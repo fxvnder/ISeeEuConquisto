@@ -10,7 +10,8 @@ using namespace std;
 using namespace TerritoriosNS;
 using namespace ComandosNS;
 
-namespace vetores {
+namespace vetores
+{
  // CLASSE PARA INCORPORAR vv
 	vector<ClasseTerritorios> Mundo;
 	vector<ClasseTerritorios> Imperio;
@@ -20,7 +21,7 @@ namespace OutVars
 {
     string username, nomeficheiro; // apenas serve para armazenar miscelaneas
     int QuantCria = -1, QuantCastelo = -1, QuantDuna = -1, QuantFortaleza = -1, QuantMina = -1, QuantMontanha = -1, QuantPlanicie = -1; // Territorios Criados
-    int turno = 1, cofre = 0, armazem = 0, limitecofre = 5, limitearmazem = 5, militar = 0, limitemilitar = 3, bolsa = 0; // Misc.
+    int turno = 1, cofre = 0, armazem = 0, limitecofre = 5, limitearmazem = 5, militar = 0, limitemilitar = 3, bolsa = 0, defesa = 0; // Misc.
 }
 
 #pragma region UserOS
@@ -117,6 +118,10 @@ void programa() {
         }
         else cout << "           Acho que te enganaste, amigo... Mas eu dou-te outra chance! \n";
     }
+}
+
+void ComandosJogo(string operacoes, int bolsa)
+{
 }
 
 void jogo(bool PrimeiraVez) {
@@ -576,10 +581,50 @@ void Eventos()
         LostRecurso();
     }
     else if (randevento == 1) {
-        cout << "\npee" << endl;
+        cout << "\nOh nao, estas a ser invadido" << endl;
+        int fatorsorte = rand() % 6 + 1;
+        int invasao = 0;
+        size_t tamanho = vetores::Imperio.size();
+        int resistenciatemp = vetores::Imperio[tamanho - 1].Resistencia;
+        if (OutVars::turno < 7)
+        {
+            
+            invasao = 2 + fatorsorte;
+                if (resistenciatemp + OutVars::defesa > invasao)
+                {
+                    
+                    cout << "\nUfa, que alivio, a invasão falhou" << endl;
+                }
+                else
+                {
+                    vetores::Imperio.pop_back();
+                    cout << "\nOra bolas, a invasao foi bem sucedida" << endl;
+                }
+        }
+        else {
+            
+            invasao = 3 + fatorsorte;
+            if (resistenciatemp + OutVars::defesa > invasao)
+            {
+                
+                cout << "\nUfa, que alivio, a invasao falhou" << endl;
+            }
+            else
+            {
+                vetores::Imperio.pop_back();
+                cout << "\nOra bolas, a invasao foi bem sucedida" << endl;
+            }
+        }
+        
     }
     else if (randevento == 2) {
-        cout << "\npoo" << endl;
+        cout << "\nUrra! Assinaste uma aliança com um imperio visinho" << endl;
+        OutVars::militar++;
+        if (OutVars::militar > OutVars::limitemilitar)
+        {
+            OutVars::militar = OutVars::limitemilitar;
+        }
+        cout << "\nA tua forca militar e agora " << OutVars::militar << "!" << endl;
     }
     else if (randevento == 3) {
         cout << "\nDia calmo amigo, podes descansar" << endl;
@@ -810,7 +855,7 @@ void ComandosJogo(string operacoes) {
     }
     else if (VectorComandos[0] == "passar")
     {
-        cout << vetores::Imperio[0].NomeTerritorio << endl;
+        
         Recolher();
         if (OutVars::cofre > OutVars::limitecofre)
         {
@@ -853,26 +898,50 @@ void ProximoTurno()
 
     if (OutVars::turno == 3)
     {
-        for (int i = 0; i < vetores::Mundo.size(); i++)
+        for (int i = 0; i < vetores::Imperio.size(); i++)
         {
-            if (vetores::Mundo[i].Tipo == "montanha") 
+            if (vetores::Imperio[i].Tipo == "montanha") 
             {
-                vetores::Mundo[i].ProdProdutos = 1;
-                cout << "\nAVISO: AGORA " << vetores::Mundo[i].NomeTerritorio << " PRODUZ +1 UNIDADE DE PRODUTOS." << endl;
+                vetores::Imperio[i].ProdProdutos = 1;
+                cout << "\nAVISO: AGORA " << vetores::Imperio[i].NomeTerritorio << " PRODUZ +1 UNIDADE DE PRODUTOS." << endl;
             }
-            else if (vetores::Mundo[i].Tipo == "mina")
+            else if (vetores::Imperio[i].Tipo == "mina")
             {
-                vetores::Mundo[i].ProdOuro = 2;
-                cout << "\nAVISO: AGORA " << vetores::Mundo[i].NomeTerritorio << " PRODUZ 2 UNIDADES DE OURO." << endl;
+                vetores::Imperio[i].ProdOuro = 2;
+                cout << "\nAVISO: AGORA " << vetores::Imperio[i].NomeTerritorio << " PRODUZ 2 UNIDADES DE OURO." << endl;
             }
-            else if (vetores::Mundo[i].Tipo == "castelo")
+            else if (vetores::Imperio[i].Tipo == "castelo")
             {
-                vetores::Mundo[i].ProdProdutos = 0;
-                cout << "\nAVISO: AGORA " << vetores::Mundo[i].NomeTerritorio << " NAO PRODUZ PRODUTOS." << endl;
+                vetores::Imperio[i].ProdProdutos = 0;
+                cout << "\nAVISO: AGORA " << vetores::Imperio[i].NomeTerritorio << " NAO PRODUZ PRODUTOS." << endl;
             }
         }
     }
-    cout << endl;
+    if (OutVars::turno == 6){
+    for (int i = 0; i < vetores::Imperio.size(); i++)
+        {
+            if (vetores::Imperio[i].Tipo == "planicie") 
+            {
+                vetores::Imperio[i].ProdProdutos = 2;
+                cout << "\nAVISO: AGORA " << vetores::Imperio[i].NomeTerritorio << " PRODUZ +1 UNIDADE DE PRODUTOS." << endl;
+            }
+            else if (vetores::Imperio[i].Tipo == "mina")
+            {
+                vetores::Imperio[i].ProdOuro = 2;
+                cout << "\nAVISO: AGORA " << vetores::Imperio[i].NomeTerritorio << " PRODUZ 2 UNIDADES DE OURO." << endl;
+            }
+        }
+    }
+    if (OutVars::turno == 9) {
+        for (int i = 0; i < vetores::Imperio.size(); i++)
+        {
+            if (vetores::Imperio[i].Tipo == "mina") 
+            {
+                vetores::Imperio[i].ProdOuro = 1;
+                cout << "\nAVISO: AGORA " << vetores::Imperio[i].NomeTerritorio << " PRODUZ APENAS 1 UNIDADE DE OURO." << endl;
+            }
+        }
+    }
 }
 
 void Recolher()
@@ -916,6 +985,8 @@ void TerritorioInicial() {
     
 }
 
+
+
 void LostRecurso()
 {
     if (OutVars::turno < 7 && OutVars::armazem <= OutVars::limitearmazem)
@@ -926,6 +997,23 @@ void LostRecurso()
 
 void CriaTecnologia(string tecnologia) {
 
+    if (tecnologia == "forcamilitar")
+    {
+       
+        if (OutVars::cofre >= 1 && OutVars::armazem >= 1)
+        {
+            OutVars::militar++;
+            cout << "Adquiriu forca militar! Passou a ser " << OutVars::militar << "!"<< endl;
+            cin.ignore();
+        }
+        else
+        {
+            cout << "Nao tem dinheiro para comprar esta tecnologia." << endl;
+            cout << "Faz enter para voltar ao menu.";
+            cin.ignore();
+        }
+    }
+
     if (tecnologia == "drones")
     {
         CriaDrones();
@@ -933,6 +1021,8 @@ void CriaTecnologia(string tecnologia) {
         {
             OutVars::cofre = OutVars::cofre - 3;
             OutVars::limitemilitar = 5;
+            cout << "Adquiriu drones! Agora o limite miliar e de 5." << endl;
+            cin.ignore();
         }
         else
         {
@@ -947,6 +1037,8 @@ void CriaTecnologia(string tecnologia) {
         if (OutVars::cofre >= 4)
         {
             OutVars::cofre = OutVars::cofre - 4;
+            cout << "Adquiriu misseis!" << endl;
+            cin.ignore();
         }
         else
         {
@@ -961,6 +1053,9 @@ void CriaTecnologia(string tecnologia) {
         if (OutVars::cofre >= 4)
         {
             OutVars::cofre = OutVars::cofre - 4;
+            OutVars::defesa = 1;
+            cout << "\nAcabaste de adquirir uma unidade de defesa!";
+            cin.ignore();
         }
         else
         {
@@ -976,6 +1071,8 @@ void CriaTecnologia(string tecnologia) {
         {         
             OutVars::cofre = OutVars::cofre - 2;
             OutVars::bolsa = 1;
+            cout << "\nAcabaste de adquirir a bolsa de valores, podes agora trocar produtos e ouro" << endl;
+            cin.ignore();
         }
         else
         {
@@ -992,6 +1089,8 @@ void CriaTecnologia(string tecnologia) {
             OutVars::cofre = OutVars::cofre - 3;
             OutVars::limitecofre = 5;
             OutVars::limitearmazem = 5;
+            cout << "Compraste o banco centra! Podes agora armazenar mais recursos" << endl;
+            cin.ignore();
         }
         else
         {
@@ -1022,8 +1121,26 @@ void GameOn() {
         clear();
         CasteloTurnos();
         cout << ">>>>> TURNO " << OutVars::turno << " <<<<<" << endl;
+        if (OutVars::turno < 7) {
+            cout << ">>>>>  ANO  1 <<<<<" << endl;
+        }
+        if (OutVars::turno >= 7)
+        {
+            cout << ">>>>>  ANO  2 <<<<<" << endl;
+        }
+        if (OutVars::turno == 12) {
+            int sumpontos = 0;
+            for (int i = 0; i < vetores::Imperio.size(); i++)
+            {
+                sumpontos = sumpontos + vetores::Imperio[i].Pontos;
+            }
+            cout << "\n\nParabens! Concluiste o jogo com " << sumpontos << " pontos!\nEspero voltar a ver-te em breve, conquistador! :)";
+            cin.ignore();
+            break;
+        }
+         
         cout << "Cofre: " << OutVars::cofre << " Armazem: " << OutVars::armazem << endl;
-        cout << "\n\nO que pretendes fazer este turno?\n>> conquista / compra / eventos / passar / maisouro / maisprod\n> Outros comandos: lista / ajuda / sair\n" << endl;
+        cout << "\n\nO que pretendes fazer este turno?\n>> conquista / adquire / eventos / passar / maisouro / maisprod\n> Outros comandos: lista / ajuda / sair\n" << endl;
 
         getline(cin, comandoJ);
 
@@ -1035,8 +1152,10 @@ void GameOn() {
             
             ComandosJogo(comandoJ);
         }
+      
 
-    } while (comandoJ != "sair");
+    } while (comandoJ != "sair" );
+    
 
 }
 
