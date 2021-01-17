@@ -18,8 +18,9 @@ namespace vetores {
 
 namespace OutVars
 {
-    string username, nomeficheiro;
-    int QuantCria = -1, QuantCastelo = -1, QuantDuna = -1, QuantFortaleza = -1, QuantMina = -1, QuantMontanha = -1, QuantPlanicie = -1, turno = 1, cofre = 0, armazem = 0, limitecofre = 5, limitearmazem = 5, militar = 0, limitemilitar = 3, bolsa = 0;
+    string username, nomeficheiro; // apenas serve para armazenar miscelaneas
+    int QuantCria = -1, QuantCastelo = -1, QuantDuna = -1, QuantFortaleza = -1, QuantMina = -1, QuantMontanha = -1, QuantPlanicie = -1; // Territorios Criados
+    int turno = 1, cofre = 0, armazem = 0, limitecofre = 5, limitearmazem = 5, militar = 0, limitemilitar = 3, bolsa = 0; // Misc.
 }
 
 #pragma region UserOS
@@ -133,10 +134,10 @@ void jogo(bool PrimeiraVez) {
 
         getline(cin, OutVars::nomeficheiro);
 
-        cout << OutVars::nomeficheiro;
+        cout << "\nAviso: O teu ficheiro foi gravado como " << OutVars::nomeficheiro << ".save" << endl;
         ClasseComandosMain.GravaFicheiro(OutVars::nomeficheiro);
         SeparaPalavras("nickname " + OutVars::username, false);
-        cout << "\nParabens, " << OutVars::username << "! Vamos agora comecar a jogar! Para sair escreve sair" << endl;
+        cout << "\n\n\nParabens, " << OutVars::username << "! Vamos agora comecar a jogar! Para sair escreve sair" << endl;
         cout << ">>> comandos disponiveis: cria / lista / nickname / ajuda / sair\n>>>>> Se te sentires preparado para comecar o jogo escreve comecar" << endl;
         
         do
@@ -806,16 +807,17 @@ void ProximoTurno()
     {
         for (int i = 0; i < vetores::Mundo.size(); i++)
         {
-            if (vetores::Mundo[i].Tipo == "montanha") {
+            if (vetores::Mundo[i].Tipo == "montanha") 
+            {
                 vetores::Mundo[i].ProdProdutos = 1;
                 cout << "\nAVISO: AGORA " << vetores::Mundo[i].NomeTerritorio << " PRODUZ +1 UNIDADE DE PRODUTOS." << endl;
             }
-            if (vetores::Mundo[i].Tipo == "mina")
+            else if (vetores::Mundo[i].Tipo == "mina")
             {
                 vetores::Mundo[i].ProdOuro = 2;
                 cout << "\nAVISO: AGORA " << vetores::Mundo[i].NomeTerritorio << " PRODUZ 2 UNIDADES DE OURO." << endl;
             }
-            if (vetores::Mundo[i].Tipo == "castelo")
+            else if (vetores::Mundo[i].Tipo == "castelo")
             {
                 vetores::Mundo[i].ProdProdutos = 0;
                 cout << "\nAVISO: AGORA " << vetores::Mundo[i].NomeTerritorio << " NAO PRODUZ PRODUTOS." << endl;
