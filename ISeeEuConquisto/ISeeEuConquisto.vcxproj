@@ -142,6 +142,7 @@
     <ClInclude Include="comando.h" />
     <ClInclude Include="imperio.h" />
     <ClInclude Include="includes.h" />
+    <ClInclude Include="menus.h" />
     <ClInclude Include="mundo.h" />
     <ClInclude Include="tecnologias.h" />
     <ClInclude Include="territorios.h" />
@@ -149,6 +150,7 @@
   <ItemGroup>
     <ClCompile Include="imperio.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="menus.cpp" />
     <ClCompile Include="mundo.cpp" />
     <ClCompile Include="comando.cpp" />
     <ClCompile Include="tecnologias.cpp" />
