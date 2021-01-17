@@ -30,6 +30,10 @@ namespace ComandosNS {
 
 void ProximoTurno();
 
+void TerritorioInicial();
+
+void Recolher();
+
 void mainmenu();
 
 void programa();
@@ -40,7 +44,11 @@ void SeparaPalavras(string operacoes, bool ler);
 
 void jogo(bool PrimeiraVez);
 
+void CriaTecnologia(string tecnologia);
+
 void GameOn();
+
+void LostRecurso();
 
 void inicio();
 
@@ -49,6 +57,8 @@ void carrega();
 void mainmenu();
 
 void programa();
+
+void ComandosJogo(string operacoes, int bolsa);
 
 #pragma region Anotacoes
 

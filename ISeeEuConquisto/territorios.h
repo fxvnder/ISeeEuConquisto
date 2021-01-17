@@ -1,7 +1,6 @@
 #pragma once
 
 #include "includes.h"
-#include "planicie.h"
 #include "mundo.h"
 #include "comando.h"
 

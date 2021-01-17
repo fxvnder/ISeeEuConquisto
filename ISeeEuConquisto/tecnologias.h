@@ -1,5 +1,11 @@
 #pragma once
 
-#include "includes.h"
+void CriaDrones();
 
-using namespace std;
+void CriaMisseis();
+
+void CriaDefesas();
+
+int CriaBolsa(int bolsa);
+
+void CriaBanco();
