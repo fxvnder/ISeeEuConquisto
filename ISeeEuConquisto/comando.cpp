@@ -96,7 +96,7 @@ void inicio() {
     cout << "\nConheces?" << endl;
     cout << "\nPois... E aqui que tudo comeca... \nEsta e a tua casa, o DEIS\nOnde vais passar muitos anos a aprender e descobrir maneiras de expandir o teu territorio!";
     cout << "\nEm cada jogo vais ter 2 anos, e com isto 12 turnos, onde podes fazer as mais variadas coisas para expandir o territorio e conseguires uma pontuacao superior a dos teus demais.";
-    cout << "\nTodos nos gostamos de jogos competitivos, certo? vieste parar ao certo!";
+    cout << "\nTodos nos gostamos de jogos competitivos, certo? Vieste parar ao certo!";
     pause();
     jogo(true);
 }
@@ -464,14 +464,21 @@ void SeparaPalavras(string operacoes, bool ler)
 
     if (VectorComandos[0] == "cria")
     {
-        stringstream Tamanho(VectorComandos[2]);
-        int SeguraInt = 0;
-        Tamanho >> SeguraInt;
-        ClasseComandosMain.CriaTerreno(VectorComandos[1], SeguraInt);
-        if (ler == false) {
-            ofstream SaveFile;
-            SaveFile.open(OutVars::nomeficheiro + ".save", ios::out | ios_base::app);
-            SaveFile << VectorComandos[0] << " " << VectorComandos[1] << " " << VectorComandos[2] << endl;
+        if (VectorComandos[1] == "" || VectorComandos[2] == "" || VectorComandos[1].size() == 0 || VectorComandos[2].size() == 0)
+        {
+            cout << "Operacao invalida! Tenta novamente! Usa o comando ajuda se precisares!" << endl;
+        }
+        else
+        {
+            stringstream Tamanho(VectorComandos[2]);
+            int SeguraInt = 0;
+            Tamanho >> SeguraInt;
+            ClasseComandosMain.CriaTerreno(VectorComandos[1], SeguraInt);
+            if (ler == false) {
+                ofstream SaveFile;
+                SaveFile.open(OutVars::nomeficheiro + ".save", ios::out | ios_base::app);
+                SaveFile << VectorComandos[0] << " " << VectorComandos[1] << " " << VectorComandos[2] << endl;
+            }
         }
     }
     else if (VectorComandos[0] == "lista")
@@ -593,7 +600,7 @@ void Eventos()
                 if (resistenciatemp + OutVars::defesa > invasao)
                 {
                     
-                    cout << "\nUfa, que alivio, a invasão falhou" << endl;
+                    cout << "\nUfa, que alivio, a invasao falhou" << endl;
                 }
                 else
                 {
@@ -618,7 +625,7 @@ void Eventos()
         
     }
     else if (randevento == 2) {
-        cout << "\nUrra! Assinaste uma aliança com um imperio visinho" << endl;
+        cout << "\nUrra! Assinaste uma alianca com um imperio vizinho" << endl;
         OutVars::militar++;
         if (OutVars::militar > OutVars::limitemilitar)
         {
