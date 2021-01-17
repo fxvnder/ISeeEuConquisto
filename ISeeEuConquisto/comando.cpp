@@ -607,11 +607,9 @@ void ComandoConquista(string nome) {
     {
         for (int i = 0; i < vetores::Mundo.size(); i++)
         {
-            if (nome == "DEIS"){
-                vetores::Imperio.push_back(vetores::Mundo[i]);
-            }
+            
             //  cout << "A sua seed FatorSorte para esta ronda: " << FatorSorte;
-            else if (nome == vetores::Mundo[i].NomeTerritorio)
+            if (nome == vetores::Mundo[i].NomeTerritorio)
             {
                 existe = true;
                 if (FatorSorte >= 3)
@@ -620,6 +618,16 @@ void ComandoConquista(string nome) {
                     cout << "Parabens! Conquistou o " << vetores::Mundo[i].NomeTerritorio << "! O seu fator sorte vitorioso foi de " << FatorSorte << "%" << endl;
                     Recolher();
                     Eventos();
+                    if (OutVars::cofre > OutVars::limitecofre)
+                    {
+                        OutVars::cofre = OutVars::limitecofre;
+                        cout << "$$$$$ Cofre cheio! $$$$$" << endl;
+                    }
+                    if (OutVars::armazem > OutVars::limitearmazem)
+                    {
+                        OutVars::armazem = OutVars::limitearmazem;
+                        cout << "$$$$$ Armazem cheio! $$$$$" << endl;
+                    }
                     ProximoTurno();
                     cout << "Faz enter para continuar para o proximo turno...";
                     cin.ignore();
@@ -629,6 +637,16 @@ void ComandoConquista(string nome) {
                     cout << "Que azar! O territorio " << vetores::Mundo[i].NomeTerritorio << " nao foi conquistado, pois o seu fator sorte foi de " << FatorSorte << "%" << endl;
                     Recolher();
                     Eventos();
+                    if (OutVars::cofre > OutVars::limitecofre)
+                    {
+                        OutVars::cofre = OutVars::limitecofre;
+                        cout << "$$$$$ Cofre cheio! $$$$$" << endl;
+                    }
+                    if (OutVars::armazem > OutVars::limitearmazem)
+                    {
+                        OutVars::armazem = OutVars::limitearmazem;
+                        cout << "$$$$$ Armazem cheio! $$$$$" << endl;
+                    }
                     ProximoTurno();
                     cout << "Faz enter para continuar para o proximo turno...";
                     cin.ignore();
@@ -724,35 +742,55 @@ void ComandosJogo(string operacoes) {
             cin.ignore();
         }
     }
-    else if (VectorComandos[0] == "maisouro" && OutVars::bolsa == 1)
+    else if (VectorComandos[0] == "maisouro" )
     {
-        if (OutVars::armazem >= 2 && OutVars::cofre + 1 <= OutVars::limitecofre)
+        if (OutVars::bolsa == 1)
         {
-            OutVars::cofre++;
-            OutVars::armazem = OutVars::armazem - 2;
-        }
-        else if (OutVars::cofre + 1 > OutVars::limitecofre) {
-            cout << "Limite do cofre atingido" << endl;
+            if (OutVars::armazem >= 2 && OutVars::cofre + 1 <= OutVars::limitecofre)
+            {
+                OutVars::cofre++;
+                OutVars::armazem = OutVars::armazem - 2;
+            }
+            else if (OutVars::cofre + 1 > OutVars::limitecofre) {
+                cout << "Limite do cofre atingido" << endl;
+            }
+            else
+                cout << "Nao tens produtos suficientes, amigo!" << endl;
+            cout << "Faz enter para continuar...";
+            cin.ignore();
         }
         else
-            cout << "Nao tens produtos suficientes, amigo!" << endl;
-        cout << "Faz enter para continuar...";
-        cin.ignore();
+        {
+            cout << "\nNao tens bolsa de valores diponivel para fazeres estra transacao, amigo!" << endl;
+            cout << "Faz enter para continuar...";
+            cin.ignore();
+        }
+        
     }
-    else if (VectorComandos[0] == "maisprod" && OutVars::bolsa == 1)
+    else if (VectorComandos[0] == "maisprod")
     {
-        if (OutVars::cofre >= 2 && OutVars::armazem + 1 <= OutVars::limitearmazem)
+        if (OutVars::bolsa == 1)
         {
-            OutVars::armazem++;
-            OutVars::cofre = OutVars::cofre - 2;
-        }
-        else if (OutVars::armazem + 1 > OutVars::limitearmazem) {
-            cout << "Limite do armazem atingido" << endl;
+            if (OutVars::cofre >= 2 && OutVars::armazem + 1 <= OutVars::limitearmazem)
+            {
+                OutVars::armazem++;
+                OutVars::cofre = OutVars::cofre - 2;
+            }
+            else if (OutVars::armazem + 1 > OutVars::limitearmazem) {
+                cout << "Limite do armazem atingido" << endl;
+            }
+            else
+                cout << "\nNao tens ouro suficiente, amigo!" << endl;
+            cout << "Faz enter para continuar...";
+            cin.ignore();
         }
         else
-            cout << "\nNao tens ouro suficiente, amigo!" << endl;
-        cout << "Faz enter para continuar...";
-        cin.ignore();
+        {
+            cout << "\nNao tens bolsa de valores diponivel para fazeres estra transacao, amigo!" << endl;
+            cout << "Faz enter para continuar...";
+            cin.ignore();
+        }
+        
     }
     else if (VectorComandos[0] == "maismilitar")
     {
@@ -774,6 +812,16 @@ void ComandosJogo(string operacoes) {
     {
         cout << vetores::Imperio[0].NomeTerritorio << endl;
         Recolher();
+        if (OutVars::cofre > OutVars::limitecofre)
+        {
+            OutVars::cofre = OutVars::limitecofre;
+            cout << "$$$$$ Cofre cheio! $$$$$" << endl;
+        }
+        if (OutVars::armazem > OutVars::limitearmazem)
+        {
+            OutVars::armazem = OutVars::limitearmazem;
+            cout << "$$$$$ Armazem cheio! $$$$$" << endl;
+        }
         Eventos();
         cout << "Decidiste passar. Faz enter para ir ao proximo turno...";
         ProximoTurno();
@@ -831,22 +879,21 @@ void Recolher()
 {
     for (int i = 0; i < vetores::Imperio.size(); i++)
     {
-        if (OutVars::cofre <= OutVars::limitecofre)
-            OutVars::cofre = OutVars::cofre + vetores::Imperio[i].ProdOuro;
-        if (OutVars::cofre > OutVars::limitecofre)
-        {
-            OutVars::cofre = OutVars::limitecofre;
-            cout << "$$$$$ Cofre cheio! $$$$$" << endl;
-        }
-        else cout << "Limite do cofre atingido" << endl;
-        if (OutVars::armazem <= OutVars::limitearmazem)
+        //if (OutVars::cofre <= OutVars::limitecofre)
+           OutVars::cofre = OutVars::cofre + vetores::Imperio[i].ProdOuro;
+        //if (OutVars::cofre > OutVars::limitecofre)
+        //{
+        //    OutVars::cofre = OutVars::limitecofre;
+        //    cout << "$$$$$ Cofre cheio! $$$$$" << endl;
+        //}
+        //
+        //if (OutVars::armazem <= OutVars::limitearmazem)
             OutVars::armazem = OutVars::armazem + vetores::Imperio[i].ProdProdutos;
-        if (OutVars::armazem > OutVars::limitearmazem)
-        {
-            OutVars::armazem = OutVars::limitearmazem;
-            cout << "Armazem cheio!" << endl;
-        }
-        else cout << "Limite do armazem atingido" << endl;
+        //if (OutVars::armazem > OutVars::limitearmazem)
+        //{
+        //    OutVars::armazem = OutVars::limitearmazem;
+        //    cout << "$$$$$ Armazem cheio! $$$$$" << endl;
+        //}
     }
 }
 
@@ -860,6 +907,13 @@ void TerritorioInicial() {
     vetores::Mundo[OutVars::QuantCria].ProdOuro = 1;
     vetores::Mundo[OutVars::QuantCria].ProdProdutos = 1;
     vetores::Mundo[OutVars::QuantCria].Tipo = "Territorio Inicial";
+    for (int i = 0; i < vetores::Mundo.size(); i++)
+    {
+        if (vetores::Mundo[i].NomeTerritorio == "DEIS") {
+            vetores::Imperio.push_back(vetores::Mundo[i]);
+        }
+    }
+    
 }
 
 void LostRecurso()
@@ -921,6 +975,7 @@ void CriaTecnologia(string tecnologia) {
         if (OutVars::cofre >= 2)
         {         
             OutVars::cofre = OutVars::cofre - 2;
+            OutVars::bolsa = 1;
         }
         else
         {
@@ -960,6 +1015,7 @@ void GameOn() {
     clear();
     GameONMenu();
     pause();
+    TerritorioInicial();
     do
     {
 
