@@ -881,7 +881,12 @@ void ComandosJogo(string operacoes) {
     }
     else if (VectorComandos[0] == "adquire")
     {
-        CriaTecnologia(VectorComandos[1]);
+        if (VectorComandos[1].empty())
+        {
+            cout << "Tecnologias disponiveis: drones / misseis / defesas / bolsa / banco" << endl;
+            cin.ignore();
+        }
+        else CriaTecnologia(VectorComandos[1]);
     }
     else if (VectorComandos[0] == "ajuda")
     {
